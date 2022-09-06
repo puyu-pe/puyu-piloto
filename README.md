@@ -1,5 +1,3 @@
-<a href="https://github.com/nvm-sh/logos"><img alt="nvm project logo" src="https://raw.githubusercontent.com/nvm-sh/logos/HEAD/nvm-logo-color.svg" height="50" /></a>
-
 # Yunex
 
 <!-- To update this table of contents, ensure you have run `npm install` then `npm run doctoc` -->
@@ -16,6 +14,7 @@
     - [Analysis](#analysis-standards)
     - [Code](#code-standards)
     - [Database](#datbase-standars)
+    - [Git](#git-standars)
 - [Maintainers](#maintainers)
 - [License](#license)
 - [Copyright notice](#copyright-notice)
@@ -97,3 +96,39 @@ Cumplir con los siguientes PSR:
 La base de datos debe cumplir con los siguientes estandares.
 - Las tables deben estar en ingles
 - Los atributos deben estar en ingles
+
+## Git Standars
+
+```shell
+# <type>: (If applied, this commit will...) <subject> (Max 50 char)
+# |<----  Using a Maximum Of 50 Characters  ---->|
+
+
+# Explain why this change is being made
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+
+# Provide links or keys to any relevant tickets, articles or other resources
+# Example: Github issue #23
+
+# --- COMMIT END ---
+# Type can be 
+#    feat     (new feature)
+#    fix      (bug fix)
+#    refactor (refactoring production code)
+#    style    (formatting, missing semi colons, etc; no code change)
+#    docs     (changes to documentation)
+#    test     (adding or refactoring tests; no production code change)
+#    chore    (updating grunt tasks etc; no production code change)
+# --------------------
+# Remember to
+#   - Capitalize the subject line
+#   - Use the imperative mood in the subject line
+#   - Do not end the subject line with a period
+#   - Separate subject from body with a blank line
+#   - Use the body to explain what and why vs. how
+#   - Can use multiple lines with "-" for bullet points in body
+# --------------------
+# For updated template, visit:
+# https://gist.github.com/adeekshith/cd4c95a064977cdc6c50
+# Licence CC
+```
