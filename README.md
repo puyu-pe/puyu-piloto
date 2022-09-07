@@ -8,13 +8,13 @@
 - [Intro](#intro)
 - [About](#about)
 - [Installing and Updating](#installing-and-updating)
-    - [Install & Update Script](#install--update-script)
-        - [Additional Notes](#additional-notes)
+  - [Install & Update Script](#install--update-script)
+    - [Additional Notes](#additional-notes)
 - [Standars](#standards)
-    - [Analysis](#analysis-standards)
-    - [Code](#code-standards)
-    - [Database](#datbase-standars)
-    - [Git](#git-standars)
+  - [Analysis](#analysis-standards)
+  - [Code](#code-standards)
+  - [Database](#datbase-standars)
+  - [Git](#git-standars)
 - [Maintainers](#maintainers)
 - [License](#license)
 - [Copyright notice](#copyright-notice)
@@ -31,9 +31,9 @@
 Los procesos que por el momento se han planeado agregar son:
 
 - Gestión de proyectos:
-    - Permite gestionar los servicios que se habilita al cliente.
+  - Permite gestionar los servicios que se habilita al cliente.
 - Gestión de planes
-    - Permite controlar los planes mensuales o anuales que se brinda a los clientes.
+  - Permite controlar los planes mensuales o anuales que se brinda a los clientes.
 
 Etc.
 
@@ -53,6 +53,29 @@ git clone git@github.com:puyu-pe/yunex.git
 ```shell
 git flow init
 ```
+Rellene de la siguiente forma
+```
+Which branch should be used for bringing forth production releases?
+   - main
+Branch name for production releases: [main] 
+Branch name for "next release" development: [develop] 
+
+How to name your supporting branch prefixes?
+Feature branches? [] feature/
+Bugfix branches? [] bugfix/
+Release branches? [] release/
+Hotfix branches? [] hotfix/
+Support branches? [] 
+Version tag prefix? [] 
+Hooks and filters directory? [/home/emerson/Projects/yunex/.git/hooks] .git/git-flow-hooks
+```
+
+Finalmente clone el proyecto para el control semantico de version
+
+```shell
+cd .git; git clone git@github.com:jaspernbrouwer/git-flow-hooks.git; cd ..
+```
+
 Observacion.
 > En adelante toda implementacion en el codigo debe hacerse a travez de ramas que propone gitflow
 2. Construir y Levantar los contenedores de docker compose y ejecutar alias
@@ -86,17 +109,17 @@ Todo analisis debe documentarse, para poder generar la discución y el feedback 
 El proyecto debe cumplir los siguientes estandares de codigo/programación
 
 - Cumplir con los principios SOLID:  
-Debe cumplir con los 5 principios solid - [SOLID para PHP](https://diego.com.es/solid-principios-del-diseno-orientado-a-objetos-en-php)
+  Debe cumplir con los 5 principios solid - [SOLID para PHP](https://diego.com.es/solid-principios-del-diseno-orientado-a-objetos-en-php)
 
 - Cumplir con los PSR-PHP que se indican:  
-El proyecto debe cumplir obligatoriamente con los PSR indicados mas abajo.
-El desarrollador debe ser capas de entender la estructura y documentacion PSR de la pagina oficial - [PSR-PHP](https://www.php-fig.org/psr/) 
-Asi tambien como las palabras claves en esta documentacion PSR:  `"MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"`.
+  El proyecto debe cumplir obligatoriamente con los PSR indicados mas abajo.
+  El desarrollador debe ser capas de entender la estructura y documentacion PSR de la pagina oficial - [PSR-PHP](https://www.php-fig.org/psr/)
+  Asi tambien como las palabras claves en esta documentacion PSR:  `"MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"`.
 
-Cumplir con los siguientes PSR:  
-  - Estandares basicos de programación - [PSR-1](https://www.php-fig.org/psr/psr-1/)
-  - Guia de estilos de codigificación - [PSR-2](https://www.php-fig.org/psr/psr-2/)
-  
+Cumplir con los siguientes PSR:
+- Estandares basicos de programación - [PSR-1](https://www.php-fig.org/psr/psr-1/)
+- Guia de estilos de codigificación - [PSR-2](https://www.php-fig.org/psr/psr-2/)
+
 ### Database Standars
 La base de datos debe cumplir con los siguientes estandares.
 - Las tables deben estar en ingles
