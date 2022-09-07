@@ -58,14 +58,19 @@ Observacion.
 2. Construir y Levantar los contenedores de docker compose y ejecutar alias
 ```shell
 make build
-make run
+make up
 ```
 ```shell
 source alias.sh
 ```
-3. Ejecutar el controlador de dependencia Composer
+3. Ejecutar el gestor de dependencia Composer
 ```shell
 composer install
+```
+4. Verifique si todo salio bien, con el siguiente comando:
+```shell
+sf --version
+Symfony 6.1.4 (env: dev, debug: true) 
 ```
 
 #### Additional Notes
