@@ -15,6 +15,8 @@
   - [Code](#code-standards)
   - [Database](#datbase-standars)
   - [Git](#git-standars)
+    - [Branch naming](#branch-naming)
+    - [Commit Standars](#commit-standars)
 - [Maintainers](#maintainers)
 - [License](#license)
 - [Copyright notice](#copyright-notice)
@@ -126,7 +128,20 @@ La base de datos debe cumplir con los siguientes estandares.
 - Los atributos deben estar en ingles
 
 ## Git Standars
+A continuacion se definiriar como nombrar las ramas y commits, estos tienen ligeros cambios a lo que usualmente se solia trbajar, ya que ahora se trabajara con JIRA Software.
 
+### Branch Naming
+Antes se debe conocer los tipos de branch los cuales son:
+  1. Regular Branch: Disponibles permanentemente en el repositorio
+     1. Developmente (Dev)
+     2. Main o master (Production)
+     3. QA o test
+  2. Temporary Branch: Los miembros del equipo puede agregar o eliminarlos.
+     1. Bug Fix 
+     2. Hot Fix
+     3. Feature Branches
+
+### Commit Standars
 ```shell
 # <type>: (If applied, this commit will...) <subject> (Max 50 char)
 # |<----  Using a Maximum Of 50 Characters  ---->|
