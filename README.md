@@ -15,6 +15,8 @@
   - [Code](#code-standards)
   - [Database](#datbase-standars)
   - [Git](#git-standars)
+    - [Branch naming](#branch-naming)
+    - [Commit Standars](#commit-standars)
 - [Maintainers](#maintainers)
 - [License](#license)
 - [Copyright notice](#copyright-notice)
@@ -126,7 +128,47 @@ La base de datos debe cumplir con los siguientes estandares.
 - Los atributos deben estar en ingles
 
 ## Git Standars
+A continuacion se definiriar como nombrar las ramas y commits, estos tienen ligeros cambios a lo que usualmente se solia trbajar, ya que ahora se trabajara con JIRA Software.
 
+### Branch Naming
+Antes se debe conocer los tipos de branch los cuales son:
+  - Regular Branch: Disponibles permanentemente en el repositorio
+    - Developmente (Dev)
+    - Main o master (Production)
+    - QA o test
+  - Temporary Branch: Los miembros del equipo puede agregar o eliminarlos.
+    - Bug Fix (bugfix)
+    - Hot Fix (hotfix)
+    - Feature Branches (feature)  
+    
+Puede encontrar la definicion y la forma de uso de cada rama en el siguiente enlace [Branchin name](https://dev.to/couchcamote/git-branching-name-convention-cch)
+
+1. **Start branch name with a Group word and slash separators**
+El nombre de la rama debe empezar con el tipo de rama temporal que se detallo mas arriba y a continuacion un slash `/`. La herramienta de git-flow nos ayuda nombrando estas ramas.  
+```shell
+git flow start feature
+git flow start bugfix
+```
+Esto produce ramas que empezaran por `feature/` o `bugfix/`
+
+3. **Using unique issue tracker IDs in branch names**  
+Agregar un identificador unico del issue, en este caso como se esta usando JIRA Software, la documentacion exige agregar el codigo del proyecto seguido por el ID de la incidencia. Esto nos permite asociar una rama con un tarea o subtarea de JIRA
+```shell
+git flow start feature YUN-25 ...
+git flow start bugfix YUN-26 ...
+```
+Esto produce `feature/YUN-25` o `bugfix/YUN-26`  
+
+4. **Add a short descriptor of the task & Use hyphens as separators**
+Los nombres deben ser cortos con un maximo de 3 palabras, donde usualmente la primera palabra es un verbo que indica en resumen la accion de la funcionalidad, y el resto de palabras hacen referencia al modulo, sujeto del caso de uso entre otros.
+
+```shell
+git flow start feature YUN-45-save-customer
+git flow start bugfix YUN-58-fix-validate-customer
+```
+Esto produce `feature/YUN-45-save-customer` o `bugfix/YUN-58-fix-validate-customer`
+
+### Commit Standars
 ```shell
 # <type>: (If applied, this commit will...) <subject> (Max 50 char)
 # |<----  Using a Maximum Of 50 Characters  ---->|
