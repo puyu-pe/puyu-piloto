@@ -152,8 +152,7 @@ git flow start bugfix
 Esto produce ramas que empezaran por `feature/` o `bugfix/`
 
 3. **Using unique issue tracker IDs in branch names**  
-Agregar un identificador unico del issue, en este caso como se esta usando JIRA Software, la documentacion exige agregar el codigo del proyecto seguido por el ID de la incidencia.
-
+Agregar un identificador unico del issue, en este caso como se esta usando JIRA Software, la documentacion exige agregar el codigo del proyecto seguido por el ID de la incidencia. Esto nos permite asociar una rama con un tarea o subtarea de JIRA
 ```shell
 git flow start feature YUN-25 ...
 git flow start bugfix YUN-26 ...
