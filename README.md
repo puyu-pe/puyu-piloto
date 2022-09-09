@@ -15,6 +15,11 @@
   - [Code](#code-standards)
   - [Database](#datbase-standars)
   - [Git](#git-standars)
+    - [Branch naming](#branch-naming)
+    - [Commit Standards](#commit-standars)
+    - [Smart Commit](#smart-commit)
+    - [Practical example](#practical-example)
+- [Disclaimers](#disclaimers)
 - [Maintainers](#maintainers)
 - [License](#license)
 - [Copyright notice](#copyright-notice)
@@ -119,6 +124,7 @@ El proyecto debe cumplir los siguientes estandares de codigo/programación
 Cumplir con los siguientes PSR:
 - Estandares basicos de programación - [PSR-1](https://www.php-fig.org/psr/psr-1/)
 - Guia de estilos de codigificación - [PSR-2](https://www.php-fig.org/psr/psr-2/)
+- Mejoras y modificación de PSR-2 - [PSR-12](https://www.php-fig.org/psr/psr-12/)
 
 ### Database Standars
 La base de datos debe cumplir con los siguientes estandares.
@@ -126,7 +132,132 @@ La base de datos debe cumplir con los siguientes estandares.
 - Los atributos deben estar en ingles
 
 ## Git Standars
+A continuacion se definirá como nombrar las ramas y commits, estos tienen ligeros cambios a lo que usualmente se solia trbajar, ya que ahora se trabajara con JIRA Software.
 
+### Branch Naming
+Antes se debe conocer los tipos de branch los cuales son:
+  - Regular Branch: Disponibles permanentemente en el repositorio
+    - Developmente (Dev)
+    - Main o master (Production)
+    - QA o test
+  - Temporary Branch: Los miembros del equipo puede agregar o eliminarlos.
+    - Bug Fix (bugfix)
+    - Hot Fix (hotfix)
+    - Feature Branches (feature)  
+    
+Puede encontrar la definicion y la forma de uso de cada rama en el siguiente enlace [Branchin name](https://dev.to/couchcamote/git-branching-name-convention-cch)
+
+1. **Start branch name with a Group word and slash separators**
+El nombre de la rama debe empezar con el tipo de rama temporal que se detallo mas arriba y a continuacion un slash `/`. La herramienta de git-flow nos ayuda nombrando estas ramas.  
+```shell
+git flow start feature
+git flow start bugfix
+```
+Esto produce ramas que empezaran por `feature/` o `bugfix/`
+
+3. **Using unique issue tracker IDs in branch names**  
+Agregar un identificador unico del issue, en este caso como se esta usando JIRA Software, la documentacion exige agregar el codigo del proyecto seguido por el ID de la incidencia. Esto nos permite asociar una rama con un tarea o subtarea de JIRA
+```shell
+git flow start feature YUN-25 ...
+git flow start bugfix YUN-26 ...
+```
+Esto produce `feature/YUN-25` o `bugfix/YUN-26`  
+
+4. **Add a short descriptor of the task & Use hyphens as separators**
+Los nombres deben ser cortos con un maximo de 3 palabras, donde usualmente la primera palabra es un verbo que indica en resumen la accion de la funcionalidad, y el resto de palabras hacen referencia al modulo, sujeto del caso de uso entre otros.
+
+```shell
+git flow start feature YUN-45-save-customer
+git flow start bugfix YUN-58-fix-validate-customer
+```
+Esto produce `feature/YUN-45-save-customer` o `bugfix/YUN-58-fix-validate-customer`
+
+### Commit Standars
+Los commits tendra un cambio a como se suele hacer, ya que se trabajara con JIRA, en esta plataforma tienen una variacion del commit, a lo que le llaman **Smart Commit**.  
+
+> No ovlidar que los commit usualmente responden a la pregunta   
+> (If applied, this commit will... "Add table Company and columns")
+
+Asi que nuestro commit podria ser:
+
+```shell
+git commit -m "Add table Company and columns"
+```
+
+Un **Smart Commit**, no es otra cosa, que un commit, que podra verse en los comentarios de jira, asignarle tiempo invertido, y la posibilidad de indicarle a que estado cambia el issue.
+mas información aqui [JIRA - Smart Commit](https://support.atlassian.com/bitbucket-cloud/docs/use-smart-commits/).
+
+### Smart Commit
+Los smart commit te permite agregar 3 comandos, y estos son:
+- comment : comentario que se mostrara en el issue de JIRA  
+- time : Tiempo que tomo el commit, se mostrara issue en JIRA  
+- transition  : Cambiara de estado al issue, que pueden ser:
+  - #todo : tareas por hacer
+  - #in-progress : Se esta trabajando actualmente
+  - #done : se termino de hacer
+
+La sintaxis para estos commit es la siguiente.  
+`<ISSUE_KEY> #comment `  
+
+
+
+Ejemplo 1, algo simple:  
+`YUN-97 #comment add standard to naming tables and columns`  
+
+Ejemplo 2, combinando comandos:    
+`YUN-97 #comment add standard to naming tables and columns #time 2h #done`
+
+### Practical Example
+Informacion sacada de [SCRUM - JIRA Software](https://www.atlassian.com/es/agile/project-management/user-stories) y modificada.  
+
+Supongamos que tenemos la `historia de usuario` (US: user story) o en algunos casos `tarea` (Task) de YUNEX en el sprint actual y WIP actual:
+
+`YUN-45`  
+Como Vendedor  
+quiero registrar las empresas clientes  
+para llevar un mejor control
+
+Una vez entendido la US se divide en `requisitos de software` o `tarea y/o subtareas`:  
+
+- Entity analysis `YUN-46` solo genera discusión en el issue de JIRA y no un commit
+- Make entity `YUN-47`
+- Add Companies `YUN-48`
+- Update Companies `YUN-49`
+- Delete Companies `YUN-50`
+- View Companies `YUN-51`
+
+**Traduciendo al flujo de trabajo con JIRA y GIT**
+
+1. Se puede crear una branch para US `YUN-45` como la siguiente:  
+`feature/YUN-45-crud-company`
+
+2. Se puede hacer commit por cada avance de los `Task`/`subtasks` o requisitos. Previa evaluacion de la histoia de usuario 
+Ejemplo, una vez terminada el `Task` Make entity `YUN-47`, puedo hacer un commit muy completo (se puede presindir algunas recomendaciones).  
+
+Luego de este comando:
+```shell
+git commit
+```
+se puede rellenar asi
+```shell
+    YUN-47 #comment Add table Company and columns
+    YUN-47 #time 4h 30m
+    YUN-47 #done 
+    
+    (optional) added migrations and fixtures to seed data
+```
+
+Lo que provocara, un comentario en el issue, tiempo gastado o invertido en el issue y lo pasara a estado DONE o hecho, no olvidar que debe con cumplir con los `Definition of Done` (DoD) antes de cerrar.
+
+
+### Disclaimers
+Todo los estandares aqui, estan sujetos a cambios y mejoras segun se avance con esta nueva forma de trabajo.
+Pueden haber contradicciones o ambiguedades, por lo que se pide continua retro-alimentación, para mejorar todos estos estandares.
+
+
+
+**Anteriormente nuestros commits tenian la siguiente sintaxis**
+Ya no se seguira esta convencion en JIRA
 ```shell
 # <type>: (If applied, this commit will...) <subject> (Max 50 char)
 # |<----  Using a Maximum Of 50 Characters  ---->|
@@ -155,8 +286,4 @@ La base de datos debe cumplir con los siguientes estandares.
 #   - Separate subject from body with a blank line
 #   - Use the body to explain what and why vs. how
 #   - Can use multiple lines with "-" for bullet points in body
-# --------------------
-# For updated template, visit:
-# https://gist.github.com/adeekshith/cd4c95a064977cdc6c50
-# Licence CC
 ```
