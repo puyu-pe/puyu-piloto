@@ -10,28 +10,26 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class CompanyRepresentativeController extends AbstractController
 {
     #[Route('/', name: 'company_representative_list', methods: 'GET')]
-    public function list(CompanyRepresentativeRepository $companyRepresentativeRepository)
+    public function list(
+        CompanyRepresentativeRepository $companyRepresentativeRepository,
+        NormalizerInterface             $normalizer,
+    ): Response
     {
         $representatives = $companyRepresentativeRepository->findAll();
-        $representativesArray = [];
-        foreach ($representatives as $representative) {
-            $representativeArray['id'] = $representative->getId();
-            $representativeArray['name'] = $representative->getName();
-            $representativeArray['lastName'] = $representative->getName();
-            $representativeArray['phone'] = $representative->getName();
-            $representativeArray['titleJob'] = $representative->getName();
-
-            $representativesArray[] = $representativeArray;
-        }
-        return new JsonResponse($representativesArray);
+        $data = $normalizer->normalize($representatives, null, ['groups' => ['default']]);
+        return new JsonResponse($data);
     }
 
     #[Route('/', name: 'company_representative_save', methods: 'POST')]
-    public function save(Request $request, EntityManagerInterface $entityManager): Response
+    public function save(
+        Request                $request,
+        EntityManagerInterface $entityManager,
+    ): Response
     {
         $data = json_decode($request->getContent());
         $companyRepresentative = new CompanyRepresentative();
@@ -47,7 +45,12 @@ class CompanyRepresentativeController extends AbstractController
     }
 
     #[Route('/{id}', name: 'company_representative_update', requirements: ['id' => '\d+'], methods: 'PUT')]
-    public function update(int $id, Request $request, CompanyRepresentativeRepository $companyRepresentativeRepository, EntityManagerInterface $entityManager): Response
+    public function update(
+        int                             $id,
+        Request                         $request,
+        CompanyRepresentativeRepository $companyRepresentativeRepository,
+        EntityManagerInterface          $entityManager
+    ): Response
     {
         $data = json_decode($request->getContent(), false, 512, JSON_THROW_ON_ERROR);
         $companyRepresentative = $companyRepresentativeRepository->find($id);
@@ -68,7 +71,11 @@ class CompanyRepresentativeController extends AbstractController
     }
 
     #[Route('/{id}', name: 'company_representative_delete', requirements: ['id' => '\d+'], methods: 'DELETE')]
-    public function delete(int $id, CompanyRepresentativeRepository $companyRepresentativeRepository, EntityManagerInterface $entityManager): Response
+    public function delete(
+        int                             $id,
+        CompanyRepresentativeRepository $companyRepresentativeRepository,
+        EntityManagerInterface          $entityManager
+    ): Response
     {
         $companyRepresentative = $companyRepresentativeRepository->find($id);
 
