@@ -3,12 +3,14 @@ DOCKER_COMPOSE_PATH=".docker"
 source ${DOCKER_COMPOSE_PATH}/.env
 DOCKER_PHP="${APP_NAME}_php"
 
-# php
+# PHP
 alias php="U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_PHP} php";
 
-# composer
+# Composer
 alias composer="U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_PHP} composer";
 
-# symfony - bin/consoleconfig/packages/sensio_framework_extra.yaml
-# shellcheck disable=SC2139
+# Symfony
 alias sf="U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_PHP} php /var/www/html/bin/console";
+
+# PHPUnit
+alias test="U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_PHP} php /var/www/html/bin/phpunit";
