@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class CompanyRepresentativeController extends AbstractController
 {
@@ -29,6 +30,8 @@ class CompanyRepresentativeController extends AbstractController
     public function save(
         Request                $request,
         EntityManagerInterface $entityManager,
+        ValidatorInterface     $validator,
+        NormalizerInterface    $normalizer,
     ): Response
     {
         $data = json_decode($request->getContent());
@@ -38,6 +41,13 @@ class CompanyRepresentativeController extends AbstractController
             ->setPhone($data->phone)
             ->setJobTitle($data->jobTitle);
 
+        $errors = $validator->validate($companyRepresentative);
+
+        if (count($errors) > 0) {
+
+            $data = $normalizer->normalize($errors, null, ['groups' => ['default']]);
+            return new JsonResponse($data);
+        }
         $entityManager->persist($companyRepresentative);
         $entityManager->flush();
 
@@ -49,6 +59,8 @@ class CompanyRepresentativeController extends AbstractController
         int                             $id,
         Request                         $request,
         CompanyRepresentativeRepository $companyRepresentativeRepository,
+        NormalizerInterface             $normalizer,
+        ValidatorInterface              $validator,
         EntityManagerInterface          $entityManager
     ): Response
     {
@@ -63,6 +75,13 @@ class CompanyRepresentativeController extends AbstractController
             ->setLastName($data->lastName)
             ->setPhone($data->phone)
             ->setJobTitle($data->jobTitle);
+
+        $errors = $validator->validate($companyRepresentative);
+
+        if (count($errors) > 0) {
+            $data = $normalizer->normalize($errors, null, ['groups' => ['default']]);
+            return new JsonResponse($data);
+        }
 
         $entityManager->persist($companyRepresentative);
         $entityManager->flush();

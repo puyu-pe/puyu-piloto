@@ -12,6 +12,12 @@ framework:
         cookie_samesite: lax
         storage_factory_id: session.storage.factory.native
 
+    # path to validations
+    validation:
+        mapping:
+            paths:
+                - "%kernel.project_dir%/src/Validation/"
+
     # Path to serializer
     serializer:
         enabled: true
