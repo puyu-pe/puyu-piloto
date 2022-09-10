@@ -1,12 +1,12 @@
 App\Entity\CompanyRepresentative:
   attributes:
     id:
-      groups: [ 'default' ]
+      groups: [ 'company_representative' ]
     name:
-      groups: [ 'default' ]
+      groups: [ 'company_representative' ]
     lastName:
-      groups: [ 'default' ]
+      groups: [ 'company_representative' ]
     phone:
-      groups: [ 'default' ]
+      groups: [ 'company_representative' ]
     jobTitle:
-      groups: [ 'default' ]
+      groups: [ 'company_representative' ]
