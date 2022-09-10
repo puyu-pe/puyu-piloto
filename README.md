@@ -174,12 +174,12 @@ Esto produce `feature/YUN-45-save-customer` o `bugfix/YUN-58-fix-validate-custom
 Los commits tendra un cambio a como se suele hacer, ya que se trabajara con JIRA, en esta plataforma tienen una variacion del commit, a lo que le llaman **Smart Commit**.  
 
 > No ovlidar que los commit usualmente responden a la pregunta   
-> (If applied, this commit will... "Add table Company and columns")
+> (If applied, this commit will... "Add table Customer and columns")
 
 Asi que nuestro commit podria ser:
 
 ```shell
-git commit -m "Add table Company and columns"
+git commit -m "Add table Customer and columns"
 ```
 
 Un **Smart Commit**, no es otra cosa, que un commit, que podra verse en los comentarios de jira, asignarle tiempo invertido, y la posibilidad de indicarle a que estado cambia el issue.
@@ -238,7 +238,7 @@ git commit
 ```
 se puede rellenar asi
 ```shell
-    YUN-47 #comment Add table Company and columns
+    YUN-47 #comment Add table Customer and columns
     YUN-47 #time 4h 30m
     YUN-47 #done 
     
