@@ -3,6 +3,9 @@
 namespace App\Controller\Api;
 
 use App\Entity\CompanyRepresentative;
+use App\Form\Model\Product\ProductDto;
+use App\Form\Type\CompanyRepresentativeType;
+use App\Form\Type\Product\ProductType;
 use App\Repository\CompanyRepresentativeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -28,28 +31,20 @@ class CompanyRepresentativeController extends AbstractFOSRestController
     public function postAction(
         Request                $request,
         EntityManagerInterface $entityManager,
-        ValidatorInterface     $validator,
-        NormalizerInterface    $normalizer,
     ): View
     {
-        $data = json_decode($request->getContent());
         $companyRepresentative = new CompanyRepresentative();
-        $companyRepresentative->setName($data->name)
-            ->setLastName($data->lastName)
-            ->setPhone($data->phone)
-            ->setJobTitle($data->jobTitle);
+        $form = $this->createForm(CompanyRepresentativeType::class, $companyRepresentative);
+        $form->handleRequest($request);
 
-        $errors = $validator->validate($companyRepresentative);
-
-        if (count($errors) > 0) {
-            $data = $normalizer->normalize($errors, null, ['groups' => ['default']]);
-            return View::create($data, Response::HTTP_BAD_REQUEST);
+        dd($form->isSubmitted());
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($companyRepresentative);
+            $entityManager->flush();
+            return View::create('Added company representative: ' . $companyRepresentative->getId(), Response::HTTP_CREATED);
         }
 
-        $entityManager->persist($companyRepresentative);
-        $entityManager->flush();
-
-        return View::create('Added company representative: ' . $companyRepresentative->getId(), Response::HTTP_CREATED);
+        return View::create($form, Response::HTTP_BAD_REQUEST);
     }
 
 
@@ -58,34 +53,24 @@ class CompanyRepresentativeController extends AbstractFOSRestController
         int                             $id,
         Request                         $request,
         CompanyRepresentativeRepository $companyRepresentativeRepository,
-        NormalizerInterface             $normalizer,
-        ValidatorInterface              $validator,
         EntityManagerInterface          $entityManager
     ): View
     {
-        $data = json_decode($request->getContent(), false, 512, JSON_THROW_ON_ERROR);
         $companyRepresentative = $companyRepresentativeRepository->find($id);
-
         if (!$companyRepresentative) {
             return View::create('Not found company representative, id: ' . $id, Response::HTTP_BAD_REQUEST);
         }
 
-        $companyRepresentative->setName($data->name)
-            ->setLastName($data->lastName)
-            ->setPhone($data->phone)
-            ->setJobTitle($data->jobTitle);
+        $form = $this->createForm(CompanyRepresentativeType::class, $companyRepresentative);
+        $form->submit(json_decode($request->getContent(), true));
 
-        $errors = $validator->validate($companyRepresentative);
-
-        if (count($errors) > 0) {
-            $data = $normalizer->normalize($errors, null, ['groups' => ['default']]);
-            return View::create($data, Response::HTTP_BAD_REQUEST);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($companyRepresentative);
+            $entityManager->flush();
+            return View::create('Updated company representative: ' . $companyRepresentative->getId(), Response::HTTP_CREATED);
         }
 
-        $entityManager->persist($companyRepresentative);
-        $entityManager->flush();
-
-        return View::create('Update company representative: ' . $companyRepresentative->getId(), Response::HTTP_ACCEPTED);
+        return View::create($form, Response::HTTP_BAD_REQUEST);
     }
 
     #[Rest\Delete(path: '/api/company_representative/{id}', name: 'company_representative_delete', requirements: ['id' => '\d+'])]
