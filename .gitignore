@@ -11,3 +11,14 @@
 ###< Intellij ###
 /.idea/
 ###< Intellij ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> ECS ###
+/.ecs_cache/
+###< ECS ###
+
+
