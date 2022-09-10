@@ -48,7 +48,6 @@ class CompanyRepresentativeController extends AbstractFOSRestController
         Request                   $request,
     ): View
     {
-
         [$companyRepresentative, $error] = ($saveCompanyRepresentative)($request);
         $statusCode = $companyRepresentative ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
         $data = $companyRepresentative ?? $error;
