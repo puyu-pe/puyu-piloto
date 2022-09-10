@@ -5,32 +5,29 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [Intro](#intro)
-- [About](#about)
-- [Installing and Updating](#installing-and-updating)
-  - [Install & Update Script](#install--update-script)
-    - [Additional Notes](#additional-notes)
-- [Standars](#standards)
-  - [Analysis](#analysis-standards)
-  - [Code](#code-standards)
-  - [Database](#datbase-standars)
+- [Introducción](#intro)
+- [Acerca de](#about)
+- [Instalación](#installing-and-updating)
+  - [Instalación y actualización](#install--update-script)
+    - [Notas adicionales](#additional-notes)
+- [Estándares](#standards)
+  - [Análsis](#analysis-standards)
+  - [Código](#code-standards)
+  - [Base de datos](#datbase-standars)
   - [Git](#git-standars)
     - [Branch naming](#branch-naming)
-    - [Commit Standards](#commit-standars)
+    - [Commit](#commit-standars)
     - [Smart Commit](#smart-commit)
-    - [Practical example](#practical-example)
-- [Disclaimers](#disclaimers)
-- [Maintainers](#maintainers)
-- [License](#license)
-- [Copyright notice](#copyright-notice)
+    - [Ejemplo Práctico](#practical-example)
+- [Advertencia](#disclaimers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Intro
+## Introducción
 
 `Yunex` es un proyecto de la empresa Puyu para la misma empresa, donde se centralizara el control de diferentes procesos de la empresa.
 
-## About
+## Acerca de
 `Yunex`
 
 Los procesos que por el momento se han planeado agregar son:
@@ -46,7 +43,7 @@ Etc.
 <a id="install-script"></a>
 ## Installing
 
-### Install & Update Script
+### Instalación y actualización
 
 Para **instalar** Yunex debes tener instalado en entorno de desarllo, previamente debes tener **docker** y **docker-compose**.
 Tambien debes tener instaladpo git, y se promueve el uso de **Intellij IDEA* ya que en esta herramienta se podra estableces los estandares de progrmacion como tambien el formateador de codigo.
@@ -101,16 +98,16 @@ sf --version
 Symfony 6.1.4 (env: dev, debug: true) 
 ```
 
-#### Additional Notes
+#### Notas adicionales
 ya que se estra trabajando con contenedores, toda herramienta que se use en este proyecto debe ser a travez de contenedores, es decir las herramientas deben estar dentro de contenedores, registrarlas en **alias.sh** para poder usarlas en la session actual de la terminal .
 
-## Standars
-### Analysis Standards
-Todo analisis debe documentarse, para poder generar la discución y el feedback necesario para mejorar el mismo analisis, (por el momento se decidio lo siguiente, a falta de invesntigación)
+## Estándares
+### Análsis
+Todo análisis debe documentarse, para poder generar la discución y el feedback necesario para mejorar el mismo analisis, (por el momento se decidio lo siguiente, a falta de invesntigación)
 - Asignar todos los atributos o metadata necesaria en la tarea
 - Documentar en tareas de Jira el analisis.
 
-### Standards Code
+### Código
 El proyecto debe cumplir los siguientes estandares de codigo/programación
 
 - Cumplir con los principios SOLID:  
@@ -126,12 +123,12 @@ Cumplir con los siguientes PSR:
 - Guia de estilos de codigificación - [PSR-2](https://www.php-fig.org/psr/psr-2/)
 - Mejoras y modificación de PSR-2 - [PSR-12](https://www.php-fig.org/psr/psr-12/)
 
-### Database Standars
+### Base de datos
 La base de datos debe cumplir con los siguientes estandares.
 - Las tables deben estar en ingles
 - Los atributos deben estar en ingles
 
-## Git Standars
+## Git
 A continuacion se definirá como nombrar las ramas y commits, estos tienen ligeros cambios a lo que usualmente se solia trbajar, ya que ahora se trabajara con JIRA Software.
 
 ### Branch Naming
@@ -172,7 +169,7 @@ git flow start bugfix YUN-58-fix-validate-customer
 ```
 Esto produce `feature/YUN-45-save-customer` o `bugfix/YUN-58-fix-validate-customer`
 
-### Commit Standars
+### Commit
 Los commits tendra un cambio a como se suele hacer, ya que se trabajara con JIRA, en esta plataforma tienen una variacion del commit, a lo que le llaman **Smart Commit**.  
 
 > No ovlidar que los commit usualmente responden a la pregunta   
@@ -207,7 +204,7 @@ Ejemplo 1, algo simple:
 Ejemplo 2, combinando comandos:    
 `YUN-97 #comment add standard to naming tables and columns #time 2h #done`
 
-### Practical Example
+### Ejemplo Práctico
 Informacion sacada de [SCRUM - JIRA Software](https://www.atlassian.com/es/agile/project-management/user-stories) y modificada.  
 
 Supongamos que tenemos la `historia de usuario` (US: user story) o en algunos casos `tarea` (Task) de YUNEX en el sprint actual y WIP actual:
@@ -250,14 +247,14 @@ se puede rellenar asi
 Lo que provocara, un comentario en el issue, tiempo gastado o invertido en el issue y lo pasara a estado DONE o hecho, no olvidar que debe con cumplir con los `Definition of Done` (DoD) antes de cerrar.
 
 
-### Disclaimers
-Todo los estandares aqui, estan sujetos a cambios y mejoras segun se avance con esta nueva forma de trabajo.
-Pueden haber contradicciones o ambiguedades, por lo que se pide continua retro-alimentación, para mejorar todos estos estandares.
+### Advertencia
+Todos los estándares aquí, están sujetos a cambios y mejoras según se avance con esta nueva forma de trabajo.
+Puede haber contradicciones o ambigüedades, por lo que se pide continua retro-alimentación, para mejorar todos estos estandares.
 
 
 
 **Anteriormente nuestros commits tenian la siguiente sintaxis**
-Ya no se seguira esta convencion en JIRA
+Ya no se seguirá esta convención en JIRA
 ```shell
 # <type>: (If applied, this commit will...) <subject> (Max 50 char)
 # |<----  Using a Maximum Of 50 Characters  ---->|
