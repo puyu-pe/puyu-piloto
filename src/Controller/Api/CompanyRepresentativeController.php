@@ -3,18 +3,17 @@
 namespace App\Controller\Api;
 
 use App\Entity\CompanyRepresentative;
-use App\Form\Model\Product\ProductDto;
-use App\Form\Type\CompanyRepresentativeType;
-use App\Form\Type\Product\ProductType;
+use App\Model\Exception\Company\CompanyRepresentativeNotFound;
 use App\Repository\CompanyRepresentativeRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\Company\Representative\DeleteCompanyRepresentative;
+use App\Service\Company\Representative\EditCompanyRepresentative;
+use App\Service\Company\Representative\GetCompanyRepresentative;
+use App\Service\Company\Representative\SaveCompanyRepresentative;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class CompanyRepresentativeController extends AbstractFOSRestController
 {
@@ -22,73 +21,69 @@ class CompanyRepresentativeController extends AbstractFOSRestController
     #[Rest\View(serializerGroups: ['company_representative'])]
     public function getAction(
         CompanyRepresentativeRepository $companyRepresentativeRepository,
-    )
+    ): array
     {
         return $companyRepresentativeRepository->findAll();
     }
 
+    #[Rest\Get(path: '/api/company_representative/{id}', name: 'company_representative_single')]
+    #[Rest\View(serializerGroups: ['company_representative'])]
+    public function getSingleAction(
+        int                      $id,
+        GetCompanyRepresentative $getCompanyRepresentative,
+    ): CompanyRepresentative|View
+    {
+        try {
+            $companyRepresentative = ($getCompanyRepresentative)($id);
+        } catch (CompanyRepresentativeNotFound $e) {
+            return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        }
+        return $companyRepresentative;
+    }
+
+
     #[Rest\Post(path: '/api/company_representative', name: 'company_representative_save')]
     public function postAction(
-        Request                $request,
-        EntityManagerInterface $entityManager,
+        SaveCompanyRepresentative $saveCompanyRepresentative,
+        Request                   $request,
     ): View
     {
-        $companyRepresentative = new CompanyRepresentative();
-        $form = $this->createForm(CompanyRepresentativeType::class, $companyRepresentative);
-        $form->handleRequest($request);
 
-        dd($form->isSubmitted());
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($companyRepresentative);
-            $entityManager->flush();
-            return View::create('Added company representative: ' . $companyRepresentative->getId(), Response::HTTP_CREATED);
-        }
-
-        return View::create($form, Response::HTTP_BAD_REQUEST);
+        [$companyRepresentative, $error] = ($saveCompanyRepresentative)($request);
+        $statusCode = $companyRepresentative ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
+        $data = $companyRepresentative ?? $error;
+        return View::create($data, $statusCode);
     }
 
 
     #[Rest\Put(path: '/api/company_representative/{id}', name: 'company_representative_update', requirements: ['id' => '\d+'])]
-    public function editAcion(
-        int                             $id,
-        Request                         $request,
-        CompanyRepresentativeRepository $companyRepresentativeRepository,
-        EntityManagerInterface          $entityManager
+    public function editAction(
+        int                       $id,
+        Request                   $request,
+        EditCompanyRepresentative $EditCompanyRepresentative,
     ): View
     {
-        $companyRepresentative = $companyRepresentativeRepository->find($id);
-        if (!$companyRepresentative) {
-            return View::create('Not found company representative, id: ' . $id, Response::HTTP_BAD_REQUEST);
+        try {
+            [$companyRepresentative, $error] = ($EditCompanyRepresentative)($request, $id);
+            $statusCode = $companyRepresentative ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
+            $data = $companyRepresentative ?? $error;
+            return View::create($data, $statusCode);
+        } catch (CompanyRepresentativeNotFound $e) {
+            return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
-
-        $form = $this->createForm(CompanyRepresentativeType::class, $companyRepresentative);
-        $form->submit(json_decode($request->getContent(), true));
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($companyRepresentative);
-            $entityManager->flush();
-            return View::create('Updated company representative: ' . $companyRepresentative->getId(), Response::HTTP_CREATED);
-        }
-
-        return View::create($form, Response::HTTP_BAD_REQUEST);
     }
 
     #[Rest\Delete(path: '/api/company_representative/{id}', name: 'company_representative_delete', requirements: ['id' => '\d+'])]
     public function deleteAction(
-        int                             $id,
-        CompanyRepresentativeRepository $companyRepresentativeRepository,
-        EntityManagerInterface          $entityManager
+        int                         $id,
+        DeleteCompanyRepresentative $deleteCompanyRepresentative
     ): View
     {
-        $companyRepresentative = $companyRepresentativeRepository->find($id);
-
-        if (!$companyRepresentative) {
-            return View::create('Not found company representative, id: ' . $id, Response::HTTP_BAD_REQUEST);
+        try {
+            ($deleteCompanyRepresentative)($id);
+        } catch (CompanyRepresentativeNotFound $e) {
+            return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
-
-        $entityManager->remove($companyRepresentative);
-        $entityManager->flush();
-
-        return View::create('Delete company representative id: ' . $id, Response::HTTP_NO_CONTENT);
+        return View::create(null, Response::HTTP_NO_CONTENT);
     }
 }
