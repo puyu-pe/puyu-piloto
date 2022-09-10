@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CompanyRepresentativeController extends AbstractFOSRestController
 {
-    #[Rest\Get(path: '/api/company_representative', name: 'company_representative_list')]
+    #[Rest\Get(path: '/company_representative', name: 'company_representative_list')]
     #[Rest\View(serializerGroups: ['company_representative'])]
     public function getAction(
         CompanyRepresentativeRepository $companyRepresentativeRepository,
@@ -26,7 +26,7 @@ class CompanyRepresentativeController extends AbstractFOSRestController
         return $companyRepresentativeRepository->findAll();
     }
 
-    #[Rest\Get(path: '/api/company_representative/{id}', name: 'company_representative_single')]
+    #[Rest\Get(path: '/company_representative/{id}', name: 'company_representative_single')]
     #[Rest\View(serializerGroups: ['company_representative'])]
     public function getSingleAction(
         int                      $id,
@@ -42,7 +42,7 @@ class CompanyRepresentativeController extends AbstractFOSRestController
     }
 
 
-    #[Rest\Post(path: '/api/company_representative', name: 'company_representative_save')]
+    #[Rest\Post(path: '/company_representative', name: 'company_representative_save')]
     public function postAction(
         SaveCompanyRepresentative $saveCompanyRepresentative,
         Request                   $request,
@@ -55,7 +55,7 @@ class CompanyRepresentativeController extends AbstractFOSRestController
     }
 
 
-    #[Rest\Put(path: '/api/company_representative/{id}', name: 'company_representative_update', requirements: ['id' => '\d+'])]
+    #[Rest\Put(path: '/company_representative/{id}', name: 'company_representative_update', requirements: ['id' => '\d+'])]
     public function editAction(
         int                       $id,
         Request                   $request,
@@ -72,7 +72,7 @@ class CompanyRepresentativeController extends AbstractFOSRestController
         }
     }
 
-    #[Rest\Delete(path: '/api/company_representative/{id}', name: 'company_representative_delete', requirements: ['id' => '\d+'])]
+    #[Rest\Delete(path: '/company_representative/{id}', name: 'company_representative_delete', requirements: ['id' => '\d+'])]
     public function deleteAction(
         int                         $id,
         DeleteCompanyRepresentative $deleteCompanyRepresentative
