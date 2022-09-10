@@ -35,10 +35,10 @@ class CompanyRepresentativeController extends AbstractFOSRestController
     {
         try {
             $companyRepresentative = ($getCompanyRepresentative)($id);
+            return View::create($companyRepresentative, Response::HTTP_ACCEPTED);
         } catch (CompanyRepresentativeNotFound $e) {
             return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
-        return $companyRepresentative;
     }
 
 
