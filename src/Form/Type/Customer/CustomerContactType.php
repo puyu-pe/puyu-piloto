@@ -16,8 +16,7 @@ class CustomerContactType extends AbstractType
             ->add('name', TextType::class)
             ->add('lastName', TextType::class)
             ->add('phone', TextType::class)
-            ->add('jobTitle', TextType::class)
-        ;
+            ->add('jobTitle', TextType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

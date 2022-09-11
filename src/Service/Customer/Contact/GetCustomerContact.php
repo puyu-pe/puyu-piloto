@@ -10,8 +10,7 @@ class GetCustomerContact
 {
     public function __construct(
         private readonly CustomerContactRepository $customerContactRepository,
-    )
-    {
+    ) {
     }
 
     /**

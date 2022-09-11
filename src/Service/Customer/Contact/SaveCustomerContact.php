@@ -12,7 +12,7 @@ class SaveCustomerContact
 {
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
-        private readonly FormFactoryInterface   $formFactory
+        private readonly FormFactoryInterface $formFactory
     ) {
     }
 

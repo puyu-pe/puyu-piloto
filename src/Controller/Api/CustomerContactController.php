@@ -21,18 +21,16 @@ class CustomerContactController extends AbstractFOSRestController
     #[Rest\View(serializerGroups: ['customer_contact'])]
     public function getAction(
         CustomerContactRepository $customerContactRepository,
-    ): array
-    {
+    ): array {
         return $customerContactRepository->findAll();
     }
 
     #[Rest\Get(path: '/customer_contact/{id}', name: 'customer_contact_single')]
     #[Rest\View(serializerGroups: ['customer_contact'])]
     public function getSingleAction(
-        int                $id,
+        int $id,
         GetCustomerContact $getCustomerContact,
-    ): CustomerContact|View
-    {
+    ): CustomerContact|View {
         try {
             $customerContact = ($getCustomerContact)($id);
             return View::create($customerContact, Response::HTTP_ACCEPTED);
@@ -45,9 +43,8 @@ class CustomerContactController extends AbstractFOSRestController
     #[Rest\Post(path: '/customer_contact', name: 'customer_contact_save')]
     public function postAction(
         SaveCustomerContact $saveCustomerContact,
-        Request             $request,
-    ): View
-    {
+        Request $request,
+    ): View {
         [$customerContact, $error] = ($saveCustomerContact)($request);
         $statusCode = $customerContact ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
         $data = $customerContact ?? $error;
@@ -57,11 +54,10 @@ class CustomerContactController extends AbstractFOSRestController
 
     #[Rest\Put(path: '/customer_contact/{id}', name: 'customer_contact_update', requirements: ['id' => '\d+'])]
     public function editAction(
-        int                 $id,
-        Request             $request,
+        int $id,
+        Request $request,
         EditCustomerContact $editCustomerContact,
-    ): View
-    {
+    ): View {
         try {
             [$customerContact, $error] = ($editCustomerContact)($request, $id);
             $statusCode = $customerContact ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
@@ -74,10 +70,9 @@ class CustomerContactController extends AbstractFOSRestController
 
     #[Rest\Delete(path: '/customer_contact/{id}', name: 'customer_contact_delete', requirements: ['id' => '\d+'])]
     public function deleteAction(
-        int                         $id,
+        int $id,
         DeleteCustomerContact $deleteCustomerContact
-    ): View
-    {
+    ): View {
         try {
             ($deleteCustomerContact)($id);
         } catch (CustomerContactNotFound $e) {

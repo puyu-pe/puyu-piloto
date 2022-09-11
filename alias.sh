@@ -14,3 +14,6 @@ alias sf="U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_PHP} php /var/www/h
 
 # PHPUnit
 alias test="U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_PHP} php /var/www/html/bin/phpunit";
+
+# PHPUnit
+alias ecs="U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_PHP} php vendor/bin/ecs";
