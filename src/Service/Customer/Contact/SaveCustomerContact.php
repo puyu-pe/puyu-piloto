@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Service\Company\Representative;
+namespace App\Service\Customer\Contact;
 
-use App\Entity\CompanyRepresentative;
-use App\Form\Type\CompanyRepresentativeType;
+use App\Entity\CustomerContact;
+use App\Form\Type\Customer\CustomerContactType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class SaveCompanyRepresentative
+class SaveCustomerContact
 {
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
@@ -18,14 +18,14 @@ class SaveCompanyRepresentative
 
     public function __invoke(Request $request): array
     {
-        $companyRepresentative = new CompanyRepresentative();
-        $form = $this->formFactory->create(CompanyRepresentativeType::class, $companyRepresentative);
+        $customerContact = new CustomerContact();
+        $form = $this->formFactory->create(CustomerContactType::class, $customerContact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->entityManager->persist($companyRepresentative);
+            $this->entityManager->persist($customerContact);
             $this->entityManager->flush();
-            return [$companyRepresentative, null];
+            return [$customerContact, null];
         }
 
         return [null, $form];

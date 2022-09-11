@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\CompanyRepresentative;
+use App\Entity\CustomerContact;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<CompanyRepresentative>
+ * @extends ServiceEntityRepository<CustomerContact>
  *
- * @method CompanyRepresentative|null find($id, $lockMode = null, $lockVersion = null)
- * @method CompanyRepresentative|null findOneBy(array $criteria, array $orderBy = null)
- * @method CompanyRepresentative[]    findAll()
- * @method CompanyRepresentative[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method CustomerContact|null find($id, $lockMode = null, $lockVersion = null)
+ * @method CustomerContact|null findOneBy(array $criteria, array $orderBy = null)
+ * @method CustomerContact[]    findAll()
+ * @method CustomerContact[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CompanyRepresentativeRepository extends ServiceEntityRepository
+class CustomerContactRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CompanyRepresentative::class);
+        parent::__construct($registry, CustomerContact::class);
     }
 
-    public function add(CompanyRepresentative $entity, bool $flush = false): void
+    public function add(CustomerContact $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class CompanyRepresentativeRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(CompanyRepresentative $entity, bool $flush = false): void
+    public function remove(CustomerContact $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class CompanyRepresentativeRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return CompanyRepresentative[] Returns an array of CompanyRepresentative objects
+//     * @return CustomerContact[] Returns an array of CustomerContact objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class CompanyRepresentativeRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?CompanyRepresentative
+//    public function findOneBySomeField($value): ?CustomerContact
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

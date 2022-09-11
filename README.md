@@ -19,6 +19,7 @@
     - [Commit](#commit-standars)
     - [Smart Commit](#smart-commit)
     - [Ejemplo Práctico](#practical-example)
+  - [Response JSON](#response-json)
 - [Advertencia](#disclaimers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -173,12 +174,12 @@ Esto produce `feature/YUN-45-save-customer` o `bugfix/YUN-58-fix-validate-custom
 Los commits tendra un cambio a como se suele hacer, ya que se trabajara con JIRA, en esta plataforma tienen una variacion del commit, a lo que le llaman **Smart Commit**.  
 
 > No ovlidar que los commit usualmente responden a la pregunta   
-> (If applied, this commit will... "Add table Company and columns")
+> (If applied, this commit will... "Add table Customer and columns")
 
 Asi que nuestro commit podria ser:
 
 ```shell
-git commit -m "Add table Company and columns"
+git commit -m "Add table Customer and columns"
 ```
 
 Un **Smart Commit**, no es otra cosa, que un commit, que podra verse en los comentarios de jira, asignarle tiempo invertido, y la posibilidad de indicarle a que estado cambia el issue.
@@ -237,7 +238,7 @@ git commit
 ```
 se puede rellenar asi
 ```shell
-    YUN-47 #comment Add table Company and columns
+    YUN-47 #comment Add table Customer and columns
     YUN-47 #time 4h 30m
     YUN-47 #done 
     
@@ -245,6 +246,77 @@ se puede rellenar asi
 ```
 
 Lo que provocara, un comentario en el issue, tiempo gastado o invertido en el issue y lo pasara a estado DONE o hecho, no olvidar que debe con cumplir con los `Definition of Done` (DoD) antes de cerrar.
+
+## Response JSON
+
+Las respuestas JSON del API deben cumplir con las siguientes reglas que se indican en el siguiente link:  
+[JSEND](https://github.com/omniti-labs/jsend).  
+
+Citando la parte más importante, sería estas reglas:  
+
+### Success ### 
+When an API call is successful, the JSend object is used as a simple envelope for the results, using the data key, as in the following:
+#### GET /posts.json: ####
+```
+{
+    status : "success",
+    data : {
+        "posts" : [
+            { "id" : 1, "title" : "A blog post", "body" : "Some useful content" },
+            { "id" : 2, "title" : "Another blog post", "body" : "More content" },
+        ]
+     }
+}
+```
+#### GET /posts/2.json: ####
+```
+{
+    status : "success",
+    data : { "post" : { "id" : 2, "title" : "Another blog post", "body" : "More content" }}
+}
+```
+#### DELETE /posts/2.json: ####
+```
+{
+    status : "success",
+    data : null
+}
+```
+Required keys:
+
+* status: Should always be set to "success".
+* data: Acts as the wrapper for any data returned by the API call. If the call returns no data (as in the last example), data should be set to null.
+
+### Fail ### 
+When an API call is rejected due to invalid data or call conditions, the JSend object's data key contains an object explaining what went wrong, typically a hash of validation errors. For example:
+#### POST /posts.json (with data body: "Trying to creating a blog post"): ####
+```
+{
+    "status" : "fail",
+    "data" : { "title" : "A title is required" }
+}
+```
+Required keys:
+
+* status: Should always be set to "fail".
+* data: Again, provides the wrapper for the details of why the request failed. If the reasons for failure correspond to POST values, the response object's keys SHOULD correspond to those POST values.
+
+### Error ### 
+When an API call fails due to an error on the server. For example:
+#### GET /posts.json: ####
+```
+{
+    "status" : "error",
+    "message" : "Unable to communicate with database"
+}
+```
+Required keys:
+* status: Should always be set to "error".
+* message: A meaningful, end-user-readable (or at the least log-worthy) message, explaining what went wrong.
+
+Optional keys:
+* code: A numeric code corresponding to the error, if applicable
+* data: A generic container for any other information about the error, i.e. the conditions that caused the error, stack traces, etc.
 
 
 ### Advertencia
