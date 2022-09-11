@@ -1,0 +1,12 @@
+App\Entity\CustomerContact:
+  attributes:
+    id:
+      groups: [ 'customer_contact' ]
+    name:
+      groups: [ 'customer_contact' ]
+    lastName:
+      groups: [ 'customer_contact' ]
+    phone:
+      groups: [ 'customer_contact' ]
+    jobTitle:
+      groups: [ 'customer_contact' ]

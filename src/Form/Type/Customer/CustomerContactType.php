@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Form\Type;
+namespace App\Form\Type\Customer;
 
-use App\Entity\CompanyRepresentative;
+use App\Entity\CustomerContact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CompanyRepresentativeType extends AbstractType
+class CustomerContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -16,14 +16,13 @@ class CompanyRepresentativeType extends AbstractType
             ->add('name', TextType::class)
             ->add('lastName', TextType::class)
             ->add('phone', TextType::class)
-            ->add('jobTitle', TextType::class)
-        ;
+            ->add('jobTitle', TextType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => CompanyRepresentative::class
+            'data_class' => CustomerContact::class
         ]);
     }
 

@@ -18,7 +18,7 @@ help: ## Show this help message
 	@echo 'targets:'
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
-up: ## Start the containers
+run: ## Start the containers
 	docker network create puyu-network || true
 	U_ID=${UID} docker-compose --project-directory=${DOCKER_COMPOSE_PATH} --file ${DOCKER_COMPOSE_FILE} up -d
 	@echo 'http://localhost:9191'

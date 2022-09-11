@@ -4,7 +4,7 @@ namespace App\Tests\Controller\Api;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CompanyRepresentativeControllerTest extends WebTestCase
+class CustomerContactControllerTest extends WebTestCase
 {
     public function testGetAction(): void
     {

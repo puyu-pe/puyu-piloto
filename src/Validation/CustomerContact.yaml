@@ -1,4 +1,4 @@
-App\Entity\CompanyRepresentative:
+App\Entity\CustomerContact:
   properties:
     name:
       - NotBlank: ~
