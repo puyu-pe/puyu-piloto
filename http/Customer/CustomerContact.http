@@ -7,6 +7,18 @@ GET http://localhost:9191/api/customer_contact
 GET http://localhost:9191/api/customer_contact/1
 Accept: application/json
 
+### 💛 POST Save customer contact
+
+POST http://localhost:9191/api/customer_contact
+Content-Type: application/json
+
+{
+  "name": "sdfsdfsdfsdf",
+  "lastName": "Fedum Aster",
+  "phone": "984786712",
+  "jobTitle": "Vendedor"
+}
+
 ### 🔵 PUT Update Customer contact
 
 PUT http://localhost:9191/api/customer_contact/4
@@ -24,18 +36,6 @@ Content-Type: application/json
 DELETE http://localhost:9191/api/customer_contact/5
 Content-Type: application/x-www-form-urlencod
 
-### 💛 POST Save customer contact
-
-POST http://localhost:9191/api/customer_contact
-Content-Type: application/json
-
-{
-  "name": "Fernando",
-  "lastName": "Fedum Aster",
-  "phone": "984786712",
-  "jobTitle": "Vendedor"
-}
 
 ###
-
 

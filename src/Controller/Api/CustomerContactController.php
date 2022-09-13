@@ -2,53 +2,61 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\CustomerContact;
+use App\Model\Exception\Customer\CustomerContactDataException;
 use App\Model\Exception\Customer\CustomerContactNotFound;
-use App\Repository\CustomerContactRepository;
+use App\Service\Customer\Contact\CreateCustomerContact;
 use App\Service\Customer\Contact\DeleteCustomerContact;
+use App\Service\Customer\Contact\Dto\CustomerContactDto;
 use App\Service\Customer\Contact\EditCustomerContact;
-use App\Service\Customer\Contact\GetCustomerContact;
-use App\Service\Customer\Contact\SaveCustomerContact;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
+use App\Service\Customer\Contact\GetCustomerContactById;
+use App\Service\Customer\Contact\GetCustomerContacts;
+use App\Utils\FOSRest\FOSRestCustomController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CustomerContactController extends AbstractFOSRestController
+class CustomerContactController extends FOSRestCustomController
 {
     #[Rest\Get(path: '/customer_contact', name: 'customer_contact_list')]
     #[Rest\View(serializerGroups: ['customer_contact'])]
     public function getAction(
-        CustomerContactRepository $customerContactRepository,
-    ): array {
-        return $customerContactRepository->findAll();
+        GetCustomerContacts $getCustomerContacts,
+    ): Response {
+        $customerContacts = $getCustomerContacts();
+        return $this->HttpResponse($customerContacts, Response::HTTP_OK);
     }
 
     #[Rest\Get(path: '/customer_contact/{id}', name: 'customer_contact_single')]
     #[Rest\View(serializerGroups: ['customer_contact'])]
     public function getSingleAction(
         int $id,
-        GetCustomerContact $getCustomerContact,
-    ): CustomerContact|View {
+        GetCustomerContactById $getCustomerContactById,
+    ): Response {
         try {
-            $customerContact = ($getCustomerContact)($id);
-            return View::create($customerContact, Response::HTTP_ACCEPTED);
+            $customerContact = $getCustomerContactById($id);
+            return $this->HttpResponse($customerContact, Response::HTTP_ACCEPTED);
         } catch (CustomerContactNotFound $e) {
-            return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
+            return $this->HttpResponse($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
     }
 
 
     #[Rest\Post(path: '/customer_contact', name: 'customer_contact_save')]
+    #[Rest\View(serializerGroups: ['customer_contact'])]
     public function postAction(
-        SaveCustomerContact $saveCustomerContact,
+        CreateCustomerContact $createCustomerContact,
         Request $request,
-    ): View {
-        [$customerContact, $error] = ($saveCustomerContact)($request);
-        $statusCode = $customerContact ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
-        $data = $customerContact ?? $error;
-        return View::create($data, $statusCode);
+    ): Response {
+        try {
+            $customerContactDto = CustomerContactDto::fromRequest($request);
+            $customerContact = $createCustomerContact($customerContactDto);
+            return $this->HttpResponse($customerContact, Response::HTTP_CREATED);
+        } catch (CustomerContactDataException $e) {
+            return $this->HttpResponse($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        } catch (\Exception $e) {
+            return $this->HttpResponse($e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 
 

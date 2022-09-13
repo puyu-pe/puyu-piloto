@@ -9,4 +9,4 @@ App\Entity\CustomerContact:
     phone:
       groups: [ 'customer_contact' ]
     jobTitle:
-      groups: [ 'customer_contact' ]
+      groups: [ 'customer_contact2' ]

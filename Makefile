@@ -29,7 +29,7 @@ stop: ## Stop the containers
 restart: ## Restart the containers
 	$(MAKE) stop && $(MAKE) run
 
-build: ## Rebuilds all the containers
+rebuild: ## Rebuilds all the containers
 	U_ID=${UID} docker-compose --project-directory=${DOCKER_COMPOSE_PATH} --file ${DOCKER_COMPOSE_FILE} build
 
 nginx-logs: ## Tails the Symfony dev log

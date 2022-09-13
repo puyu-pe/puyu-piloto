@@ -324,7 +324,6 @@ Todos los estándares aquí, están sujetos a cambios y mejoras según se avance
 Puede haber contradicciones o ambigüedades, por lo que se pide continua retro-alimentación, para mejorar todos estos estandares.
 
 
-
 **Anteriormente nuestros commits tenian la siguiente sintaxis**
 Ya no se seguirá esta convención en JIRA
 ```shell

@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class DeleteCustomerContact
 {
     public function __construct(
-        private readonly GetCustomerContact $getCustomerContact,
+        private readonly GetCustomerContactById $getCustomerContact,
         private readonly EntityManagerInterface $entityManager
     ) {
     }

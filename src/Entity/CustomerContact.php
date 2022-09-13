@@ -25,6 +25,15 @@ class CustomerContact
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $jobTitle = null;
 
+    public static function create(
+        ?string $name,
+        ?string $lastName,
+        ?string $phone,
+        ?string $jobTitle,
+    ): self {
+        return new self($name, $lastName, $phone, $jobTitle);
+    }
+
     public function getId(): ?int
     {
         return $this->id;

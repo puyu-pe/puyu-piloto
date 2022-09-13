@@ -6,7 +6,7 @@ use App\Entity\CustomerContact;
 use App\Model\Exception\Customer\CustomerContactNotFound;
 use App\Repository\CustomerContactRepository;
 
-class GetCustomerContact
+class GetCustomerContactById
 {
     public function __construct(
         private readonly CustomerContactRepository $customerContactRepository,

@@ -14,7 +14,7 @@ class EditCustomerContact
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
         private readonly FormFactoryInterface $formFactory,
-        private readonly GetCustomerContact $getCustomerContact,
+        private readonly GetCustomerContactById $getCustomerContact,
         private readonly DecoderInterface $decoder
     ) {
     }
