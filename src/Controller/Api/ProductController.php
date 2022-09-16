@@ -8,9 +8,11 @@ use App\Repository\ProductRepository;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use App\Model\Exception\Product\ProductNotFound;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use App\Service\Product\GetProduct;
+use App\Service\Product\SaveProduct;
 
 class ProductController extends AbstractFOSRestController
 {
@@ -36,5 +38,17 @@ class ProductController extends AbstractFOSRestController
         } catch (ProductNotFound $e) {
             return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
+    }
+
+    #[Rest\Post(path: '/product', name: 'product_save')]
+    public function postAction(
+        SaveProduct $saveProduct,
+        Request     $request,
+    ): View
+    {
+        [$product, $error] = ($saveProduct)($request);
+        $statusCode = $product ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
+        $data = $product ?? $error;
+        return View::create($data, $statusCode);
     }
 }
