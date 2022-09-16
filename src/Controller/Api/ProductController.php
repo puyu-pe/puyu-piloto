@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 use App\Service\Product\GetProduct;
 use App\Service\Product\SaveProduct;
+use App\Service\Product\EditProduct;
 
 class ProductController extends AbstractFOSRestController
 {
@@ -50,5 +51,22 @@ class ProductController extends AbstractFOSRestController
         $statusCode = $product ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
         $data = $product ?? $error;
         return View::create($data, $statusCode);
+    }
+
+    #[Rest\Put(path: '/product/{id}', name: 'product_update', requirements: ['id' => '\d+'])]
+    public function editAction(
+        int         $id,
+        Request     $request,
+        EditProduct $editProduct
+    ): View
+    {
+        try {
+            [$product, $error] = ($editProduct)($request, $id);
+            $statusCode = $product ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
+            $data = $product ?? $error;
+            return View::create($data, $statusCode);
+        } catch (ProductNotFound $e) {
+            return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        }
     }
 }
