@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Service\Product\GetProduct;
 use App\Service\Product\SaveProduct;
 use App\Service\Product\EditProduct;
+use App\Service\Product\DeleteProduct;
 
 class ProductController extends AbstractFOSRestController
 {
@@ -68,5 +69,19 @@ class ProductController extends AbstractFOSRestController
         } catch (ProductNotFound $e) {
             return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
+    }
+
+    #[Rest\Delete(path: '/product/{id}', name: 'product_delete', requirements: ['id' => '\d+'])]
+    public function deleteAction(
+        int           $id,
+        DeleteProduct $deleteProduct
+    ): View
+    {
+        try {
+            ($deleteProduct)($id);
+        } catch (ProductNotFound $e) {
+            return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        }
+        return View::create(null, Response::HTTP_NO_CONTENT);
     }
 }
