@@ -1,0 +1,25 @@
+App\Domain\Entity\CustomerContact:
+    type: entity
+    repositoryClass: App\Domain\Repository\CustomerContactRepository
+    table: customer_contact
+    id:
+        id:
+            type: integer
+            unique: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        lastName:
+            type: string
+            length: 300
+        phone:
+            type: string
+            length: 20
+            nullable: true
+        jobTitle:
+            type: string
+            length: 255
+            nullable: true

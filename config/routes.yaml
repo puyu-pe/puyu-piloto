@@ -1,8 +1,8 @@
 controllers:
-    resource: ../src/Controller/
+    resource: ../src/Infrastructure/Framework/Controller/
     type: attribute
 
 api:
-    resource: ../src/Controller/Api
+    resource: ../src/Infrastructure/Framework/Controller/Api
     type: attribute
     prefix: /api

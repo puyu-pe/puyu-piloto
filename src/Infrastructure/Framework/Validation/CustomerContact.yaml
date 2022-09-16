@@ -1,0 +1,8 @@
+App\Domain\Entity\CustomerContact:
+  properties:
+    name:
+      - NotBlank: ~
+    lastName:
+      - Length:
+          min: 5
+          minMessage: 'Your last name must be at least {{ limit }} characters long'

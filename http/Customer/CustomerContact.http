@@ -13,8 +13,8 @@ POST http://localhost:9191/api/customer_contact
 Content-Type: application/json
 
 {
-  "name": "sdfsdfsdfsdf",
-  "lastName": "Fedum Aster",
+  "name": "jose",
+  "lastName": "fasdfadsgfdfg",
   "phone": "984786712",
   "jobTitle": "Vendedor"
 }
@@ -25,7 +25,7 @@ PUT http://localhost:9191/api/customer_contact/4
 Content-Type: application/json
 
 {
-  "name": "Efrain",
+  "name": "sdfsd",
   "lastName": "Abuedo Calle",
   "phone": "982123243",
   "jobTitle": "Gerente"
@@ -35,7 +35,6 @@ Content-Type: application/json
 
 DELETE http://localhost:9191/api/customer_contact/5
 Content-Type: application/x-www-form-urlencod
-
 
 ###
 

@@ -17,14 +17,14 @@ framework:
     validation:
         mapping:
             paths:
-                - "%kernel.project_dir%/src/Validation/"
+                - "%kernel.project_dir%/src/Infrastructure/Framework/Validation/"
 
     # Path to serializer
     serializer:
         enabled: true
         mapping:
             paths:
-                - '%kernel.project_dir%/src/Serializer'
+                - '%kernel.project_dir%/src/Infrastructure/Framework/Serializer'
 
     #esi: true
     #fragments: true
