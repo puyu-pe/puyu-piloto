@@ -13,8 +13,7 @@ class SaveProduct
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
         private readonly FormFactoryInterface   $formFactory
-    )
-    {
+    ) {
     }
 
     public function __invoke(Request $request): array

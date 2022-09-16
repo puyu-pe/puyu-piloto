@@ -10,8 +10,7 @@ class GetProduct
 {
     public function __construct(
         private readonly ProductRepository $productRepository
-    )
-    {
+    ) {
     }
 
     /**

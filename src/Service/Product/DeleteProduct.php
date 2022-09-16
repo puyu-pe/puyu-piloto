@@ -10,8 +10,7 @@ class DeleteProduct
     public function __construct(
         private readonly GetProduct             $getProduct,
         private readonly EntityManagerInterface $entityManager
-    )
-    {
+    ) {
     }
 
     /**

@@ -1,0 +1,8 @@
+App\Entity\Product:
+  properties:
+    code:
+      - NotBlank: ~
+    name:
+      - NotBlank: ~
+    url:
+      - NotBlank: ~

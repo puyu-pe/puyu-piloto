@@ -3,18 +3,17 @@
 namespace App\Controller\Api;
 
 use App\Entity\Product;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
-use App\Repository\ProductRepository;
-use FOS\RestBundle\Controller\Annotations as Rest;
-use FOS\RestBundle\View\View;
 use App\Model\Exception\Product\ProductNotFound;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
+use App\Repository\ProductRepository;
+use App\Service\Product\DeleteProduct;
+use App\Service\Product\EditProduct;
 use App\Service\Product\GetProduct;
 use App\Service\Product\SaveProduct;
-use App\Service\Product\EditProduct;
-use App\Service\Product\DeleteProduct;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
+use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\View\View;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends AbstractFOSRestController
 {
@@ -22,8 +21,7 @@ class ProductController extends AbstractFOSRestController
     #[Rest\View(serializerGroups: ['product'])]
     public function getAction(
         ProductRepository $productRepository,
-    ): array
-    {
+    ): array {
         return $productRepository->findAll();
     }
 
@@ -32,8 +30,7 @@ class ProductController extends AbstractFOSRestController
     public function getSingleAction(
         int        $id,
         GetProduct $getProduct,
-    ): Product|View
-    {
+    ): Product|View {
         try {
             $product = ($getProduct)($id);
             return View::create($product, Response::HTTP_ACCEPTED);
@@ -46,8 +43,7 @@ class ProductController extends AbstractFOSRestController
     public function postAction(
         SaveProduct $saveProduct,
         Request     $request,
-    ): View
-    {
+    ): View {
         [$product, $error] = ($saveProduct)($request);
         $statusCode = $product ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
         $data = $product ?? $error;
@@ -59,8 +55,7 @@ class ProductController extends AbstractFOSRestController
         int         $id,
         Request     $request,
         EditProduct $editProduct
-    ): View
-    {
+    ): View {
         try {
             [$product, $error] = ($editProduct)($request, $id);
             $statusCode = $product ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
@@ -75,8 +70,7 @@ class ProductController extends AbstractFOSRestController
     public function deleteAction(
         int           $id,
         DeleteProduct $deleteProduct
-    ): View
-    {
+    ): View {
         try {
             ($deleteProduct)($id);
         } catch (ProductNotFound $e) {

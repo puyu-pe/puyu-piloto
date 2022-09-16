@@ -13,11 +13,10 @@ class EditProduct
 {
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
-        private readonly FormFactoryInterface   $formFactory,
-        private readonly GetProduct             $getProduct,
-        private readonly DecoderInterface       $decoder
-    )
-    {
+        private readonly FormFactoryInterface $formFactory,
+        private readonly GetProduct $getProduct,
+        private readonly DecoderInterface $decoder
+    ) {
     }
 
     /**
@@ -26,9 +25,8 @@ class EditProduct
 
     public function __invoke(
         Request $request,
-        int     $id
-    ): array
-    {
+        int $id
+    ): array {
         $product = ($this->getProduct)($id);
         $form = $this->formFactory->create(ProductType::class, $product);
         $form->submit($this->decoder->decode($request->getContent(), 'json'));
