@@ -3,6 +3,7 @@
 namespace App\Controller\Api;
 
 use App\Entity\Customer;
+use App\Model\Exception\Customer\CustomerNotFound;
 use App\Repository\CustomerRepository;
 use App\Service\Customer\GetCustomer;
 use App\Service\Customer\SaveCustomer;
@@ -24,6 +25,20 @@ class CustomerController extends AbstractFOSRestController
         return $customerRepository->findAll();
     }
 
+    #[Rest\Get(path: '/customer/{id}', name: 'customer_single')]
+    #[Rest\View(serializerGroups: ['customer'])]
+    public function getSingleAction(
+        int $id,
+        GetCustomer $getCustomer,
+    ): Customer|View {
+        try {
+            $customer = ($getCustomer)($id);
+            return View::create($customer, Response::HTTP_ACCEPTED);
+        } catch (CustomerNotFound $e) {
+            return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        }
+    }
+
     #[Rest\Post(path: '/customer', name: 'customer_save')]
     public function postAction(
         SaveCustomer $saveCustomer,
@@ -34,6 +49,7 @@ class CustomerController extends AbstractFOSRestController
         $data = $customer ?? $error;
         return View::create($data, $statusCode);
     }
+
 
 }
 
