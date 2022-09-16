@@ -1,0 +1,170 @@
+[33mcommit 78b15b127ae436011673d6122a984d250dd9a6af[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m, [m[1;31morigin/feature/YUN-3-gestion-producto[m[33m, [m[1;31morigin/develop[m[33m)[m
+Merge: f4bf6b7 5751027
+Author: Velnae <nahuinlla101131@gmail.com>
+Date:   Sun Sep 11 22:46:50 2022 -0500
+
+    Merge pull request #5 from puyu-pe/feature/YUN-42-ecs-stan-README
+    
+    YUN-42 #comment se detallo el uso de ECS y PHPStan #time 1h #done
+
+[33mcommit 5751027ff925a7c875e0cadbde530ed79261c8f5[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sun Sep 11 22:46:04 2022 -0500
+
+    YUN-42 #comment se detallo el uso de ECS y PHPStan #time 1h #done
+
+[33mcommit f4bf6b7084b7725bf79c1b40c170b7d394aaf05e[m
+Merge: 27dc169 e5ec41b
+Author: Velnae <nahuinlla101131@gmail.com>
+Date:   Sun Sep 11 18:11:03 2022 -0500
+
+    Merge pull request #4 from puyu-pe/feature/YUN-41-codigo-PSR-12
+    
+    Feature/yun 41 codigo psr 12
+
+[33mcommit e5ec41bf0ab89334e861520b953a50c5fa98e205[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sun Sep 11 18:08:48 2022 -0500
+
+    YUN-41 #comment Se configuro mejor stan #time 1h #done
+
+[33mcommit cbaff10e59741436f7edfb9b544892d6699f53dd[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sun Sep 11 11:26:35 2022 -0500
+
+    YUN-36 #comment Se aplico PSR-12 al codigo gracias a ECS #time 2h
+
+[33mcommit c9584da422003abfe3f65e17d0ad73e271126f81[m
+Merge: 27dc169 30f2559
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sun Sep 11 09:37:26 2022 -0500
+
+    Merge branch 'feature/YUN-38-JSON-response-standard' into develop
+
+[33mcommit 30f2559564e3948154608fd2feebd87cf7adcc4f[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 20:16:52 2022 -0500
+
+    YUN-38 #comment agrego Request a HTTP cliente de IDE Idea #time 20m #in-progress
+
+[33mcommit a85796b006b5a7e449cf47ba9ea0a29ceae9b8fa[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 18:52:45 2022 -0500
+
+    YUN-38 #comment agrego JSEND a README #time 20m #done
+
+[33mcommit 7a92c255853e85c13c4199d190d047d4dc51d5c4[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 18:50:35 2022 -0500
+
+    YUN-40 #comment Renombrado entity a CustomerContact #time 20m #done
+
+[33mcommit c73bace50ae989323f94547a87d78a57ac25c9f6[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 17:07:15 2022 -0500
+
+    YUN-38 #comment Agrega estandares JSON Response #time 10m #done
+
+[33mcommit 27dc169160babac49f10e8d6ac92acac457602e8[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 16:53:36 2022 -0500
+
+    YUN-39 #comment Actualizo README español #time 10m #done
+
+[33mcommit c066d82ef3e59dfa86eb4ead9c295a6b92c8b0f5[m
+Merge: 8ee0917 9845cad
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 08:11:56 2022 -0500
+
+    Merge branch 'feature/YUN-27-config-framework' into develop
+
+[33mcommit 9845cad4068989363d6f4a1b48cda6a48a543129[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 08:10:20 2022 -0500
+
+    YUN-37 #comment Install, config API route and add an example #time 10m #done
+
+[33mcommit 6ee1188ecb2b0cc41f62b7d07f750a38e35521b9[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 08:05:09 2022 -0500
+
+    YUN-36 #comment Install, config ECS (easy code standard) and add an example #time 20m #done
+
+[33mcommit 00aa9d5807c8617d577e782da239291af9182e2a[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 08:02:58 2022 -0500
+
+    YUN-36 #comment Install, config ECS (easy code standard) and add an example #time 20m #done
+
+[33mcommit bbe2609b12cadce05a860722b0a97cbf7f3f6cfe[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 07:23:36 2022 -0500
+
+    YUN-35 #comment Install, config PHPStan and add an example #time 20m #done
+
+[33mcommit 2720d1bdc90e597ea0fd3d3a52b5125e534142da[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Sat Sep 10 01:23:43 2022 -0500
+
+    YUN-34 #comment Install, config PHPUnit and add an example #time 1h #done
+
+[33mcommit c442ff0dd5bf1165c9ae4ff7cd356bed178e2d91[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Fri Sep 9 22:55:27 2022 -0500
+
+    Move to services Company representative
+
+[33mcommit e3e953df1f10f95bb308701e460693fd1e0da7e4[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Fri Sep 9 20:41:52 2022 -0500
+
+    YUN-33 #comment Install, config Forms and add an example #time 40m #done
+
+[33mcommit 31a5f56d307737e4def1a5548c19f017ff73103f[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Fri Sep 9 20:13:56 2022 -0500
+
+    YUN-32 #comment Install, config FosREST and add an example #time 1h #done
+
+[33mcommit 5a0c26600ffeba1a8e42ba84da6548225350edec[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Fri Sep 9 19:07:37 2022 -0500
+
+    YUN-31 #comment Install, config validator and add an example #time 40m #done
+
+[33mcommit 319930b36f7a5173767660273b583fdb8e831b90[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Fri Sep 9 18:49:24 2022 -0500
+
+    YUN-30 #comment Install, config serialzer and add an example #time 1h 40m #done
+
+[33mcommit e395e198900f65bbdabb3ecc2f77a39f36cb6141[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Fri Sep 9 17:57:29 2022 -0500
+
+    YUN-29 #comment Install, config doctrine and add an example #time 2h #done
+
+[33mcommit 1202a26d24a68b7f4d5d3d48ac286ca433044521[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Fri Sep 9 12:50:17 2022 -0500
+
+    YUN-28 #comment add controller to guide as an example
+
+[33mcommit 8ee0917645eed50aa2b83e9db2dd2f39039b5fa0[m
+Merge: 89d6d08 55edaf6
+Author: Velnae <nahuinlla101131@gmail.com>
+Date:   Fri Sep 9 11:54:46 2022 -0500
+
+    Merge pull request #3 from puyu-pe/feature/YUN-26-add-commit-standard
+    
+    Add commit standard and practical example
+
+[33mcommit 55edaf6070714c3b16725996171a80a39038f7dc[m
+Author: Emerson NV <nahuinlla101131@gmail.com>
+Date:   Fri Sep 9 11:47:16 2022 -0500
+
+    YUN-26 #comment Add commit standard and practical example
+    YUN-26 #time 3h 50m
+    YUN-26 #done
+    
+    testing optional description
