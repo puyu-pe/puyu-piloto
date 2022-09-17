@@ -21,10 +21,10 @@ class User
     private ?string $password = null;
 
     #[ORM\Column(length: 250)]
-    private ?string $fullname = null;
+    private ?string $fullName = null;
 
     #[ORM\Column]
-    private ?bool $enabled = null;
+    private ?int $enabled = null;
 
     public function getId(): ?int
     {
@@ -55,24 +55,24 @@ class User
         return $this;
     }
 
-    public function getFullname(): ?string
+    public function getFullName(): ?string
     {
-        return $this->fullname;
+        return $this->fullName;
     }
 
-    public function setFullname(string $fullname): self
+    public function setFullName(string $fullName): self
     {
-        $this->fullname = $fullname;
+        $this->fullName = $fullName;
 
         return $this;
     }
 
-    public function isEnabled(): ?bool
+    public function isEnabled(): ?int
     {
         return $this->enabled;
     }
 
-    public function setEnabled(bool $enabled): self
+    public function setEnabled(int $enabled): self
     {
         $this->enabled = $enabled;
 

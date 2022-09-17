@@ -51,7 +51,7 @@ class UserControllerTest extends WebTestCase
             '{
                 "username": "test",
                 "password" : "test",
-                "fullname": "Usuario test",
+                "fullName": "Usuario test",
                 "enabled": 1
             }'
         );
@@ -72,7 +72,7 @@ class UserControllerTest extends WebTestCase
             '{
                 "username": "test",
                 "password" : "test1234",
-                "fullname": "Usuario test updated",
+                "fullName": "Usuario test updated",
                 "enabled": 1
             }'
         );

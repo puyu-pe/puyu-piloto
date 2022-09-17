@@ -6,7 +6,7 @@ App\Entity\User:
       groups: [ 'user' ]
     password:
       groups: [ 'user' ]
-    fullname:
+    fullName:
       groups: [ 'user' ]
     enabled:
       groups: [ 'user' ]
