@@ -18,6 +18,7 @@ class DeleteCustomer
      */
     public function __invoke(int $id): void
     {
+        $getCustomer = new GetCustomer()
         $customer = ($this->getCustomer)($id);
         $this->entityManager->remove($customer);
         $this->entityManager->flush();

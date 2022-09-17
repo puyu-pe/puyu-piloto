@@ -9,8 +9,8 @@ class CustomerNotFound extends Exception
     /**
      * @throws CustomerNotFound
      */
-    public static function throwException(): void
+    public static function throwException(int $id): void
     {
-        throw new self('Cliente no encontrado');
+        throw new self('Cliente no encontrado con '.$id);
     }
 }

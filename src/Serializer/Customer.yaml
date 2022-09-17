@@ -7,7 +7,7 @@ App\Entity\Customer:
     name:
       groups: [ 'customer' ]
     address:
-      groups: [ 'customer' ]
+      groups: [ 'customer1' ]
     email:
       groups: [ 'customer' ]
     phone:

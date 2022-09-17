@@ -10,19 +10,17 @@ use App\Service\Customer\EditCustomer;
 use App\Service\Customer\GetCustomer;
 use App\Service\Customer\SaveCustomer;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
-use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use FOS\RestBundle\Controller\Annotations as Rest;
-
 
 class CustomerController extends AbstractFOSRestController
 {
-    #[Rest\Get(path:'/customer',name: 'customer')]
+    #[Rest\Get(path: '/customer', name: 'customer')]
     #[Rest\View(serializerGroups: ['customer'])]
-
-    public function getAction(CustomerRepository $customerRepository,
+    public function getAction(
+        CustomerRepository $customerRepository,
     ): array {
         return $customerRepository->findAll();
     }
@@ -51,6 +49,7 @@ class CustomerController extends AbstractFOSRestController
         $data = $customer ?? $error;
         return View::create($data, $statusCode);
     }
+
     #[Rest\Put(path: '/customer/{id}', name: 'customer_update', requirements: ['id' => '\d+'])]
     public function editAction(
         int $id,
@@ -66,6 +65,7 @@ class CustomerController extends AbstractFOSRestController
             return View::create($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
     }
+
     #[Rest\Delete(path: '/customer/{id}', name: 'customer_delete', requirements: ['id' => '\d+'])]
     public function deleteAction(
         int $id,
@@ -78,10 +78,4 @@ class CustomerController extends AbstractFOSRestController
         }
         return View::create(null, Response::HTTP_NO_CONTENT);
     }
-
 }
-
-
-
-
-

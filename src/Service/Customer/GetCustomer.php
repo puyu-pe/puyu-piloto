@@ -21,7 +21,8 @@ class GetCustomer
         $customer = $this->customerRepository->find($id);
 
         if (!$customer) {
-            CustomerNotFound::throwException();
+            CustomerNotFound::throwException($id);
         }
         return $customer;
-    }}
+    }
+}
