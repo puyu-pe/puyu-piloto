@@ -83,8 +83,8 @@ Observacion.
 > En adelante toda implementacion en el codigo debe hacerse a travez de ramas que propone gitflow
 2. Construir y Levantar los contenedores de docker compose y ejecutar alias
 ```shell
-make build
-make up
+make rebuild
+make run
 ```
 ```shell
 source alias.sh
