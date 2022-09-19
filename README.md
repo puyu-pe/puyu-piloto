@@ -5,16 +5,19 @@
 - [Intro](#intro)
 - [About](#about)
 - [Installing](#installing)
-  - [Install](#install)
+  - [Git](#git)
+  - [Docker](#docker)
     - [Additional Notes](#additional-notes)
+  - [Dependencies](#dependencies)
+  - [Dotenv Files](#dotenv-files)
 - [Standards](#standards)
   - [Analysis](#analysis)
   - [Code](#code)
     - [Easy Code Standard `ECS`](#easy-code-standard-ecs)
   - [Database](#database)
-  - [Git](#git)
+  - [Git standard](#git-standard)
     - [Branch naming](#branch-naming)
-    - [Commit](#commit-standars)
+    - [Commit](#commit)
     - [Smart Commit](#smart-commit)
     - [Practical Example](#practical-example)
   - [Response JSON](#response-json)
@@ -44,14 +47,15 @@ Etc.
 <a id="install-script"></a>
 ## Installing
 
-### Install
+### Git
 
 Para **instalar** Yunex debes tener instalado en entorno de desarllo, previamente debes tener **docker** y **docker-compose**.
-Tambien debes tener instaladpo git, y se promueve el uso de **Intellij IDEA* ya que en esta herramienta se podra estableces los estandares de progrmacion como tambien el formateador de codigo.
+También debes tener instalado git, y se promueve el uso de **Intellij IDEA* ya que en esta herramienta se podra estableces los estandares de progrmacion como tambien el formateador de codigo.
 
-1.  Para poder descargar el codigo e inicializar git-flow:
+Para poder descargar el código e inicializar git-flow:
 ```shell
 git clone git@github.com:puyu-pe/yunex.git
+cd yunex
 ``` 
 ```shell
 git flow init
@@ -73,34 +77,49 @@ Version tag prefix? []
 Hooks and filters directory? [/home/emerson/Projects/yunex/.git/hooks] .git/git-flow-hooks
 ```
 
-Finalmente clone el proyecto para el control semantico de version
+Finalmente, clone el proyecto para el control semántico de version
 
 ```shell
 cd .git; git clone git@github.com:jaspernbrouwer/git-flow-hooks.git; cd ..
 ```
+Observación.
+> En adelante toda implementación en el código debe hacerse a través de ramas que propone gitflow
 
-Observacion.
-> En adelante toda implementacion en el codigo debe hacerse a travez de ramas que propone gitflow
-2. Construir y Levantar los contenedores de docker compose y ejecutar alias
+### Docker
+Construir y Levantar los contenedores de docker compose
 ```shell
-make build
-make up
+make rebuild
+make run
 ```
+
+#### Additional Notes
+Ya que se está trabajando con contenedores, toda herramienta que se use en este proyecto debe ser a travez de contenedores, es decir las herramientas deben estar dentro de contenedores, registrarlas en **alias.sh** para poder usarlas en la session actual de la terminal .
+
+
+### Dependencies
+Para ejecutar los comandos de dependencias previamente se debe ejecutar:  
 ```shell
 source alias.sh
 ```
-3. Ejecutar el gestor de dependencia Composer
+Ejecutar el gestor de dependencia Composer
 ```shell
 composer install
 ```
-4. Verifique si todo salio bien, con el siguiente comando:
+Verifique si todo salió bien, con el siguiente comando:
 ```shell
 sf --version
 Symfony 6.1.4 (env: dev, debug: true) 
 ```
+### Dotenv Files
+Para poder iniciar con el proyecto es necesario crear un archivo Dotenv a partir del que trae el proyecto por defecto `/.env`, ejecute:
+```shell
+cp .env .env.local
+```
+Configure la Base de datos agregando la siguiente linea, asegúrese que no hay otra linea con configuración de Base de datos habilitado.
 
-#### Additional Notes
-ya que se estra trabajando con contenedores, toda herramienta que se use en este proyecto debe ser a travez de contenedores, es decir las herramientas deben estar dentro de contenedores, registrarlas en **alias.sh** para poder usarlas en la session actual de la terminal .
+```shell
+mysql://root:12345678@mysql:3306/yunex?serverVersion=8&charset=utf8mb4
+```
 
 ## Standards
 ### Analysis
@@ -158,7 +177,7 @@ La base de datos debe cumplir con los siguientes estandares.
 - Las tables deben estar en ingles
 - Los atributos deben estar en ingles
 
-## Git
+## Git Standard
 A continuación se definirá como nombrar las ramas y commits, estos tienen ligeros cambios a lo que usualmente se solia trbajar, ya que ahora se trabajara con JIRA Software.
 
 ### Branch Naming
