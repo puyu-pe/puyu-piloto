@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Doctrine\Repository;
+namespace App\Infrastructure\Persistence\Doctrine\Repository;
 
 use App\Domain\Entity\CustomerContact;
 use App\Domain\Repository\CustomerContactRepository;

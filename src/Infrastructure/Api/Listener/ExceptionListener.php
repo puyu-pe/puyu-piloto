@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Infrastructure\Framework\Listener;
+namespace App\Infrastructure\Api\Listener;
 
-use App\Infrastructure\Framework\Utils\Jttp;
+use App\Infrastructure\Api\Utils\Jttp;
 use Psr\Log\LoggerAwareTrait;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
@@ -24,19 +24,11 @@ class ExceptionListener
         if (method_exists($throwable, 'getStatusCode')) {
             $statusCode = $throwable->getStatusCode();
         } else {
-            switch ($type) {
-                case 'Symfony\Component\Routing\Exception\ResourceNotFoundException':
-                    $statusCode = Response::HTTP_NOT_FOUND;
-                    break;
-
-                case 'Symfony\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException':
-                    $statusCode = Response::HTTP_NOT_IMPLEMENTED;
-                    break;
-
-                default:
-                    $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
-                    break;
-            }
+            $statusCode = match ($type) {
+                'Symfony\Component\Routing\Exception\ResourceNotFoundException' => Response::HTTP_NOT_FOUND,
+                'Symfony\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException' => Response::HTTP_NOT_IMPLEMENTED,
+                default => Response::HTTP_INTERNAL_SERVER_ERROR,
+            };
         }
 
         $error = [];

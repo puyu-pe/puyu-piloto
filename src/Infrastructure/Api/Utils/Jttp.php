@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Framework\Utils;
+namespace App\Infrastructure\Api\Utils;
 
-use App\Infrastructure\Framework\Utils\Exception\InternalJttpException;
-use App\Infrastructure\Framework\Utils\Exception\MalformedJttpException;
+use App\Infrastructure\Api\Utils\Exception\InternalJttpException;
+use App\Infrastructure\Api\Utils\Exception\MalformedJttpException;
 
 final class Jttp
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Framework\Handlers;
+namespace App\Infrastructure\Api\Handlers;
 
 /**
  *
@@ -16,7 +16,7 @@ namespace App\Infrastructure\Framework\Handlers;
  */
 
 use App\Domain\Exception\DomainError;
-use App\Infrastructure\Framework\Utils\Jttp;
+use App\Infrastructure\Api\Utils\Jttp;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandler;
 use Psr\Log\LoggerAwareTrait;

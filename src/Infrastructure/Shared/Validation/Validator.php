@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Framework\Shared;
+namespace App\Infrastructure\Shared\Validation;
 
 use App\Domain\Shared\ValidationError;
 use App\Domain\Shared\Validator as DomainValidator;

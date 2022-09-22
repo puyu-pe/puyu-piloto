@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Framework\Controller\Api\Customer\Contact;
+namespace App\Infrastructure\Api\Controller\Customer\Contact;
 
 use App\Application\Customer\Contact\Delete\DeleteCustomerContactUseCase;
 use App\Domain\Exception\Customer\Contact\CustomerContactNotFound;

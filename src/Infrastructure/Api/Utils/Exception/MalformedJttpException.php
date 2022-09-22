@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Framework\Utils\Exception;
+namespace App\Infrastructure\Api\Utils\Exception;
 
 class MalformedJttpException extends \LogicException implements JttpExceptionInterface
 {
