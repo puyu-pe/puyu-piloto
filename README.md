@@ -404,8 +404,7 @@ Todos los estándares aquí, están sujetos a cambios y mejoras según se avance
 Puede haber contradicciones o ambigüedades, por lo que se pide continua retro-alimentación, para mejorar todos estos estandares.
 
 
-## Deprecated
-**Anteriormente nuestros commits tenian la siguiente sintaxis**  
+**Anteriormente nuestros commits tenían la siguiente sintaxis**
 Ya no se seguirá esta convención en JIRA
 ```shell
 # <type>: (If applied, this commit will...) <subject> (Max 50 char)

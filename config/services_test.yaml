@@ -1,0 +1,67 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    slack_notification_hook_url: "https://hooks.slack.com/services/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"
+    slack_notification_username: 'nahuinlla101131@gmail.com'
+    slack_notification_channel: '#varios'
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        bind:
+            $hookUrl: 'https://hooks.slack.com/services/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'
+            $setting: [ '$slack_notification_username%', '%slack_notification_channel%' ]
+
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Domain/Entity/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    App\Infrastructure\Persistence\InMemory\InMemoryCustomerContactRepository: ~
+    App\Domain\Repository\CustomerContactRepository: '@App\Infrastructure\Persistence\InMemory\InMemoryCustomerContactRepository'
+
+    App\Infrastructure\Shared\Validation\Validator: ~
+    App\Domain\Shared\Validator: '@App\Infrastructure\Shared\Validation\Validator'
+
+    app.infrastructure.notifier.slack_notifier:
+        class: App\Infrastructure\Notifier\SlackNotifier
+        arguments:
+            $hookUrl: '%slack_notification_hook_url%'
+            $setting: ['$slack_notification_username%', '%slack_notification_channel%']
+        public: false
+
+    App\Infrastructure\Notifier\SlackNotifier: ~
+    App\Domain\Notification\Notifier: '@App\Infrastructure\Notifier\SlackNotifier'
+
+
+#    kernel.listener.exception_listener:
+#        class: App\Infrastructure\Framework\Listener\ExceptionListener
+#        tags:
+#            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+#        calls:
+#            - [ setLogger, [ '@logger' ] ]
+
+    app.jttp_handler:
+        class: App\Infrastructure\Api\Handlers\JttpHandler
+        arguments:
+            - "@logger"
+
+    app.view_handler:
+        parent: fos_rest.view_handler.default
+        autowire: false
+        autoconfigure: false
+        public: false
+        calls:
+            - [ 'registerHandler', [ 'json', [ "@app.jttp_handler", 'createResponse' ] ] ]

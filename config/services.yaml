@@ -1,10 +1,6 @@
 # This file is the entry point to configure your own services.
 # Files in the packages/ subdirectory configure your dependencies.
 
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
-parameters:
-
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -17,8 +13,30 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Entity/'
+            - '../src/Domain/Entity/'
             - '../src/Kernel.php'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    app.jttp_handler:
+        class: App\Infrastructure\Api\Handlers\JttpHandler
+        arguments:
+            - "@logger"
+
+    app.view_handler:
+        parent: fos_rest.view_handler.default
+        autowire: false
+        autoconfigure: false
+        public: false
+        calls:
+            - [ 'registerHandler', [ 'json', [ "@app.jttp_handler", 'createResponse' ] ] ]
+
+    App\Infrastructure\Shared\Validation\Validator: ~
+    App\Domain\Shared\Validator: '@App\Infrastructure\Shared\Validation\Validator'
+
+    App\Infrastructure\Notifier\SlackNotifier: ~
+    App\Domain\Notification\Notifier: '@App\Infrastructure\Notifier\SlackNotifier'
+
+    App\Infrastructure\Persistence\Doctrine\Repository\DoctrineCustomerContactRepository: ~
+    App\Domain\Repository\CustomerContactRepository: '@App\Infrastructure\Persistence\Doctrine\Repository\DoctrineCustomerContactRepository'
