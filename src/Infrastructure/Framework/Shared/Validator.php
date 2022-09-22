@@ -2,19 +2,37 @@
 
 namespace App\Infrastructure\Framework\Shared;
 
-use App\Domain\Validator\ValidatorInterface as ValidatorInterfaceApp;
+use App\Domain\Shared\ValidationError;
+use App\Domain\Shared\Validator as DomainValidator;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class Validator implements ValidatorInterfaceApp
+class Validator implements DomainValidator
 {
     public function __construct(
         private readonly ValidatorInterface $validator
-    )
-    {
+    ) {
     }
 
-    public function validate(object $value) : \Countable
+    /**
+     * @return ValidationError[]
+     */
+    public function validate(object $value): array
     {
-        return $this->validator->validate($value);
+        $errors = $this->validator->validate($value);
+        if (count($errors)) {
+            $errorsArray = [];
+            for ($i = 0; $i < count($errors); $i++) {
+                $errorObject = new ValidationError(
+                    $errors->get($i)->getPropertyPath(),
+                    $errors->get($i)->getMessage()
+                );
+
+                $errorsArray[] = $errorObject;
+            }
+
+            return $errorsArray;
+        } else {
+            return [];
+        }
     }
 }

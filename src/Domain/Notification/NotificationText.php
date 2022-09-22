@@ -6,8 +6,7 @@ class NotificationText
 {
     public function __construct(
         private ?string $value
-    )
-    {
+    ) {
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Domain\Entity\CustomerContact;
 use App\Domain\Repository\CustomerContactRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @extends ServiceEntityRepository<CustomerContact>
@@ -32,9 +33,14 @@ class DoctrineCustomerContactRepository extends ServiceEntityRepository implemen
         $this->remove($customerContact, true);
     }
 
-    public function search(int $id): ?CustomerContact
+    public function search(Uuid $id): ?CustomerContact
     {
         return $this->find($id);
+    }
+
+    public function getAll(): array
+    {
+        return $this->findAll();
     }
 
     public function add(CustomerContact $entity, bool $flush = false): void

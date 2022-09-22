@@ -2,30 +2,30 @@
 
 GET http://localhost:9191/api/customer_contact
 
-### 📗 GET Single customer contact
+### 📗 GET Find customer contact
 
-GET http://localhost:9191/api/customer_contact/1
+GET http://localhost:9191/api/customer_contact/1fa1ae0b-bd06-48ae-be42-e5f7e6409178
 Accept: application/json
 
-### 💛 POST Save customer contact
+### 💾 POST Create customer contact
 
 POST http://localhost:9191/api/customer_contact
 Content-Type: application/json
 
 {
-  "name": "jose",
-  "lastName": "fasdfadsgfdfg",
+  "name": "sdfgsdfg",
+  "lastName": "cvbncvbncvbn",
   "phone": "984786712",
   "jobTitle": "Vendedor"
 }
 
-### 🔵 PUT Update Customer contact
+### 🔵 PUT Edit Customer contact
 
-PUT http://localhost:9191/api/customer_contact/4
+PUT http://localhost:9191/api/customer_contact/f16a1430-2708-4e78-83bb-c5b7cf054bbe
 Content-Type: application/json
 
 {
-  "name": "sdfsd",
+  "name": "Rodrigo edgard",
   "lastName": "Abuedo Calle",
   "phone": "982123243",
   "jobTitle": "Gerente"
@@ -33,7 +33,7 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete customer contact
 
-DELETE http://localhost:9191/api/customer_contact/5
+DELETE http://localhost:9191/api/customer_contact/f16a1430-2708-4e78-83bb-c5b7cf054bbe
 Content-Type: application/x-www-form-urlencod
 
 ###

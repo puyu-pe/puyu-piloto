@@ -4,10 +4,8 @@ App\Domain\Entity\CustomerContact:
     table: customer_contact
     id:
         id:
-            type: integer
+            type: uuid
             unique: true
-            generator:
-                strategy: AUTO
     fields:
         name:
             type: string

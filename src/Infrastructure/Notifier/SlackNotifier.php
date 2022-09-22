@@ -13,12 +13,19 @@ class SlackNotifier implements Notifier
 {
     public const UNKNOWN_NOTIFICATION = 'NOTIFICATION';
 
+    /**
+     * @var array|string[]
+     */
     private static array $actionFaces = [
-        NotificationType::VIDEO_CRATED => ':D element crated!'
+        NotificationType::PROJECT_CRATED => ':D element created!'
     ];
 
     private Client $client;
 
+    /**
+     * @param string $hookUrl
+     * @param array|string[] $setting
+     */
     public function __construct(string $hookUrl, array $setting)
     {
         $this->client = new Client($hookUrl, $setting);

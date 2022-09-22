@@ -2,14 +2,16 @@
 
 namespace App\Domain\Entity;
 
+use Symfony\Component\Uid\Uuid;
+
 class CustomerContact
 {
     public function __construct(
-        private ?int $id = null,
-        private ?string $name = null,
-        private ?string $lastName = null,
-        private ?string $phone = null,
-        private ?string $jobTitle = null,
+        private readonly Uuid $id,
+        private string $name,
+        private string $lastName,
+        private ?string $phone,
+        private ?string $jobTitle,
     ) {
     }
 
@@ -20,7 +22,7 @@ class CustomerContact
         string $jobTitle,
     ): self {
         return new self(
-            null,
+            Uuid::v4(),
             $name,
             $lastName,
             $phone,
@@ -28,12 +30,12 @@ class CustomerContact
         );
     }
 
-    public function getId(): ?int
+    public function getId(): Uuid
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -46,7 +48,7 @@ class CustomerContact
         return $this;
     }
 
-    public function getLastName(): ?string
+    public function getLastName(): string
     {
         return $this->lastName;
     }
@@ -64,9 +66,8 @@ class CustomerContact
         return $this->phone;
     }
 
-    public function setPhone(
-        ?string $phone
-    ): self {
+    public function setPhone(?string $phone): self
+    {
         $this->phone = $phone;
 
         return $this;
@@ -77,9 +78,8 @@ class CustomerContact
         return $this->jobTitle;
     }
 
-    public function setJobTitle(
-        ?string $jobTitle
-    ): self {
+    public function setJobTitle(?string $jobTitle): self
+    {
         $this->jobTitle = $jobTitle;
 
         return $this;

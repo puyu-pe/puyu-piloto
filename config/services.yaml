@@ -32,8 +32,12 @@ services:
     App\Infrastructure\Doctrine\Repository\DoctrineCustomerContactRepository: ~
     App\Domain\Repository\CustomerContactRepository: '@App\Infrastructure\Doctrine\Repository\DoctrineCustomerContactRepository'
 
+
+#    App\Domain\Shared\Uuid: ~
+#    App\Domain\Shared\UuidInterface: '@App\Domain\Shared\Uuid'
+
     App\Infrastructure\Framework\Shared\Validator: ~
-    App\Domain\Validator\ValidatorInterface: '@App\Infrastructure\Framework\Shared\Validator'
+    App\Domain\Shared\ValidatorInterface: '@App\Infrastructure\Framework\Shared\Validator'
 
     app.infrastructure.notifier.slack_notifier:
         class: App\Infrastructure\Notifier\SlackNotifier
@@ -44,3 +48,24 @@ services:
 
     App\Infrastructure\Notifier\SlackNotifier: ~
     App\Domain\Notification\Notifier: '@App\Infrastructure\Notifier\SlackNotifier'
+
+
+#    kernel.listener.exception_listener:
+#        class: App\Infrastructure\Framework\Listener\ExceptionListener
+#        tags:
+#            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+#        calls:
+#            - [ setLogger, [ '@logger' ] ]
+
+    app.jttp_handler:
+        class: App\Infrastructure\Framework\Handlers\JttpHandler
+        arguments:
+            - "@logger"
+
+    app.view_handler:
+        parent: fos_rest.view_handler.default
+        autowire: false
+        autoconfigure: false
+        public: false
+        calls:
+            - [ 'registerHandler', [ 'json', [ "@app.jttp_handler", 'createResponse' ] ] ]
