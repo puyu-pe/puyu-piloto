@@ -1,0 +1,4 @@
+saas_customer_contact_api:
+    resource: '../../Api/Controller/'
+    type: attribute
+    prefix: api/customer_contact

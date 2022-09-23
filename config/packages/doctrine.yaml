@@ -9,13 +9,19 @@ doctrine:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
-        mappings:
-            App:
-                is_bundle: false
-                type: yml
-                dir: '%kernel.project_dir%/src/Infrastructure/Persistence/Doctrine/Mapping'
-                prefix: 'App\Domain\Entity'
-                alias: App
+#        mappings:
+#            CustomerContact:
+#                is_bundle: false
+#                type: yml
+#                dir: '%kernel.project_dir%/src/CustomerContact/Infrastructure/Persistence/Doctrine/Mapping'
+#                prefix: 'App\CustomerContact\Domain\Entity'
+#                alias: CustomerContact
+#            App:
+#                is_bundle: false
+#                type: yml
+#                dir: '%kernel.project_dir%/src/CustomerContact/Infrastructure/Persistence/Doctrine/Mapping'
+#                prefix: 'App\CustomerContact\Domain\Entity'
+#                alias: App
 
 when@test:
     doctrine:

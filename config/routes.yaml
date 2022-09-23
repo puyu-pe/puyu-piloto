@@ -1,8 +1,6 @@
-controllers:
-    resource: ../src/Infrastructure/Ui/Controller/
-    type: attribute
-
-api:
-    resource: ../src/Infrastructure/Api/Controller/
-    type: attribute
-    prefix: /api
+#controllers:
+#    resource: ../src/CustomerContact/Infrastructure/Ui/Controller/
+#    type: attribute
+saas_directory:
+    resource: ../src/Saas/Shared/Infrastructure/Config/Routes/
+    type: directory

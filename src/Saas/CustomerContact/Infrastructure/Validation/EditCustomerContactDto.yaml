@@ -1,0 +1,9 @@
+App\Saas\CustomerContact\Application\Edit\Dto\EditCustomerContactDto:
+  properties:
+    name:
+      - NotBlank: ~
+      - NotNull: ~
+    lastName:
+      - Length:
+          min: 5
+          minMessage: 'Your last name must be at least {{ limit }} characters long'
