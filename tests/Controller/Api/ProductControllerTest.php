@@ -4,7 +4,7 @@ namespace App\Tests\Controller\Api;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CustomerContactControllerTest extends WebTestCase
+class ProductControllerTest extends WebTestCase
 {
     public function testGetAction(): void
     {
@@ -12,7 +12,7 @@ class CustomerContactControllerTest extends WebTestCase
 
         $client->request(
             'GET',
-            '/api/customer_contact',
+            '/api/product',
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
@@ -28,7 +28,7 @@ class CustomerContactControllerTest extends WebTestCase
 
         $client->request(
             'GET',
-            '/api/customer_contact/3',
+            '/api/product/1',
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
@@ -44,15 +44,16 @@ class CustomerContactControllerTest extends WebTestCase
 
         $client->request(
             'POST',
-            '/api/customer_contact',
+            '/api/product',
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
             '{
-                "name": "Josefo",
-                "lastName" : "Mendoza Onton",
-                "phone": "983780023",
-                "jobTitle": "Gerente"
+                 "code": "YUB",
+                 "name": "Yubiz",
+                 "description": "Sistema para micro y mediana empresas.",
+                "url": "yubiz.puyu.pe",
+                "image": "yubiz/img/static.jpg"
             }'
         );
 
@@ -65,15 +66,16 @@ class CustomerContactControllerTest extends WebTestCase
 
         $client->request(
             'PUT',
-            '/api/customer_contact/3',
+            '/api/product/1',
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
             '{
-                "name": "Rafaelo",
-                "lastName" : "Pedraza Quinon",
-                "phone": "983780025",
-                "jobTitle": "Asistente"
+                "code": "YuBiz New code",
+                "name": "Yubiz edit",
+                "description": "Sistema para micro y mediana empresas.",
+                "url": "yubiz.puyu.pe",
+                "image": "yubiz/img/static.jpg"
             }'
         );
 
@@ -86,7 +88,7 @@ class CustomerContactControllerTest extends WebTestCase
 
         $client->request(
             'DELETE',
-            '/api/customer_contact/3',
+            '/api/product/1',
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
