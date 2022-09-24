@@ -1,6 +1,0 @@
-App\Entity\Customer:
-  properties:
-    phone:
-      - Length:
-          min: 9
-          minMessage: 'Tienes que ingresar 9 numeros como minimo'

@@ -16,9 +16,7 @@ class DeleteCustomerContactUseCase
         $this->finder = new FindCustomerContact($repository);
     }
 
-    /**
-     * @throws ProductNotFound
-     */
+
     public function __invoke(string $id): void
     {
         $customerContact = ($this->finder)($id);

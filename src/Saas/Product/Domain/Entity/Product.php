@@ -6,12 +6,11 @@ use Symfony\Component\Uid\Uuid;
 
 class Product
 {
-
     public function __construct(
         private readonly Uuid $id,
         private string $code,
         private string $name,
-        private ?string $descripcion,
+        private ?string $description,
         private string $url,
         private ?string $image,
     ) {
@@ -20,7 +19,7 @@ class Product
     public function create(
         string $code,
         string $name,
-        string $descripcion,
+        string $description,
         string $url,
         string $image
     ): self {
@@ -28,13 +27,13 @@ class Product
             Uuid::v4(),
             $code,
             $name,
-            $descripcion,
+            $description,
             $url,
             $image
         );
     }
 
-    public function getId(): ?Uuid
+    public function getId(): Uuid
     {
         return $this->id;
     }
@@ -44,9 +43,11 @@ class Product
         return $this->code;
     }
 
-    public function setCode(): string
-    {
-        return $this->code;
+    public function setCode(
+        string $code
+    ): self {
+        $this->code = $code;
+        return $this;
     }
 
     public function getName(): string
@@ -54,8 +55,9 @@ class Product
         return $this->name;
     }
 
-    public function setName(string $name): self
-    {
+    public function setName(
+        string $name
+    ): self {
         $this->name = $name;
 
         return $this;

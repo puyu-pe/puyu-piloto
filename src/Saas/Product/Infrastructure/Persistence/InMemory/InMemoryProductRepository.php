@@ -1,36 +1,36 @@
 <?php
 
-namespace App\Saas\CustomerContact\Infrastructure\Persistence\InMemory;
+namespace App\Saas\Product\Infrastructure\Persistence\InMemory;
 
-use App\Saas\CustomerContact\Domain\Entity\CustomerContact;
-use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
+use App\Saas\Product\Domain\Entity\Product;
+use App\Saas\Product\Domain\Repository\ProductRepository;
 use Symfony\Component\Uid\Uuid;
 
-class InMemoryCustomerContactRepository implements CustomerContactRepository
+class InMemoryProductRepository implements ProductRepository
 {
-    /** @var CustomerContact[] */
-    protected array $customerContacts = [];
+    /** @var Product[] */
+    protected array $products = [];
 
-    public function save(CustomerContact $customerContact): void
+    public function save(Product $product): void
     {
-        $this->customerContacts[$customerContact->getId()->toRfc4122()] = $customerContact;
+        $this->products[$product->getId()->toRfc4122()] = $product;
     }
 
-    public function delete(CustomerContact $customerContact): void
+    public function delete(Product $product): void
     {
-        unset($this->customerContacts[$customerContact->getId()->toRfc4122()]);
+        unset($this->products[$product->getId()->toRfc4122()]);
     }
 
-    public function search(Uuid $id): ?CustomerContact
+    public function search(Uuid $id): ?Product
     {
-        return $this->customerContacts[$id->toRfc4122()] ?? null;
+        return $this->products[$id->toRfc4122()] ?? null;
     }
 
     /**
-     * @return CustomerContact[]
+     * @return Product[]
      */
     public function getAll(): array
     {
-        return $this->customerContacts;
+        return $this->products;
     }
 }

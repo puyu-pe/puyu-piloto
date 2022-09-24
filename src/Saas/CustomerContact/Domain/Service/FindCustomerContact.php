@@ -3,7 +3,7 @@
 namespace App\Saas\CustomerContact\Domain\Service;
 
 use App\Saas\CustomerContact\Domain\Entity\CustomerContact;
-use App\Saas\CustomerContact\Domain\Exception\ProductNotFound;
+use App\Saas\CustomerContact\Domain\Exception\CustomerContactNotFound;
 use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
 use Symfony\Component\Uid\Uuid;
 
@@ -14,9 +14,7 @@ class FindCustomerContact
     ) {
     }
 
-    /**
-     * @throws ProductNotFound
-     */
+
     public function __invoke(string $id): CustomerContact
     {
         $customerContact = $this->repository->search(Uuid::fromString($id));
@@ -26,13 +24,11 @@ class FindCustomerContact
         return $customerContact;
     }
 
-    /**
-     * @throws \App\Saas\CustomerContact\Domain\Exception\ProductNotFound
-     */
+
     private function guard(string $id, CustomerContact $customerContact = null): void
     {
         if (is_null($customerContact)) {
-            throw new ProductNotFound($id);
+            throw new CustomerContactNotFound($id);
         }
     }
 }

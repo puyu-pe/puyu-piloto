@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Saas\CustomerContact\Infrastructure\Persistence\Doctrine\Repository;
+namespace App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository;
 
 use App\Saas\CustomerContact\Domain\Entity\CustomerContact;
 use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
@@ -16,7 +16,7 @@ use Symfony\Component\Uid\Uuid;
  * @method CustomerContact[]    findAll()
  * @method CustomerContact[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DoctrineCustomerContactRepository extends ServiceEntityRepository implements CustomerContactRepository
+class DoctrineProductRepository extends ServiceEntityRepository implements CustomerContactRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

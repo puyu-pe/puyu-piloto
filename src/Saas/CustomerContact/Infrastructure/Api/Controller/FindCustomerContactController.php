@@ -3,7 +3,7 @@
 namespace App\Saas\CustomerContact\Infrastructure\Api\Controller;
 
 use App\Saas\CustomerContact\Application\Find\FindCustomerContactUseCase;
-use App\Saas\CustomerContact\Domain\Exception\ProductNotFound;
+use App\Saas\CustomerContact\Domain\Exception\CustomerContactNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
@@ -26,7 +26,7 @@ class FindCustomerContactController extends AbstractFOSRestController
                 Response::HTTP_OK
             );
             $view->getContext()->setGroups(['customer_contact']);
-        } catch (ProductNotFound $exception) {
+        } catch (CustomerContactNotFound $exception) {
             $view = View::create($exception, Response::HTTP_BAD_REQUEST);
         }
         return $this->handleView($view);
