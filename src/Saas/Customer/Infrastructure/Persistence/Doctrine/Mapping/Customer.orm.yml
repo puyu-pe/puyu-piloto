@@ -1,0 +1,24 @@
+App\Saas\Customer\Domain\Entity\Customer:
+    type: entity
+    repositoryClass: App\Saas\Customer\Domain\Repository\CustomerRepository
+    table: customer
+    id:
+        id:
+            type: uuid
+            unique: true
+    fields:
+        document_number:
+            type: string
+            length: 11
+        name:
+            type: string
+            length: 200
+        address:
+            type: string
+            length: 150
+        email:
+            type: string
+            length: 40
+        phone:
+            type: string
+            length: 20
