@@ -1,0 +1,6 @@
+saas_customer_directory:
+    resource: '../../../../Customer/Infrastructure/Config/Routes/'
+    type: directory
+    prefix: saas
+
+

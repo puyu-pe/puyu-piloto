@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Saas\Customer\Infrastructure\Repository;
 
 use App\Saas\Customer\Domain\Entity\Customer;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;

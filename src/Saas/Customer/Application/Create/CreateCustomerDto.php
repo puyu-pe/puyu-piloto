@@ -4,7 +4,6 @@ namespace App\Saas\Customer\Application\Create;
 
 class CreateCustomerDto
 {
-
     public function __construct(
         private readonly string $document_number,
         private readonly ?string $name = null,
@@ -34,5 +33,4 @@ class CreateCustomerDto
     {
         return $this->phone;
     }
-
 }
