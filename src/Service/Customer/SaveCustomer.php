@@ -2,8 +2,8 @@
 
 namespace App\Service\Customer;
 
-use App\Entity\Customer;
 use App\Form\Type\Customer\CustomerType;
+use App\Saas\Customer\Domain\Entity\Customer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;

@@ -2,32 +2,36 @@
 
 namespace App\Saas\Customer\Domain\Entity;
 
+use Symfony\Component\Uid\Uuid;
 
-use App\Repository\CustomerRepository;
-use Doctrine\ORM\Mapping as ORM;
-
-#[ORM\Entity(repositoryClass: CustomerRepository::class)]
 class Customer
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    public function __construct(
+        private readonly Uuid $id,
+        private string $document_number,
+        private string $name,
+        private string $address,
+        private string $email,
+        private string $phone,
+    ) {
+    }
+    public static function create(
+        string $document_number,
+        string $name,
+        string $address,
+        string $email,
+        string $phone,
+    ): self {
+        return new self(
+            Uuid::v4(),
+            $document_number,
+            $name,
+            $address,
+            $email,
+            $phone,
+        );
+    }
 
-    #[ORM\Column(length: 11)]
-    private ?string $document_number = null;
-
-    #[ORM\Column(length: 200)]
-    private ?string $name = null;
-
-    #[ORM\Column(length: 150)]
-    private ?string $address = null;
-
-    #[ORM\Column(length: 40)]
-    private ?string $email = null;
-
-    #[ORM\Column(length: 20)]
-    private ?string $phone = null;
 
     public function getId(): ?int
     {

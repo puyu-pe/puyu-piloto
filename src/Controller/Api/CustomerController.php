@@ -2,9 +2,9 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\Customer;
 use App\Model\Exception\Customer\CustomerNotFound;
 use App\Repository\CustomerRepository;
+use App\Saas\Customer\Domain\Entity\Customer;
 use App\Service\Customer\DeleteCustomer;
 use App\Service\Customer\EditCustomer;
 use App\Service\Customer\GetCustomer;

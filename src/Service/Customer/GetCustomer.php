@@ -2,9 +2,9 @@
 
 namespace App\Service\Customer;
 
-use App\Entity\Customer;
 use App\Model\Exception\Customer\CustomerNotFound;
 use App\Repository\CustomerRepository;
+use App\Saas\Customer\Domain\Entity\Customer;
 
 class GetCustomer
 {
