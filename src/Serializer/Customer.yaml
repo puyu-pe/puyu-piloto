@@ -1,0 +1,14 @@
+App\Entity\Customer:
+  attributes:
+    id:
+      groups: [ 'customer' ]
+    document_number:
+      groups: ['customer']
+    name:
+      groups: [ 'customer' ]
+    address:
+      groups: [ 'customer1' ]
+    email:
+      groups: [ 'customer' ]
+    phone:
+      groups: [ 'customer' ]
