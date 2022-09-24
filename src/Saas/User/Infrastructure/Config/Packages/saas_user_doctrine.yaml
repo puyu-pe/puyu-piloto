@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            User:
+                is_bundle: false
+                type: yml
+                dir: '%kernel.project_dir%/src/Saas/User/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Saas\User\Domain\Entity'
+                alias: User
