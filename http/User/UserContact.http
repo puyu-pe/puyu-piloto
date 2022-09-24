@@ -1,27 +1,27 @@
 ### 📗 GET List user
 
-GET http://localhost:9191/api/user
+GET http://localhost:9191/saas/api/user
 
 ### 📗 GET Single user
 
-GET http://localhost:9191/api/user/1
+GET http://localhost:9191/saas/api/user/1
 Accept: application/json
 
 ### 💛 POST Save user
 
-POST http://localhost:9191/api/user
+POST http://localhost:9191/saas/api/user/
 Content-Type: application/json
 
 {
     "username": "test 3",
     "password": "test",
     "fullName": "Usuario test 3",
-    "enabled": true
+    "enabled": 1
 }
 
 ### 🔵 PUT Update Customer contact
 
-PUT http://localhost:9191/api/user/2
+PUT http://localhost:9191/saas/api/user/2
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete user
 
-DELETE http://localhost:9191/api/user/5
+DELETE http://localhost:9191/saas/api/user/5
 Content-Type: application/x-www-form-urlencod
 
 

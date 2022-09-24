@@ -1,4 +1,4 @@
-App\Saas\CustomerContact\Domain\Entity\User:
+App\Saas\User\Domain\Entity\User:
   attributes:
     id:
       groups: [ 'user' ]

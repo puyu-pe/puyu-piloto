@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class CreateUserController extends AbstractFOSRestController
 {
-    #[Rest\Post(name: 'customer_contact_save')]
+    #[Rest\Post(name: 'user_save')]
     public function __invoke(
         CreateUserUseCase $useCase,
         SerializerInterface $serializer,
@@ -28,7 +28,7 @@ class CreateUserController extends AbstractFOSRestController
                 ['user' => $user],
                 Response::HTTP_OK
             );
-            $view->getContext()->setGroups(['customer_contact']);
+            $view->getContext()->setGroups(['user']);
         } catch (UserDataException $exception) {
             $view = View::create($exception, Response::HTTP_BAD_REQUEST);
         }
