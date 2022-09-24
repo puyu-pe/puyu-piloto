@@ -1,0 +1,43 @@
+### 📗 GET List user
+
+GET http://localhost:9191/api/user
+
+### 📗 GET Single user
+
+GET http://localhost:9191/api/user/1
+Accept: application/json
+
+### 💛 POST Save user
+
+POST http://localhost:9191/api/user
+Content-Type: application/json
+
+{
+    "username": "test 3",
+    "password": "test",
+    "fullName": "Usuario test 3",
+    "enabled": true
+}
+
+### 🔵 PUT Update Customer contact
+
+PUT http://localhost:9191/api/user/2
+Content-Type: application/json
+
+{
+  "username": "test 2 nuevo",
+  "password": "test1234",
+  "fullName": "Usuario test 2 updated",
+  "enabled": 0
+}
+
+
+### 🏮 DELETE Delete user
+
+DELETE http://localhost:9191/api/user/5
+Content-Type: application/x-www-form-urlencod
+
+
+###
+
+

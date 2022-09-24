@@ -1,0 +1,10 @@
+App\Entity\User:
+  properties:
+    username:
+      - NotBlank: ~
+    password:
+      - NotBlank: ~
+    fullName:
+      - NotBlank: ~
+    enabled:
+      - NotBlank: ~
