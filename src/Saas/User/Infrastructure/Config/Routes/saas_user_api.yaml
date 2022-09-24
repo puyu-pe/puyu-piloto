@@ -1,0 +1,4 @@
+saas_user_api:
+    resource: '../../Api/Controller/'
+    type: attribute
+    prefix: api/user

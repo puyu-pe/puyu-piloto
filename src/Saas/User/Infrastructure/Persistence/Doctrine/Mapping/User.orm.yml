@@ -17,4 +17,4 @@ App\Saas\User\Domain\Entity\User:
             type: string
             length: 250
         enabled:
-            type: int
+            type: integer

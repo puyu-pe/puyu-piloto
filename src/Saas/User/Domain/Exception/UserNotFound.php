@@ -17,6 +17,6 @@ class UserNotFound extends \App\Saas\Shared\Domain\Exception\DomainError
 
     public function errorMessage(): string
     {
-        return sprintf('El cusuario <%s> no fue encontrado', $this->id);
+        return sprintf('El usuario <%s> no fue encontrado', $this->id);
     }
 }
