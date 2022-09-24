@@ -20,3 +20,4 @@ services:
 
 imports:
     - { resource: ../../../CustomerContact/Infrastructure/Config/saas_customer_contact_service.yaml }
+    - { resource: ../../../Customer/Infrastructure/Config/saas_customer_service.yaml }

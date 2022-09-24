@@ -1,0 +1,14 @@
+imports:
+  - { resource: Packages/saas_customer_doctrine.yaml }
+  - { resource: Packages/saas_customer_framework.yaml }
+
+when@prod:
+when@dev:
+  services:
+    App\Saas\Customer\Infrastructure\Persistence\Doctrine\Repository\DoctrineCustomerRepository: ~
+    App\Saas\Customer\Domain\Repository\CustomerRepository: '@App\Saas\Customer\Infrastructure\Persistence\Doctrine\Repository\DoctrineCustomerRepository'
+
+when@test:
+  services:
+    App\Saas\Customer\Infrastructure\Persistence\InMemory\InMemoryCustomerRepository: ~
+    App\Saas\Customer\Domain\Repository\CustomerRepository: '@App\Saas\Customer\Infrastructure\Persistence\InMemory\InMemoryCustomerRepository'
