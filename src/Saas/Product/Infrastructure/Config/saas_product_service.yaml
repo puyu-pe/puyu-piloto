@@ -5,10 +5,10 @@ imports:
 when@prod:
 when@dev:
     services:
-        App\Saas\CustomerContact\Infrastructure\Persistence\Doctrine\Repository\DoctrineCustomerContactRepository: ~
-        App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository: '@App\Saas\CustomerContact\Infrastructure\Persistence\Doctrine\Repository\DoctrineProductRepository'
+        App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository\DoctrineProductRepository: ~
+        App\Saas\Product\Domain\Repository\ProductRepository: '@App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository\DoctrineProductRepository'
 
 when@test:
     services:
-        App\Saas\CustomerContact\Infrastructure\Persistence\InMemory\InMemoryCustomerContactRepository: ~
-        App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository: '@App\Saas\CustomerContact\Infrastructure\Persistence\InMemory\InMemoryProductRepository'
+        App\Saas\Product\Infrastructure\Persistence\InMemory\InMemoryProductRepository: ~
+        App\Saas\Product\Domain\Repository\ProductRepository: '@App\Saas\Product\Infrastructure\Persistence\InMemory\InMemoryProductRepository'
