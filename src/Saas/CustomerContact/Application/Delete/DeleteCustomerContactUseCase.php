@@ -2,7 +2,7 @@
 
 namespace App\Saas\CustomerContact\Application\Delete;
 
-use App\Saas\CustomerContact\Domain\Exception\CustomerContactNotFound;
+use App\Saas\CustomerContact\Domain\Exception\ProductNotFound;
 use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
 use App\Saas\CustomerContact\Domain\Service\FindCustomerContact;
 
@@ -17,7 +17,7 @@ class DeleteCustomerContactUseCase
     }
 
     /**
-     * @throws CustomerContactNotFound
+     * @throws ProductNotFound
      */
     public function __invoke(string $id): void
     {
