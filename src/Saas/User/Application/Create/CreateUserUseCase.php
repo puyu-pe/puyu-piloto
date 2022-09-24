@@ -1,48 +1,48 @@
 <?php
 
-namespace App\Saas\CustomerContact\Application\Create;
+namespace App\Saas\User\Application\Create;
 
-use App\Saas\CustomerContact\Domain\Entity\CustomerContact;
-use App\Saas\CustomerContact\Domain\Exception\CustomerContactDataException;
-use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
+use App\Saas\User\Domain\Entity\User;
+use App\Saas\User\Domain\Exception\UserDataException;
+use App\Saas\User\Domain\Repository\UserRepository;
 use App\Saas\Shared\Domain\Validation\Validator;
 
-class CreateCustomerContactUseCase
+class CreateUserUseCase
 {
     public function __construct(
-        private readonly CustomerContactRepository $customerContactRepository,
+        private readonly UserRepository $userRepository,
         private readonly Validator $validator,
     ) {
     }
 
     /**
-     * @throws CustomerContactDataException
+     * @throws UserDataException
      */
     public function __invoke(
-        CreateCustomerContactDto $dto
-    ): CustomerContact {
+        CreateUserDto $dto
+    ): User {
         $this->guard($dto);
 
-        $customerContact = CustomerContact::create(
-            $dto->getName(),
-            $dto->getLastName(),
-            $dto->getPhone(),
-            $dto->getJobTitle(),
+        $user = User::create(
+            $dto->getUsername(),
+            $dto->getPassword(),
+            $dto->getFullName(),
+            $dto->getEnabled(),
         );
 
-        $this->customerContactRepository->save($customerContact);
-        return $customerContact;
+        $this->userRepository->save($user);
+        return $user;
     }
 
     /**
-     * @throws CustomerContactDataException
+     * @throws UserDataException
      */
-    public function guard(CreateCustomerContactDto $customerContact): void
+    public function guard(CreateUserDto $user): void
     {
-        $errors = $this->validator->validate($customerContact);
+        $errors = $this->validator->validate($user);
         if (count($errors)) {
             $error = $errors[0];
-            throw new CustomerContactDataException($error->getField(), $error->getMessage());
+            throw new UserDataException($error->getField(), $error->getMessage());
         }
     }
 }

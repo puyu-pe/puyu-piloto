@@ -1,0 +1,12 @@
+App\Saas\CustomerContact\Domain\Entity\User:
+  attributes:
+    id:
+      groups: [ 'user' ]
+    username:
+      groups: [ 'user' ]
+    password:
+      groups: [ 'user' ]
+    fullName:
+      groups: [ 'user' ]
+    enabled:
+      groups: [ 'user' ]

@@ -8,7 +8,7 @@ class CreateUserDto
         private readonly ?string $username = null,
         private readonly ?string $password = null,
         private readonly ?string $fullName = null,
-        private readonly ?string $status = null,
+        private readonly ?string $enabled = null,
     ) {
     }
 
@@ -27,7 +27,7 @@ class CreateUserDto
         return $this->fullName;
     }
 
-    public function isEnabled(): ?int
+    public function getEnabled(): ?int
     {
         return $this->enabled;
     }
