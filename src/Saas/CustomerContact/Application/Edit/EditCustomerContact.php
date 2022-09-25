@@ -9,7 +9,7 @@ use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
 use App\Saas\CustomerContact\Domain\Service\FindCustomerContact;
 use App\Saas\Shared\Domain\Validation\Validator;
 
-class EditCustomerContactUseCase
+class EditCustomerContact
 {
     private FindCustomerContact $finder;
 
