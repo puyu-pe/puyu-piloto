@@ -1,7 +1,7 @@
 App\Saas\User\Domain\Entity\User:
     type: entity
     repositoryClass: App\Saas\User\Domain\Repository\UserRepository
-    table: customer_contact
+    table: user
     id:
         id:
             type: uuid

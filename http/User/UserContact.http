@@ -1,6 +1,7 @@
 ### 📗 GET List user
 
-GET http://localhost:9191/saas/api/user
+GET http://localhost:9191/saas/api/user/
+
 
 ### 📗 GET Single user
 
