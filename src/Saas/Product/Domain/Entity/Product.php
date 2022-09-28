@@ -16,7 +16,7 @@ class Product
     ) {
     }
 
-    public function create(
+    public static function create(
         string $code,
         string $name,
         string $description,

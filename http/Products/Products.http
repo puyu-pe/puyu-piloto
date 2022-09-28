@@ -27,7 +27,7 @@ Content-Type: application/x-www-form-urlencod
 
 ### 💛 POST Save product
 
-POST http://localhost:9191/api/product
+POST http://localhost:9191/saas/api/product/
 Content-Type: application/json
 
 {

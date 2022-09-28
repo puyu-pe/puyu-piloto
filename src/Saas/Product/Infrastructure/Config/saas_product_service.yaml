@@ -3,12 +3,12 @@ imports:
     - { resource: Packages/saas_product_framework.yaml }
 
 when@prod:
-when@dev:
+when@test:
     services:
         App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository\DoctrineProductRepository: ~
         App\Saas\Product\Domain\Repository\ProductRepository: '@App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository\DoctrineProductRepository'
 
-when@test:
+when@dev:
     services:
         App\Saas\Product\Infrastructure\Persistence\InMemory\InMemoryProductRepository: ~
         App\Saas\Product\Domain\Repository\ProductRepository: '@App\Saas\Product\Infrastructure\Persistence\InMemory\InMemoryProductRepository'

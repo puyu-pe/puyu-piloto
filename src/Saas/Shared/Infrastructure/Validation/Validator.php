@@ -14,7 +14,7 @@ class Validator implements DomainValidator
     }
 
     /**
-     * @return \App\Saas\Shared\Domain\Validation\ValidationError[]
+     * @return ValidationError[]
      */
     public function validate(object $value): array
     {
@@ -22,7 +22,7 @@ class Validator implements DomainValidator
         if (count($errors)) {
             $errorsArray = [];
             for ($i = 0; $i < count($errors); $i++) {
-                $errorObject = new \App\Saas\Shared\Domain\Validation\ValidationError(
+                $errorObject = new ValidationError(
                     $errors->get($i)->getPropertyPath(),
                     $errors->get($i)->getMessage()
                 );

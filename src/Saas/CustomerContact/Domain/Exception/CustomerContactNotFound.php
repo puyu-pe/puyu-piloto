@@ -2,9 +2,7 @@
 
 namespace App\Saas\CustomerContact\Domain\Exception;
 
-use App\Saas\Shared\Domain\Exception\DomainError;
-
-class CustomerContactNotFound extends DomainError
+class CustomerContactNotFound extends \App\Saas\Shared\Domain\Exception\DomainError
 {
     public function __construct(
         private readonly string $id,

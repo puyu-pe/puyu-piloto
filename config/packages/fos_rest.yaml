@@ -1,19 +1,16 @@
 fos_rest:
   param_fetcher_listener: true
-#  view:
-#    empty_content: 200
-#    view_response_listener: true
-#    failed_validation: HTTP_BAD_REQUEST
-#    formats:
-#      json: true
-#      xml: false
-#
-#  body_listener:
-#    decoders:
-#      json: fos_rest.decoder.json
+  view:
+    empty_content: 200
+    view_response_listener: true
+    failed_validation: HTTP_BAD_REQUEST
+    formats:
+      json: true
+      xml: false
 
-  service:
-    view_handler: app.view_handler
+  body_listener:
+    decoders:
+      json: fos_rest.decoder.json
 
   format_listener:
     rules:

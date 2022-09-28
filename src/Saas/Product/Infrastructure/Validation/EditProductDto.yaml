@@ -1,4 +1,4 @@
-App\Saas\Product\Application\Create\CreateProductDto:
+App\Saas\Product\Application\Edit\Dto\EditProductDto:
   properties:
     code:
       - NotBlank: ~

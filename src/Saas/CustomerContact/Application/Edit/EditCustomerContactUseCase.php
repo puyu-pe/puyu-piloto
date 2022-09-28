@@ -3,8 +3,8 @@
 namespace App\Saas\CustomerContact\Application\Edit;
 
 use App\Saas\CustomerContact\Domain\Entity\CustomerContact;
-use App\Saas\CustomerContact\Domain\Exception\ProductDataException;
-use App\Saas\CustomerContact\Domain\Exception\ProductNotFound;
+use App\Saas\CustomerContact\Domain\Exception\CustomerContactDataException;
+use App\Saas\CustomerContact\Domain\Exception\CustomerContactNotFound;
 use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
 use App\Saas\CustomerContact\Domain\Service\FindCustomerContact;
 use App\Saas\Shared\Domain\Validation\Validator;
@@ -21,8 +21,8 @@ class EditCustomerContactUseCase
     }
 
     /**
-     * @throws ProductDataException
-     * @throws ProductNotFound
+     * @throws CustomerContactDataException
+     * @throws CustomerContactNotFound
      */
     public function __invoke(
         string $id,
@@ -43,14 +43,14 @@ class EditCustomerContactUseCase
     }
 
     /**
-     * @throws \App\Saas\CustomerContact\Domain\Exception\ProductDataException
+     * @throws \App\Saas\CustomerContact\Domain\Exception\CustomerContactDataException
      */
     public function guard(EditCustomerContactDto $dto): void
     {
         $errors = $this->validator->validate($dto);
         if (count($errors)) {
             $error = $errors[0];
-            throw new ProductDataException($error->getField(), $error->getMessage());
+            throw new CustomerContactDataException($error->getField(), $error->getMessage());
         }
     }
 }
