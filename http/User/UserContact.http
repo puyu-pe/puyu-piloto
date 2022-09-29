@@ -35,7 +35,7 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete user
 
-DELETE http://localhost:9191/saas/api/user/5
+DELETE http://localhost:9191/saas/api/user/84b069a6-6b8f-4f4c-a44f-d15a24a186f3
 Content-Type: application/x-www-form-urlencod
 
 
