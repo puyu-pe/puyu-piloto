@@ -5,7 +5,7 @@ GET http://localhost:9191/saas/api/user/
 
 ### 📗 GET Single user
 
-GET http://localhost:9191/saas/api/user/1
+GET http://localhost:9191/saas/api/user/12aacfb2-4c3e-4c9a-a965-292c1a462eed
 Accept: application/json
 
 ### 💛 POST Save user
