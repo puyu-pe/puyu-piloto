@@ -38,12 +38,12 @@ class Customer
         return $this->id;
     }
 
-    public function getDocumentNumber(): ?string
+    public function getDocument_number(): ?string
     {
         return $this->document_number;
     }
 
-    public function setDocumentNumber(string $document_number): self
+    public function setDocument_number(string $document_number): self
     {
         $this->document_number = $document_number;
 
