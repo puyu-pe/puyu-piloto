@@ -3,7 +3,7 @@
 namespace App\Saas\CustomerContact\Infrastructure\Api\Controller;
 
 use App\Saas\CustomerContact\Application\Create\CreateCustomerContactDto;
-use App\Saas\CustomerContact\Application\Create\CreateCustomerContactUseCase;
+use App\Saas\CustomerContact\Application\Create\CreateCustomerContact;
 use App\Saas\CustomerContact\Domain\Exception\CustomerContactDataException;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -16,7 +16,7 @@ class CreateCustomerContactController extends AbstractFOSRestController
 {
     #[Rest\Post(name: 'customer_contact_save')]
     public function __invoke(
-        CreateCustomerContactUseCase $useCase,
+        CreateCustomerContact $useCase,
         SerializerInterface $serializer,
         Request $request,
     ): Response {
