@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Implement your script here.
+git push

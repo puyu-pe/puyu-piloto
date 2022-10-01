@@ -8,6 +8,10 @@ DOCKER_COMPOSE_FILE = ${DOCKER_COMPOSE_PATH}/docker-compose.yml
 endif
 
 DOCKER_PHP = ${APP_NAME}_php
+DOCKER_NGINX = ${APP_NAME}_nginx
+
+COMPOSER=$(shell grep alias\ composer= ./alias.sh | awk -F"'" '{print $$2}')
+SF=$(shell grep alias\ sf= ./alias.sh | awk -F"'" '{print $$2}')
 
 UID = $(shell id -u)
 
@@ -18,7 +22,7 @@ help: ## Show this help message
 	@echo 'targets:'
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
-up: ## Start the containers
+run: ## Start the containers
 	docker network create puyu-network || true
 	U_ID=${UID} docker-compose --project-directory=${DOCKER_COMPOSE_PATH} --file ${DOCKER_COMPOSE_FILE} up -d
 	@echo 'http://localhost:9191'
@@ -29,15 +33,17 @@ stop: ## Stop the containers
 restart: ## Restart the containers
 	$(MAKE) stop && $(MAKE) run
 
-build: ## Rebuilds all the containers
+rebuild: ## Rebuilds images docker
 	U_ID=${UID} docker-compose --project-directory=${DOCKER_COMPOSE_PATH} --file ${DOCKER_COMPOSE_FILE} build
 
-nginx-logs: ## Tails the Symfony dev log
-	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_PHP} tail -f /var/log/nginx/project_access.log
-# End backend commands
+ci: ## Run CI commands
+	@echo 'Running CI in ${APP_NAME}'
+	@echo 'GIT PULL  ------------------------------------------------------------------|'
+	git pull
+	@echo 'COMPOSER INSTALL  ----------------------------------------------------------|'
+	$(COMPOSER) install
+	@echo 'SYMFONY MIGRATE  -----------------------------------------------------------|'
+	$(SF) do:mi:mi -n
 
-ssh-php: ## ssh's into the be container
-	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_PHP} bash
-
-code-style: ## Runs php-cs to fix code styling following Symfony rules
-	cd ${DOCKER_PATH}/ && U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_PHP} php-cs-fixer fix src --rules=@Symfony
+#Run by default RUN option
+.DEFAULT_GOAL := run

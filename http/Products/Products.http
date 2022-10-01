@@ -1,0 +1,43 @@
+### 📗 GET List products
+
+GET http://localhost:9191/api/product
+
+### 📗 GET Single product
+
+GET http://localhost:9191/api/product/2
+Accept: application/json
+
+### 🔵 PUT Update product
+
+PUT http://localhost:9191/api/product/2
+Content-Type: application/json
+
+{
+  "code": "YuBiz New code",
+  "name": "Yubiz edit",
+  "description": "Sistema para micro y mediana empresas.",
+  "url": "yubiz.puyu.pe",
+  "image": "yubiz/img/static.jpg"
+}
+
+### 🏮 DELETE Delete product
+
+DELETE http://localhost:9191/api/product/2
+Content-Type: application/x-www-form-urlencod
+
+### 💛 POST Save product
+
+POST http://localhost:9191/api/product
+Content-Type: application/json
+
+{
+  "code": "YUB",
+  "name": "Yubiz",
+  "description": "Sistema para micro y mediana empresas.",
+  "url": "yubiz.puyu.pe",
+  "image": "yubiz/img/static.jpg"
+}
+
+###
+
+

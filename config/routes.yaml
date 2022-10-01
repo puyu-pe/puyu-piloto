@@ -1,3 +1,6 @@
-controllers:
-    resource: ../src/Controller/
-    type: attribute
+#controllers:
+#    resource: ../src/CustomerContact/Infrastructure/Ui/Controller/
+#    type: attribute
+saas_directory:
+    resource: ../src/Saas/Shared/Infrastructure/Config/Routes/
+    type: directory

@@ -1,0 +1,4 @@
+saas_shared_customer_contact_route:
+    resource: '../../../../CustomerContact/Infrastructure/Config/Routes/'
+    type: directory
+    prefix: saas
