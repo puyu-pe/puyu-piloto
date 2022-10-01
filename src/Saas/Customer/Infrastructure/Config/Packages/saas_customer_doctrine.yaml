@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            Customer:
+                is_bundle: false
+                type: yml
+                dir: '%kernel.project_dir%/src/Saas/Customer/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Saas\Customer\Domain\Entity'
+                alias: Customer

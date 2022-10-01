@@ -1,0 +1,2 @@
+imports:
+    - { resource: ../../../../Customer/Infrastructure/Config/saas_customer_service.yaml }

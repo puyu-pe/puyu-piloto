@@ -1,0 +1,9 @@
+App\Saas\Customer\Application\Edit\Dto\EditCustomerDto:
+  properties:
+    documentNumber:
+      - NotBlank: ~
+      - NotNull: ~
+    name:
+      - Length:
+          min: 5
+          minMessage: 'Your last name must be at least {{ limit }} characters long'
