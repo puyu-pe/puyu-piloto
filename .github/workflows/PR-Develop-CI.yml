@@ -20,7 +20,7 @@ jobs:
             # PHPStan Analyze
             -   name: PHPStan - PHP Static Analysis Tool
                 run: |
-                    vendor/bin/phpstan
+                    echo "aqui se ejecutara PHPStan"
 
     ECS:
         runs-on: ubuntu-latest
