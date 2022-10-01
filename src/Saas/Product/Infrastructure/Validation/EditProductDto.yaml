@@ -1,0 +1,11 @@
+App\Saas\Product\Application\Edit\Dto\EditProductDto:
+  properties:
+    code:
+      - NotBlank: ~
+      - Length:
+          max: 20
+          minMessage: 'El codigo tiene que tener una longitud maxima de {{ limit }}'
+    name:
+      - NotBlank: ~
+    url:
+      - NotBlank: ~

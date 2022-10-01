@@ -1,0 +1,26 @@
+App\Saas\Product\Domain\Entity\Product:
+    type: entity
+    repositoryClass: App\Saas\Product\Domain\Repository\ProductRepository
+    table: product
+    id:
+        id:
+            type: uuid
+            unique: true
+    fields:
+        code:
+            type: string
+            length: 20
+        name:
+            type: string
+            length: 250
+        description:
+            type: string
+            length: 400
+            nullable: true
+        url:
+            type: string
+            length: 250
+        image:
+            type: string
+            length: 300
+            nullable: true

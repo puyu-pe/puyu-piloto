@@ -1,0 +1,14 @@
+imports:
+    - { resource: Packages/saas_product_doctrine.yaml }
+    - { resource: Packages/saas_product_framework.yaml }
+
+when@prod:
+when@test:
+    services:
+        App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository\DoctrineProductRepository: ~
+        App\Saas\Product\Domain\Repository\ProductRepository: '@App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository\DoctrineProductRepository'
+
+when@dev:
+    services:
+        App\Saas\Product\Infrastructure\Persistence\InMemory\InMemoryProductRepository: ~
+        App\Saas\Product\Domain\Repository\ProductRepository: '@App\Saas\Product\Infrastructure\Persistence\InMemory\InMemoryProductRepository'

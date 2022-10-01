@@ -1,0 +1,4 @@
+saas_product_api:
+    resource: '../../Api/Controller/'
+    type: attribute
+    prefix: api/product
