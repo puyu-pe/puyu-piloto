@@ -7,7 +7,7 @@ App\Saas\Customer\Domain\Entity\Customer:
             type: uuid
             unique: true
     fields:
-        document_number:
+        documentNumber:
             type: string
             length: 11
         name:

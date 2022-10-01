@@ -8,7 +8,7 @@ class Customer
 {
     public function __construct(
         private readonly Uuid $id,
-        private string $document_number,
+        private string $documentNumber,
         private string $name,
         private string $address,
         private string $email,
@@ -16,7 +16,7 @@ class Customer
     ) {
     }
     public static function create(
-        string $document_number,
+        string $documentNumber,
         string $name,
         string $address,
         string $email,
@@ -24,7 +24,7 @@ class Customer
     ): self {
         return new self(
             Uuid::v4(),
-            $document_number,
+            $documentNumber,
             $name,
             $address,
             $email,
@@ -38,14 +38,14 @@ class Customer
         return $this->id;
     }
 
-    public function getDocument_number(): ?string
+    public function getDocumentNumber(): ?string
     {
-        return $this->document_number;
+        return $this->documentNumber;
     }
 
-    public function setDocument_number(string $document_number): self
+    public function setDocumentNumber(string $documentNumber): self
     {
-        $this->document_number = $document_number;
+        $this->documentNumber = $documentNumber;
 
         return $this;
     }

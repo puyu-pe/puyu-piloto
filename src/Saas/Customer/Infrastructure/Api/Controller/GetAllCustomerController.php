@@ -17,7 +17,7 @@ class GetAllCustomerController extends AbstractFOSRestController
         $customer = ($useCase)();
 
         $view = View::create(
-            ['customerContacts' => $customer],
+            ['customer' => $customer],
             Response::HTTP_OK
         );
         $view->getContext()->setGroups(['customer']);

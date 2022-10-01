@@ -25,10 +25,10 @@ class CreateCustomerController extends AbstractFOSRestController
             $customer = ($useCase)($dto);
 
             $view = View::create(
-                ['customerContact' => $customer],
+                ['customer' => $customer],
                 Response::HTTP_OK
             );
-            $view->getContext()->setGroups(['customer_contact']);
+            $view->getContext()->setGroups(['customer']);
         } catch (CustomerDataException $exception) {
             $view = View::create($exception, Response::HTTP_BAD_REQUEST);
         }

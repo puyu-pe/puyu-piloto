@@ -32,7 +32,7 @@ class EditCustomerUseCase
         $customer = ($this->finder)($id);
 
         $customer
-            ->setDocument_number($dto->getDocument_number())
+            ->setDocumentNumber($dto->getDocumentNumber())
             ->setName($dto->getName())
             ->setAddress($dto->getAddress())
             ->setEmail($dto->getEmail())

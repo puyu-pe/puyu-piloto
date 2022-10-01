@@ -1,19 +1,19 @@
 ### 📗 GET List customer
 
-GET http://localhost:9191/api/customer
+GET http://localhost:9191/saas/api/customer
 
 ### 📗 GET Single customer
 
-GET http://localhost:9191/api/customer/8
+GET http://localhost:9191/saas/api/customer/8
 Accept: application/json
 
 ### 🔵 PUT Update Customer
 
-PUT http://localhost:9191/api/customer/8
+PUT http://localhost:9191/saas/api/customer/8
 Content-Type: application/json
 
 {
-  "document_number" : "20564379248",
+  "documentNumber" : "20564379248",
   "name": "FASTWORKX S.R.L.",
   "address": "AV. ARGENTINA NRO. 146 (A 1 CDRA MUNICIPALIDAD LAS AMERICAS) APURIMAC - ABANCAY - ABANCAY",
   "email": "puyu.com.pe",
@@ -22,16 +22,16 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete customer
 
-DELETE http://localhost:9191/api/customer/10
+DELETE http://localhost:9191/saas/api/customer/10
 Content-Type: application/x-www-form-urlencod
 
 ### 💛 POST Save customer
 
-POST http://localhost:9191/api/customer
+POST http://localhost:9191/saas/api/customer/
 Content-Type: application/json
 
 {
-  "document_number" : "20564379248",
+  "documentNumber" : "20564379248",
   "name": "FASTWORKX S.R.L. 10",
   "address": "AV. ARGENTINA NRO. 146 (A 1 CDRA MUNICIPALIDAD LAS AMERICAS) APURIMAC - ABANCAY - ABANCAY",
   "email": "puyu.com.pe",

@@ -5,16 +5,16 @@ namespace App\Saas\Customer\Application\Edit;
 class EditCustomerDto
 {
     public function __construct(
-        private readonly ?string $document_number = null,
+        private readonly ?string $documentNumber = null,
         private readonly ?string $name = null,
         private readonly ?string $address = null,
         private readonly ?string $email = null,
         private readonly ?string $phone = null,
     ) {
     }
-    public function getDocument_number(): ?string
+    public function getDocumentNumber(): ?string
     {
-        return $this->document_number;
+        return $this->documentNumber;
     }
     public function getName(): ?string
     {

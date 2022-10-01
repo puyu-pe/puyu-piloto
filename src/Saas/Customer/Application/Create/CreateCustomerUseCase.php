@@ -24,7 +24,7 @@ class CreateCustomerUseCase
         $this->guard($dto);
 
         $customer = Customer::create(
-            $dto->getDocument_number(),
+            $dto->getDocumentNumber(),
             $dto->getName(),
             $dto->getAddress(),
             $dto->getEmail(),
