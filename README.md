@@ -49,8 +49,8 @@ Etc.
 
 ### Git
 
-Para **instalar** Yunex debes tener instalado en entorno de desarllo, previamente debes tener **docker** y **docker-compose**.
-También debes tener instalado git, y se promueve el uso de **Intellij IDEA* ya que en esta herramienta se podra estableces los estandares de progrmacion como tambien el formateador de codigo.
+Para **instalar** Yunex debes tener instalado en entorno de desarrollo, previamente debes tener **docker** y **docker-compose**.
+También debes tener instalado git, git-flow, y se promueve el uso de **Intellij IDEA,* ya que en esta herramienta se podrá estableces los estándares de programación como también el formateador de código.
 
 Para poder descargar el código e inicializar git-flow:
 ```shell
@@ -74,16 +74,22 @@ Release branches? [] release/
 Hotfix branches? [] hotfix/
 Support branches? [] 
 Version tag prefix? [] 
-Hooks and filters directory? [/home/emerson/Projects/yunex/.git/hooks] .git/git-flow-hooks
+Hooks and filters directory? [.git/hooks] .git/git-flow-hooks
 ```
+- Creamos una copia de seguridad de los hooks por defecto de git de 
+- Creamos un enlace simbólico a nuestros hooks penalizados
+  - `hooks`: para que funcione los `(pre/post)-commit`
+  - `git-fl0w-hooks`: para que funcione los hooks de git-flow
 
-Finalmente, clone el proyecto para el control semántico de version
 
 ```shell
-cd .git; git clone git@github.com:jaspernbrouwer/git-flow-hooks.git; cd ..
+mv .git/hooks .git/hooks-bkp
+ln -s $(pwd)/cicd/git-flow-hooks .git/
+ln -s $(pwd)/cicd/git-flow-hooks .git/hooks
 ```
+
 Observación.
-> En adelante toda implementación en el código debe hacerse a través de ramas que propone gitflow
+> En adelante toda implementación en el código debe hacerse a través de ramas que propone git-flow
 
 ### Docker
 Construir y Levantar los contenedores de docker compose
