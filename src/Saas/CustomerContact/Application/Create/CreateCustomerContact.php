@@ -7,7 +7,7 @@ use App\Saas\CustomerContact\Domain\Exception\CustomerContactDataException;
 use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
 use App\Saas\Shared\Domain\Validation\Validator;
 
-class CreateCustomerContactUseCase
+class CreateCustomerContact
 {
     public function __construct(
         private readonly CustomerContactRepository $customerContactRepository,

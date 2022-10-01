@@ -2,8 +2,8 @@
 
 namespace App\Saas\CustomerContact\Infrastructure\Api\Controller;
 
+use App\Saas\CustomerContact\Application\Edit\EditCustomerContact;
 use App\Saas\CustomerContact\Application\Edit\EditCustomerContactDto;
-use App\Saas\CustomerContact\Application\Edit\EditCustomerContactUseCase;
 use App\Saas\CustomerContact\Domain\Exception\CustomerContactNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -19,7 +19,7 @@ class EditCustomerContactController extends AbstractFOSRestController
     public function __invoke(
         string $id,
         Request $request,
-        EditCustomerContactUseCase $useCase,
+        EditCustomerContact $useCase,
         SerializerInterface $serializer,
     ): Response {
         try {

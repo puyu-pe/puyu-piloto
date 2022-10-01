@@ -5,7 +5,7 @@ namespace App\Saas\CustomerContact\Application\GetAll;
 use App\Saas\CustomerContact\Domain\Entity\CustomerContact;
 use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
 
-class GetAllCustomerContactsUseCase
+class GetAllCustomerContacts
 {
     public function __construct(
         private readonly CustomerContactRepository $customerContactRepository,
