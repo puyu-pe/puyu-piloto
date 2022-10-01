@@ -2,8 +2,8 @@
 
 namespace App\Saas\CustomerContact\Infrastructure\Api\Controller;
 
-use App\Saas\CustomerContact\Application\Edit\EditCustomerContactDto;
 use App\Saas\CustomerContact\Application\Edit\EditCustomerContact;
+use App\Saas\CustomerContact\Application\Edit\EditCustomerContactDto;
 use App\Saas\CustomerContact\Domain\Exception\CustomerContactNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
