@@ -2,7 +2,7 @@
 
 namespace App\Saas\Customer\Infrastructure\Api\Controller;
 
-use App\Saas\Customer\Application\GetAll\GetAllCustomerUseCase;
+use App\Saas\Customer\Application\GetAll\GetAllCustomer;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
@@ -12,7 +12,7 @@ class GetAllCustomerController extends AbstractFOSRestController
 {
     #[Rest\Get(path: '', name: 'customer_get_all')]
     public function __invoke(
-        GetAllCustomerUseCase $useCase,
+        GetAllCustomer $useCase,
     ): Response {
         $customer = ($useCase)();
 

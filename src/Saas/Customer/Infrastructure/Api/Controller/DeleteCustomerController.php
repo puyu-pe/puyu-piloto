@@ -2,7 +2,7 @@
 
 namespace App\Saas\Customer\Infrastructure\Api\Controller;
 
-use App\Saas\Customer\Application\Delete\DeleteCustomerUseCase;
+use App\Saas\Customer\Application\Delete\DeleteCustomer;
 use App\Saas\Customer\Domain\Exception\CustomerNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -15,7 +15,7 @@ class DeleteCustomerController extends AbstractFOSRestController
     #[Rest\Delete(path: '/{id}', name: 'customer_delete', requirements: ['id' => Requirement::UUID_V4])]
     public function __invoke(
         string $id,
-        DeleteCustomerUseCase $useCase,
+        DeleteCustomer $useCase,
     ): Response {
         try {
             ($useCase)($id);

@@ -5,7 +5,7 @@ namespace App\Saas\Customer\Application\GetAll;
 use App\Saas\Customer\Domain\Entity\Customer;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;
 
-class GetAllCustomerUseCase
+class GetAllCustomer
 {
     public function __construct(
         private readonly CustomerRepository $customerRepository,

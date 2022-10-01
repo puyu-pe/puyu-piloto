@@ -1,6 +1,6 @@
 App\Saas\Customer\Application\Create\CreateCustomerDto:
   properties:
-    document_number:
+    documentNumber:
       - NotBlank: ~
     name:
       - Length:

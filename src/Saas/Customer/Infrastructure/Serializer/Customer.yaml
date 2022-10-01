@@ -2,7 +2,7 @@ App\Saas\Customer\Domain\Entity\Customer:
   attributes:
     id:
       groups: [ 'customer' ]
-    document_number:
+    documentNumber:
       groups: ['customer']
     name:
       groups: [ 'customer' ]

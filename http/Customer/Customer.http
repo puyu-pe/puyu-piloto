@@ -4,12 +4,12 @@ GET http://localhost:9191/saas/api/customer
 
 ### 📗 GET Single customer
 
-GET http://localhost:9191/saas/api/customer/8
+GET http://localhost:9191/saas/api/customer/bdf2ad0f-98db-43c5-8e6b-c04986726f43
 Accept: application/json
 
 ### 🔵 PUT Update Customer
 
-PUT http://localhost:9191/saas/api/customer/8
+PUT http://localhost:9191/saas/api/customer/bdf2ad0f-98db-43c5-8e6b-c04986726f43
 Content-Type: application/json
 
 {
@@ -22,7 +22,7 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete customer
 
-DELETE http://localhost:9191/saas/api/customer/10
+DELETE http://localhost:9191/saas/api/customer/c26f39ec-e7b8-4eb9-97de-181e77e8377d
 Content-Type: application/x-www-form-urlencod
 
 ### 💛 POST Save customer

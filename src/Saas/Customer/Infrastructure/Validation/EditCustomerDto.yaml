@@ -1,6 +1,6 @@
 App\Saas\Customer\Application\Edit\Dto\EditCustomerDto:
   properties:
-    document_number:
+    documentNumber:
       - NotBlank: ~
       - NotNull: ~
     name:

@@ -49,8 +49,8 @@ Etc.
 
 ### Git
 
-Para **instalar** Yunex debes tener instalado en entorno de desarllo, previamente debes tener **docker** y **docker-compose**.
-También debes tener instalado git, y se promueve el uso de **Intellij IDEA* ya que en esta herramienta se podra estableces los estandares de progrmacion como tambien el formateador de codigo.
+Para **instalar** Yunex debes tener instalado en entorno de desarrollo, previamente debes tener **docker** y **docker-compose**.
+También debes tener instalado git, git-flow, y se promueve el uso de **Intellij IDEA,* ya que en esta herramienta se podrá estableces los estándares de programación como también el formateador de código.
 
 Para poder descargar el código e inicializar git-flow:
 ```shell
@@ -74,16 +74,22 @@ Release branches? [] release/
 Hotfix branches? [] hotfix/
 Support branches? [] 
 Version tag prefix? [] 
-Hooks and filters directory? [/home/emerson/Projects/yunex/.git/hooks] .git/git-flow-hooks
+Hooks and filters directory? [.git/hooks] .git/git-flow-hooks
 ```
+- Creamos una copia de seguridad de los hooks por defecto de git de 
+- Creamos un enlace simbólico a nuestros hooks penalizados
+  - `hooks`: para que funcione los `(pre/post)-commit`
+  - `git-fl0w-hooks`: para que funcione los hooks de git-flow
 
-Finalmente, clone el proyecto para el control semántico de version
 
 ```shell
-cd .git; git clone git@github.com:jaspernbrouwer/git-flow-hooks.git; cd ..
+mv .git/hooks .git/hooks-bkp
+ln -s $(pwd)/cicd/git-flow-hooks .git/
+ln -s $(pwd)/cicd/git-flow-hooks .git/hooks
 ```
+
 Observación.
-> En adelante toda implementación en el código debe hacerse a través de ramas que propone gitflow
+> En adelante toda implementación en el código debe hacerse a través de ramas que propone git-flow
 
 ### Docker
 Construir y Levantar los contenedores de docker compose
@@ -218,16 +224,19 @@ git flow start bugfix YUN-58-fix-validate-customer
 ```
 Esto produce `feature/YUN-45-save-customer` o `bugfix/YUN-58-fix-validate-customer`
 
+
 ### Commit
 Los commits tendra un cambio a como se suele hacer, ya que se trabajara con JIRA, en esta plataforma tienen una variacion del commit, a lo que le llaman **Smart Commit**.  
 
 > No ovlidar que los commit usualmente responden a la pregunta   
 > (If applied, this commit will... "Add table Customer and columns")
 
+
 Asi que nuestro commit podria ser:
 
 ```shell
 git commit -m "Add table Customer and columns"
+
 ```
 
 Un **Smart Commit**, no es otra cosa, que un commit, que podra verse en los comentarios de jira, asignarle tiempo invertido, y la posibilidad de indicarle a que estado cambia el issue.
@@ -406,6 +415,7 @@ Puede haber contradicciones o ambigüedades, por lo que se pide continua retro-a
 
 **Anteriormente nuestros commits tenían la siguiente sintaxis**
 Ya no se seguirá esta convención en JIRA
+
 ```shell
 # <type>: (If applied, this commit will...) <subject> (Max 50 char)
 # |<----  Using a Maximum Of 50 Characters  ---->|
