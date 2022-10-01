@@ -7,7 +7,7 @@ use App\Saas\Product\Domain\Exception\ProductNotFound;
 use App\Saas\Product\Domain\Repository\ProductRepository;
 use App\Saas\Product\Domain\Service\FindProduct;
 
-class GetProductUseCase
+class GetProduct
 {
     private FindProduct $finder;
 

@@ -9,7 +9,7 @@ use App\Saas\Product\Domain\Repository\ProductRepository;
 use App\Saas\Product\Domain\Service\FindProduct;
 use App\Saas\Shared\Domain\Validation\Validator;
 
-class EditProductUseCase
+class EditProduct
 {
     private FindProduct $finder;
 

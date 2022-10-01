@@ -2,8 +2,8 @@
 
 namespace App\Saas\Product\Infrastructure\Api\Controller;
 
+use App\Saas\Product\Application\Create\CreateProduct;
 use App\Saas\Product\Application\Create\CreateProductDto;
-use App\Saas\Product\Application\Create\CreateProductUseCase;
 use App\Saas\Product\Domain\Exception\ProductDataException;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -16,7 +16,7 @@ class CreateProductController extends AbstractFOSRestController
 {
     #[Rest\Post(name: 'product_save')]
     public function __invoke(
-        CreateProductUseCase $useCase,
+        CreateProduct $useCase,
         SerializerInterface $serializer,
         Request $request,
     ): Response {

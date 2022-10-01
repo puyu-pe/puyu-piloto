@@ -7,7 +7,7 @@ use App\Saas\Product\Domain\Exception\ProductDataException;
 use App\Saas\Product\Domain\Repository\ProductRepository;
 use App\Saas\Shared\Domain\Validation\Validator;
 
-class CreateProductUseCase
+class CreateProduct
 {
     public function __construct(
         private readonly ProductRepository $productRepository,

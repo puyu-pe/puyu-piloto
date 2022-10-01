@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Saas\Product\Application\Find;
+namespace App\Saas\Product\Application\Delete;
 
-use App\Saas\Product\Domain\Entity\Product;
 use App\Saas\Product\Domain\Exception\ProductNotFound;
 use App\Saas\Product\Domain\Repository\ProductRepository;
 use App\Saas\Product\Domain\Service\FindProduct;
 
-class FindProductUseCase
+class DeleteProduct
 {
     private FindProduct $finder;
 
     public function __construct(
-        ProductRepository $productRepository,
+        private readonly ProductRepository $repository
     ) {
-        $this->finder = new FindProduct($productRepository);
+        $this->finder = new FindProduct($repository);
     }
 
     /**
      * @throws ProductNotFound
      */
-    public function __invoke(string $id): Product
+    public function __invoke(string $id): void
     {
-        return ($this->finder)($id);
+        $product = ($this->finder)($id);
+        $this->repository->delete($product);
     }
 }
