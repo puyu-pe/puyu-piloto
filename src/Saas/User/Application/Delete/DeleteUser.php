@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Saas\User\Application\Find;
+namespace App\Saas\User\Application\Delete;
 
-use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Domain\Exception\UserNotFound;
 use App\Saas\User\Domain\Repository\UserRepository;
 use App\Saas\User\Domain\Service\FindUser;
 
-class FindUserUseCase
+class DeleteUser
 {
     private FindUser $finder;
 
     public function __construct(
-        UserRepository $userRepository,
+        private readonly UserRepository $repository
     ) {
-        $this->finder = new FindUser($userRepository);
+        $this->finder = new FindUser($repository);
     }
 
     /**
      * @throws UserNotFound
      */
-    public function __invoke(string $id): User
+    public function __invoke(string $id): void
     {
-        return ($this->finder)($id);
+        $user = ($this->finder)($id);
+        $this->repository->delete($user);
     }
 }

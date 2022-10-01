@@ -2,7 +2,7 @@
 
 namespace App\Saas\User\Infrastructure\Api\Controller;
 
-use App\Saas\User\Application\Find\FindUserUseCase;
+use App\Saas\User\Application\Find\FindUser;
 use App\Saas\User\Domain\Exception\UserNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -15,8 +15,8 @@ class FindUserController extends AbstractFOSRestController
 {
     #[Rest\Get(path: '/{id}', name: 'user_find', requirements: ['id' => Requirement::UUID_V4])]
     public function __invoke(
-        Uuid $id,
-        FindUserUseCase $useCase,
+        Uuid     $id,
+        FindUser $useCase,
     ): Response {
         try {
             $user = ($useCase)($id);

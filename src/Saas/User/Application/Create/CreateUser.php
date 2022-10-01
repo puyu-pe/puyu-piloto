@@ -7,7 +7,7 @@ use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Domain\Exception\UserDataException;
 use App\Saas\User\Domain\Repository\UserRepository;
 
-class CreateUserUseCase
+class CreateUser
 {
     public function __construct(
         private readonly UserRepository $userRepository,

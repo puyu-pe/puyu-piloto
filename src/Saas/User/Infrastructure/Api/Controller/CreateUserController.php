@@ -2,8 +2,8 @@
 
 namespace App\Saas\User\Infrastructure\Api\Controller;
 
+use App\Saas\User\Application\Create\CreateUser;
 use App\Saas\User\Application\Create\CreateUserDto;
-use App\Saas\User\Application\Create\CreateUserUseCase;
 use App\Saas\User\Domain\Exception\UserDataException;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -16,9 +16,9 @@ class CreateUserController extends AbstractFOSRestController
 {
     #[Rest\Post(name: 'user_save')]
     public function __invoke(
-        CreateUserUseCase $useCase,
+        CreateUser          $useCase,
         SerializerInterface $serializer,
-        Request $request,
+        Request             $request,
     ): Response {
         try {
             $dto = $serializer->deserialize($request->getContent(), CreateUserDto::class, 'json');

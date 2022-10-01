@@ -2,14 +2,14 @@
 
 namespace App\Saas\User\Application\Edit;
 
+use App\Saas\Shared\Domain\Validation\Validator;
 use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Domain\Exception\UserDataException;
 use App\Saas\User\Domain\Exception\UserNotFound;
 use App\Saas\User\Domain\Repository\UserRepository;
 use App\Saas\User\Domain\Service\FindUser;
-use App\Saas\Shared\Domain\Validation\Validator;
 
-class EditUserUseCase
+class EditUser
 {
     private FindUser $finder;
 

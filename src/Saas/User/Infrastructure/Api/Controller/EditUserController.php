@@ -2,8 +2,8 @@
 
 namespace App\Saas\User\Infrastructure\Api\Controller;
 
+use App\Saas\User\Application\Edit\EditUser;
 use App\Saas\User\Application\Edit\EditUserDto;
-use App\Saas\User\Application\Edit\EditUserUseCase;
 use App\Saas\User\Domain\Exception\UserNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -17,9 +17,9 @@ class EditUserController extends AbstractFOSRestController
 {
     #[Rest\Put(path: '/{id}', name: 'user_update', requirements: ['id' => Requirement::UUID_V4])]
     public function __invoke(
-        string $id,
-        Request $request,
-        EditUserUseCase $useCase,
+        string              $id,
+        Request             $request,
+        EditUser            $useCase,
         SerializerInterface $serializer,
     ): Response {
         try {
