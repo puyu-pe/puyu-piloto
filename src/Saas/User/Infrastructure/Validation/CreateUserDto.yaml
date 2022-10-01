@@ -1,0 +1,10 @@
+App\Saas\User\Application\Create\CreateUserDto:
+  properties:
+    username:
+      - NotBlank: ~
+    password:
+      - NotBlank: ~
+    fullName:
+      - NotBlank: ~
+    enabled:
+      - NotBlank: ~
