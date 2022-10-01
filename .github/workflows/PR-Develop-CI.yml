@@ -28,8 +28,7 @@ jobs:
             # PHPStan Analyze
             -   name: PHPStan - PHP Static Analysis Tool
                 run: |
-                    echo "$(pwd)"
-                    vendor/bin/phpstan analyse -c ../../phpstan.neon
+                    vendor/bin/phpstan
 
     ECS:
         runs-on: ubuntu-latest
