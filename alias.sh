@@ -1,7 +1,7 @@
 #!/bin/bash
 DOCKER_COMPOSE_PATH='.docker'
 source ${DOCKER_COMPOSE_PATH}/.env
-DOCKER_PHP='${APP_NAME}_php'
+DOCKER_PHP="${APP_NAME}_php"
 
 # PHP
 alias php='U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_PHP} php';
