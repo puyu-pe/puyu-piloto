@@ -8,27 +8,6 @@ permissions:
     contents: read
 
 jobs:
-    ECS:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
-              with:
-                  php-version: '8.1'
-            - uses: actions/checkout@v3
-            - name: Cache Composer packages
-              id: composer-cache
-              uses: actions/cache@v3
-              with:
-                  path: vendor
-                  key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-php-
-            - name: Install Dependencies
-              run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-            # Easy Code Standard
-            - name: ECS - Easy Code Standard
-              run: vendor/bin/ecs
-
     PHPStan:
         runs-on: ubuntu-latest
         steps:
@@ -51,6 +30,27 @@ jobs:
                 run: |
                     echo $(pwd)
                     php vendor/bin/phpstan analyse -c phpstan.neon
+
+    ECS:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
+              with:
+                  php-version: '8.1'
+            - uses: actions/checkout@v3
+            - name: Cache Composer packages
+              id: composer-cache
+              uses: actions/cache@v3
+              with:
+                  path: vendor
+                  key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-php-
+            - name: Install Dependencies
+              run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            # Easy Code Standard
+            - name: ECS - Easy Code Standard
+              run: vendor/bin/ecs
 
     PHPUnit:
         runs-on: ubuntu-latest
