@@ -49,8 +49,8 @@ jobs:
             # PHPStan Analyze
             -   name: PHPStan - PHP Static Analysis Tool
                 run: |
-                    pwd
-                    vendor/bin/phpstan analyse -c phpstan.neon
+                    echo $(pwd)
+                    php vendor/bin/phpstan analyse -c phpstan.neon
 
     PHPUnit:
         runs-on: ubuntu-latest
