@@ -32,12 +32,25 @@ jobs:
     PHPStan:
         runs-on: ubuntu-latest
         steps:
-            -   name: Checkout project
-                uses: actions/checkout@v2
-            -   name: Run phpstan
-                uses: actions-x/phpstan@v1
+            -   uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
                 with:
-                    configPath: phpstan.neon
+                    php-version: '8.1'
+            -   uses: actions/checkout@v3
+            -   name: Cache Composer packages
+                id: composer-cache
+                uses: actions/cache@v3
+                with:
+                    path: vendor
+                    key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-php-
+            -   name: Install Dependencies
+                run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            # PHPStan Analyze
+            -   name: PHPStan - PHP Static Analysis Tool
+                run: |
+                    pwd
+                    vendor/bin/phpstan analyse -c phpstan.neon
 
     PHPUnit:
         runs-on: ubuntu-latest
