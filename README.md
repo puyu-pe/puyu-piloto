@@ -224,16 +224,19 @@ git flow start bugfix YUN-58-fix-validate-customer
 ```
 Esto produce `feature/YUN-45-save-customer` o `bugfix/YUN-58-fix-validate-customer`
 
+
 ### Commit
 Los commits tendra un cambio a como se suele hacer, ya que se trabajara con JIRA, en esta plataforma tienen una variacion del commit, a lo que le llaman **Smart Commit**.  
 
 > No ovlidar que los commit usualmente responden a la pregunta   
 > (If applied, this commit will... "Add table Customer and columns")
 
+
 Asi que nuestro commit podria ser:
 
 ```shell
 git commit -m "Add table Customer and columns"
+
 ```
 
 Un **Smart Commit**, no es otra cosa, que un commit, que podra verse en los comentarios de jira, asignarle tiempo invertido, y la posibilidad de indicarle a que estado cambia el issue.
@@ -412,6 +415,7 @@ Puede haber contradicciones o ambigüedades, por lo que se pide continua retro-a
 
 **Anteriormente nuestros commits tenían la siguiente sintaxis**
 Ya no se seguirá esta convención en JIRA
+
 ```shell
 # <type>: (If applied, this commit will...) <subject> (Max 50 char)
 # |<----  Using a Maximum Of 50 Characters  ---->|
