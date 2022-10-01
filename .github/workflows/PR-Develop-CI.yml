@@ -28,8 +28,8 @@ jobs:
             # PHPStan Analyze
             -   name: PHPStan - PHP Static Analysis Tool
                 run: |
-                    echo $(pwd)
-                    php vendor/bin/phpstan analyse -c phpstan.neon
+                    echo "$(pwd)"
+                    vendor/bin/phpstan analyse -c ../../phpstan.neon
 
     ECS:
         runs-on: ubuntu-latest
