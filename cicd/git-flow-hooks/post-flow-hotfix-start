@@ -19,6 +19,7 @@ BRANCH=$3
 BASE=$4
 
 # Implement your script here.
+git flow publish
 
 SCRIPT_PATH="$0"; while [ -h "$SCRIPT_PATH" ]; do SCRIPT_PATH=$(readlink "$SCRIPT_PATH"); done
 . "$(dirname $SCRIPT_PATH)/modules/functions.sh"
