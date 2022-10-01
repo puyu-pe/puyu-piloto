@@ -2,9 +2,9 @@
 
 namespace App\Saas\Shared\Domain\Exception;
 
-use DomainException;
+use Exception;
 
-abstract class DomainError extends DomainException
+abstract class DomainError extends Exception
 {
     public function __construct()
     {

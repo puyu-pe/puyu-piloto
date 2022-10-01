@@ -10,4 +10,4 @@ parameters:
     scanDirectories:
         - var/cache/dev/Symfony/Config
     doctrine:
-        objectManagerLoader: build/object-manager.php
+        objectManagerLoader: cicd/build/object-manager.php
