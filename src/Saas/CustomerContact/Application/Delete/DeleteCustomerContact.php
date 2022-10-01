@@ -6,7 +6,7 @@ use App\Saas\CustomerContact\Domain\Exception\CustomerContactNotFound;
 use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
 use App\Saas\CustomerContact\Domain\Service\FindCustomerContact;
 
-class DeleteCustomerContactUseCase
+class DeleteCustomerContact
 {
     private FindCustomerContact $finder;
 

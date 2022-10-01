@@ -12,11 +12,11 @@ services:
         calls:
             - [ 'registerHandler', [ 'json', [ "@app.jttp_handler", 'createResponse' ] ] ]
 
-    App\Saas\Shared\Infrastructure\Validation\Validator: ~
-    App\Saas\Shared\Domain\Validation\Validator: '@App\Saas\Shared\Infrastructure\Validation\Validator'
+    App\Saas\Shared\Infrastructure\Validation\SymfonyValidator: ~
+    App\Saas\Shared\Domain\Validation\Validator: '@App\Saas\Shared\Infrastructure\Validation\SymfonyValidator'
 
     App\Saas\Shared\Infrastructure\Notifier\SlackNotifier: ~
     App\Saas\Shared\Domain\Notification\Notifier: '@App\Saas\Shared\Infrastructure\Notifier\SlackNotifier'
 
 imports:
-    - { resource: ../../../CustomerContact/Infrastructure/Config/saas_customer_contact_service.yaml }
+    - { resource: Services/ }

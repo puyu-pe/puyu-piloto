@@ -20,14 +20,13 @@ class FindCustomerContact
     public function __invoke(string $id): CustomerContact
     {
         $customerContact = $this->repository->search(Uuid::fromString($id));
-
         $this->guard($id, $customerContact);
 
         return $customerContact;
     }
 
     /**
-     * @throws \App\Saas\CustomerContact\Domain\Exception\CustomerContactNotFound
+     * @throws CustomerContactNotFound
      */
     private function guard(string $id, CustomerContact $customerContact = null): void
     {

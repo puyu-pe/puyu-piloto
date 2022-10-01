@@ -2,7 +2,7 @@
 
 namespace App\Saas\CustomerContact\Infrastructure\Api\Controller;
 
-use App\Saas\CustomerContact\Application\Find\FindCustomerContactUseCase;
+use App\Saas\CustomerContact\Application\Find\FindCustomerContact;
 use App\Saas\CustomerContact\Domain\Exception\CustomerContactNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -16,7 +16,7 @@ class FindCustomerContactController extends AbstractFOSRestController
     #[Rest\Get(path: '/{id}', name: 'customer_contact_find', requirements: ['id' => Requirement::UUID_V4])]
     public function __invoke(
         Uuid $id,
-        FindCustomerContactUseCase $useCase,
+        FindCustomerContact $useCase,
     ): Response {
         try {
             $customerContact = ($useCase)($id);
