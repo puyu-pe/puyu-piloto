@@ -6,5 +6,4 @@ use FOS\RestBundle\Controller\AbstractFOSRestController;
 
 class ApiController extends AbstractFOSRestController
 {
-
 }
