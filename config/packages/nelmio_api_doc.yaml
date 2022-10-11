@@ -1,0 +1,59 @@
+nelmio_api_doc:
+    areas: # to filter documented areas
+        default:
+            path_patterns:
+                - ^/saas/api(?!/doc$) # Accepts routes under /api except /api/doc
+
+    documentation:
+        info:
+            title: Yunex
+            description: App to improve Puyu!
+            version: 1.0.0
+        servers:
+            -   url: http://localhost:9191/
+                description: API over HTTP
+            -   url: https://yunex.puyu.com/api
+                description: API over HTTPS
+        tags:
+            -   name: Customer
+                description: Everything about Customer
+            -   name: CustomerContact
+                description: Everything about Customer Contact
+            -   name: User
+                description: Everything about User
+            -   name: Product
+                description: Everything about Product
+
+        security:
+            -   Bearer: [ ]
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+            schemas:
+                FailValidation:
+                    type: object
+                    properties:
+                        field:
+                            type: string
+                            example: message of validation
+                ResponseFail:
+                    type: object
+                    description: 'Error validation'
+                    properties:
+                        status:
+                            type: status
+                            example: fail
+                        data:
+                            $ref: "#/components/schemas/FailValidation"
+                ResponseError:
+                    type: object
+                    description: 'Error validation'
+                    properties:
+                        status:
+                            type: fail
+                            example: error
+                        message:
+                            example: Unable to communicate with database

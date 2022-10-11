@@ -12,6 +12,9 @@ fos_rest:
     decoders:
       json: fos_rest.decoder.json
 
+  service:
+    view_handler: app.view_handler
+
   format_listener:
     rules:
       - { path: '/api', priorities: [ 'json' ], fallback_format: json, prefer_extension: false }
