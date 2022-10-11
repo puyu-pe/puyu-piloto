@@ -4,11 +4,7 @@ GET http://localhost:9191/saas/api/customer_contact
 
 ### 📗 GET Single customer contact
 
-<<<<<<< HEAD
 GET http://localhost:9191/saas/api/customer_contact/521a0393-0d94-459d-90ec-c83d10763be2
-=======
-GET http://localhost:9191/api/customer_contact/1
->>>>>>> parent of c93fea8... YUN-44 #comment aplicando ECS
 Accept: application/json
 
 ### 💛 POST Save customer contact
@@ -17,24 +13,15 @@ POST http://localhost:9191/saas/api/customer_contact/
 Content-Type: application/json
 
 {
-<<<<<<< HEAD
   "name": "Nuevo",
   "lastName": "cvbncvbncvbn",
-=======
-  "name": "jose",
-  "lastName": "fasdfadsgfdfg",
->>>>>>> parent of c93fea8... YUN-44 #comment aplicando ECS
   "phone": "984786712",
   "jobTitle": "Vendedor"
 }
 
 ### 🔵 PUT Update Customer contact
 
-<<<<<<< HEAD
 PUT http://localhost:9191/saas/api/customer_contact/21aa2a33-f75a-44da-8870-4df0576bc9a7
-=======
-PUT http://localhost:9191/api/customer_contact/4
->>>>>>> parent of c93fea8... YUN-44 #comment aplicando ECS
 Content-Type: application/json
 
 {
@@ -46,11 +33,7 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete customer contact
 
-<<<<<<< HEAD
 DELETE http://localhost:9191/saas/api/customer_contact/21aa2a33-f75a-44da-8870-4df0576bc9a7
-=======
-DELETE http://localhost:9191/api/customer_contact/5
->>>>>>> parent of c93fea8... YUN-44 #comment aplicando ECS
 Content-Type: application/x-www-form-urlencod
 
 ###
