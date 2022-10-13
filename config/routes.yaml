@@ -4,3 +4,6 @@
 saas_directory:
     resource: ../src/Saas/Shared/Infrastructure/Config/Routes/
     type: directory
+auth_directory:
+    resource: ../src/Auth/User/Infrastructure/Config/Routes/
+    type: directory
