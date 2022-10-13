@@ -128,6 +128,13 @@ mysql://root:12345678@mysql:3306/yunex?serverVersion=8&charset=utf8mb4
 ```
 
 ## Standards
+### Diagrama de trabajo YUNEX
+Realizar el levantamiento y codificacion siguiendo el presente diagrama:
+
+![alt text](https://drive.google.com/uc?export=view&id=1pQNAaJGPTM5bKyz3CLwkp82wiS2030lr)
+ - **LINK DE ACCESO EN CAWEMO**
+
+https://cawemo.com/diagrams/a2f9f637-d365-4e65-869f-6aa795421d04--diagrama-workflow-yunex?v=1049,476,0.549
 ### Analysis
 Todo análisis debe documentarse, para poder generar la discución y el feedback necesario para mejorar el mismo analisis, (por el momento se decidio lo siguiente, a falta de invesntigación)
 - Asignar todos los atributos o metadata necesaria en la tarea

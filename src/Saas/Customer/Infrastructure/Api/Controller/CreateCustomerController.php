@@ -4,17 +4,37 @@ namespace App\Saas\Customer\Infrastructure\Api\Controller;
 
 use App\Saas\Customer\Application\Create\CreateCustomer;
 use App\Saas\Customer\Application\Create\CreateCustomerDto;
+use App\Saas\Customer\Domain\Entity\Customer;
 use App\Saas\Customer\Domain\Exception\CustomerDataException;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
+use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class CreateCustomerController extends AbstractFOSRestController
+class CreateCustomerController extends ApiController
 {
+    /**
+     * Add new customer
+     *
+     * Add new customer
+     */
     #[Rest\Post(name: 'customer_save')]
+    #[OA\RequestBody(content: new Model(type: CreateCustomerDto::class))]
+    #[OA\Response(
+        response: 200,
+        description: 'Successful response',
+        content: new OA\JsonContent(
+            properties: [
+                new OA\Property(property: 'status', example: 'success'),
+                new OA\Property(property: 'data', ref: new Model(type: Customer::class))
+            ]
+        )
+    )]
+    #[OA\Tag(name: 'Customer')]
     public function __invoke(
         CreateCustomer $useCase,
         SerializerInterface $serializer,
