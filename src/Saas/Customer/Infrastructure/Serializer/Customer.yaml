@@ -7,7 +7,7 @@ App\Saas\Customer\Domain\Entity\Customer:
     name:
       groups: [ 'customer' ]
     address:
-      groups: [ 'customer1' ]
+      groups: [ 'customer' ]
     email:
       groups: [ 'customer' ]
     phone:
