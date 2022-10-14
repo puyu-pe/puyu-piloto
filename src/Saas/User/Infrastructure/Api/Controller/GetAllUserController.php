@@ -2,8 +2,8 @@
 
 namespace App\Saas\User\Infrastructure\Api\Controller;
 
-use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Application\GetAll\GetAllUsers;
+use App\Saas\User\Domain\Entity\User;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;

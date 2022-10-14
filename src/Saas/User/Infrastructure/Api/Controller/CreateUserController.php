@@ -2,11 +2,11 @@
 
 namespace App\Saas\User\Infrastructure\Api\Controller;
 
+use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
+use App\Saas\User\Application\Create\CreateUser;
 use App\Saas\User\Application\Create\CreateUserDto;
 use App\Saas\User\Domain\Entity\User;
-use App\Saas\User\Application\Create\CreateUser;
 use App\Saas\User\Domain\Exception\UserDataException;
-use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\Model;
@@ -17,11 +17,11 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class CreateUserController extends ApiController
 {
-     /**
-     * Add new user
-     *
-     * Add new user
-     */
+    /**
+    * Add new user
+    *
+    * Add new user
+    */
     #[Rest\Post(name: 'user_save')]
     #[OA\RequestBody(content: new Model(type: CreateUserDto::class))]
     #[OA\Response(

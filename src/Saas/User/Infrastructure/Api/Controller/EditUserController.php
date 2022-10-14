@@ -3,9 +3,9 @@
 namespace App\Saas\User\Infrastructure\Api\Controller;
 
 use App\Saas\User\Application\Create\CreateUserDto;
-use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Application\Edit\EditUser;
 use App\Saas\User\Application\Edit\EditUserDto;
+use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Domain\Exception\UserNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;

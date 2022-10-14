@@ -3,8 +3,8 @@
 namespace App\Saas\User\Infrastructure\Api\Controller;
 
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
-use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Application\Find\FindUser;
+use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Domain\Exception\UserNotFound;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
