@@ -43,6 +43,11 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
         return $this->findAll();
     }
 
+    public function findByUsername(string $username): ?User
+    {
+        return $this->findOneBy(['username' => $username]);
+    }
+
     public function add(User $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);

@@ -1,0 +1,45 @@
+### 📗 GET List user
+
+GET http://localhost:9191/saas/api/user/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NjYxMDkzOTcsImV4cCI6MTY2NjExMjk5Nywicm9sZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9BRE1JTiJdLCJ1c2VybmFtZSI6InVzZXIifQ.Z74lhbFgmRoIWZD0_JsCZ8xVhTIPrRR_m6Pjcdx9xdVwxoJ_NlNz4UDp0qAoNRs8samq42_dZdW91EuzbUlPb18tKyM8MG7M14uTSNLqvg7mOcfGTIMAIV6A0giXhp_-2fnXYGPeUf_tNJGYMx4URYZc4J3gksPcXnHrWYpZF7yyf4L45SIeJFKKV5PgilHY69iHR3tEgZhuOPTOneEioI-66sNI928ZfUWVgYXwFIExH-wwKaXIMJ9_r7uEuBm5XPWBK4pJNTjMLONagwb2wo1JX_L5RRgIOzwR8EwLuoIurWk0cCHyjvr170TQQm7AOlxyMQV7ew3Q9ndJyftCOw
+
+
+### 📗 GET Single user
+
+GET http://localhost:9191/saas/api/user/12aacfb2-4c3e-4c9a-a965-292c1a462eed
+Accept: application/json
+
+### 💛 POST Save user
+
+POST http://localhost:9191/saas/api/user/
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "user",
+  "fullName": "Usuario",
+  "enabled": 1
+}
+
+### 🔵 PUT Update Customer contact
+
+PUT http://localhost:9191/saas/api/user/2
+Content-Type: application/json
+
+{
+  "username": "test 2 nuevo",
+  "password": "test1234",
+  "fullName": "Usuario test 2 updated",
+  "enabled": 0
+}
+
+
+### 🏮 DELETE Delete user
+
+DELETE http://localhost:9191/saas/api/user/84b069a6-6b8f-4f4c-a44f-d15a24a186f3
+Content-Type: application/x-www-form-urlencod
+
+
+###
+
+

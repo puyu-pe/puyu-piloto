@@ -3,7 +3,10 @@ security:
     enable_authenticator_manager: true
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
-        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        App\Saas\User\Infrastructure\Security\Auth:
+            algorithm: auto
+#    password_hashers:
+#        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
 #        users_in_memory: { memory: null }
@@ -11,8 +14,10 @@ security:
 #            entity:
 #                class: App\Saas\User\Domain\Entity\User
 #                property: username
-        login_provider:
-            id: App\Auth\User\Domain\Service\Login
+#        login_provider:
+#            id: App\Auth\User\Domain\Service\Login
+        app_user_provider:
+            id: App\Saas\User\Infrastructure\Security\UserProvider
 
     role_hierarchy:
         ROLE_ADMIN: [ ROLE_USER ]
@@ -20,10 +25,10 @@ security:
     firewalls:
         # for JWT
         login:
-            pattern: ^/api/login
+            pattern: ^/saas/api/login
             stateless: true
             json_login:
-                check_path: /api/login_check
+                check_path: /saas/api/login_check
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
         api:
@@ -39,7 +44,7 @@ security:
             lazy: true
 #            provider: users_in_memory
 #            provider: app_user_provider
-            provider: login_provider
+            provider: app_user_provider
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

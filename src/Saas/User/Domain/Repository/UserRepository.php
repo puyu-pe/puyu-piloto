@@ -20,4 +20,6 @@ interface UserRepository
      * @return User[]
      */
     public function getAll(): array;
+
+    public function findByUsername(string $username): ?User;
 }

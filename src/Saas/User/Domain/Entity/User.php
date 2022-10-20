@@ -2,12 +2,9 @@
 
 namespace App\Saas\User\Domain\Entity;
 
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
-use OpenApi\Attributes as OA;
 
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User
 {
     public function __construct(
         private readonly Uuid $id,
@@ -86,12 +83,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getUserIdentifier(): string
-    {
-        return (string) $this->username;
-    }
-
-    #[OA\Property(type:"string[]")]
+    /**
+     * @return string[]
+     */
     public function getRoles(): array
     {
         //$roles = $this->roles;
@@ -99,10 +93,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $roles[] = 'ROLE_ADMIN';
 
         return array_unique($roles);
-    }
-
-    public function eraseCredentials(): void
-    {
-        //$this->password = null;
     }
 }

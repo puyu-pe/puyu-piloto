@@ -2,6 +2,7 @@
 
 namespace App\Auth\User\Domain\Service;
 
+use App\Saas\User\Domain\Repository\UserRepository;
 use App\Saas\User\Infrastructure\Persistence\Doctrine\Repository\DoctrineUserRepository;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UserNotFoundException;
@@ -17,7 +18,7 @@ class Login implements UserProviderInterface
 
     public function supportsClass($class): bool
     {
-        return $class === DoctrineUserRepository::class;
+        return $class === UserRepository::class;
     }
 
     public function loadUserByIdentifier(string $identifier): UserInterface
