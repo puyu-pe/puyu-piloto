@@ -26,11 +26,6 @@ final class Auth implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function getSalt(): string
-    {
-        return '';
-    }
-
     public function eraseCredentials(): void
     {
     }

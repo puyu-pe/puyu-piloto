@@ -9,13 +9,6 @@ security:
 #        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
-#        users_in_memory: { memory: null }
-#        app_user_provider:
-#            entity:
-#                class: App\Saas\User\Domain\Entity\User
-#                property: username
-#        login_provider:
-#            id: App\Auth\User\Domain\Service\Login
         app_user_provider:
             id: App\Saas\User\Infrastructure\Security\UserProvider
 
@@ -42,8 +35,6 @@ security:
             security: false
         main:
             lazy: true
-#            provider: users_in_memory
-#            provider: app_user_provider
             provider: app_user_provider
 
             # activate different ways to authenticate
@@ -55,10 +46,9 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/api/login, roles: PUBLIC_ACCESS }
+        - { path: ^/saas/api/login, roles: PUBLIC_ACCESS }
         - { path: ^/api/doc, roles: PUBLIC_ACCESS}
         - { path: ^/saas/api/, roles: IS_AUTHENTICATED_FULLY }
-        #- { path: ^/api/, roles: IS_AUTHENTICATED_FULLY }
         #- { path: ^/saas/api/, roles: PUBLIC_ACCESS, requires_channel: https }
         #- { path: ^/admin, roles: ROLE_ADMIN }
         #- { path: ^/saas/api^, roles: ROLE_USER }

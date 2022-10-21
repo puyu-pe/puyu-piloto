@@ -6,14 +6,14 @@ use App\Saas\Shared\Domain\Validation\Validator;
 use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Domain\Exception\UserDataException;
 use App\Saas\User\Domain\Repository\UserRepository;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use App\Saas\User\Domain\Security\GeneratePassword;
 
 class CreateUser
 {
     public function __construct(
         private readonly UserRepository $userRepository,
         private readonly Validator $validator,
-        private readonly UserPasswordHasherInterface $passwordHasher
+        private readonly GeneratePassword $generatePassword
     ) {
     }
 
@@ -32,7 +32,7 @@ class CreateUser
             $dto->getEnabled(),
         );
 
-        $hashedPassword = $this->passwordHasher->hashPassword(
+        $hashedPassword = $this->generatePassword->generate(
             $user,
             $user->getPassword()
         );

@@ -8,5 +8,4 @@ Content-Type: application/json
   "password": "user"
 }
 
-
-### Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NjYxMDQzMjYsImV4cCI6MTY2NjEwNzkyNiwicm9sZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9BRE1JTiJdLCJ1c2VybmFtZSI6InVzZXIifQ.AgcYaVA3Qj9rxa104FQlI1SamUmNOVlBXAcL09ZgwwplycL2E-A5xPBko4nTya7MafIf2e0hKN1wYdeaw6W7wKevVraPhRbTCKncBeptQqQEwt_Qkjk8_MptfbqtRIDrNiO59u9v9OtVCavOLm-GnxmSu7zUVC5r2L8bvJ0r_6B6iTsmg0bCch9L2UYH8QpQGfrvxRgAtorBvErWIAFiSXZNW_Lpf7PZz2Ph0rCUZz2G6MsnVgyK_AWLv9E-yvKjmNcUzPnnjNQEkhc_SnVOA4QwAWW5JQZWJhewgwQMhy52jcjw-LU50AigeHciZK05Ism1atsZAZKLH8XeQkNWbw
+> {% client.global.set("auth_token", response.body.token); %}
