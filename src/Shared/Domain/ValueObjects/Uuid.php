@@ -58,7 +58,7 @@ class Uuid extends AbstractUid implements Stringable
     {
         $uuid = SymfonyUuid::fromBinary($uid);
         if (!SymfonyUuid::isValid((string)$uuid)) {
-            throw new InvalidArgumentException(sprintf('<%s> does not allow the value <%s>.', static::class, $id));
+            throw new InvalidArgumentException(sprintf('<%s> does not allow the value <%s>.', static::class, $uid));
         }
         return true;
     }
@@ -70,6 +70,6 @@ class Uuid extends AbstractUid implements Stringable
 
     public function toBinary(): string
     {
-        //        return SymfonyUuid::fromString($this->value)->toBinary();
+        return SymfonyUuid::fromString($this->value)->toBinary();
     }
 }

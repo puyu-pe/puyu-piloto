@@ -2,7 +2,6 @@
 
 namespace App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository;
 
-use App\Saas\CustomerContact\Domain\Entity\CustomerContact;
 use App\Saas\Product\Domain\Entity\Product;
 use App\Saas\Product\Domain\Repository\ProductRepository;
 use App\Shared\Domain\ValueObjects\Uuid;
@@ -10,12 +9,12 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<CustomerContact>
+ * @extends ServiceEntityRepository<Product>
  *
- * @method CustomerContact|null find($id, $lockMode = null, $lockVersion = null)
- * @method CustomerContact|null findOneBy(array $criteria, array $orderBy = null)
- * @method CustomerContact[]    findAll()
- * @method CustomerContact[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Product|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Product|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Product[]    findAll()
+ * @method Product[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class DoctrineProductRepository extends ServiceEntityRepository implements ProductRepository
 {
@@ -63,7 +62,7 @@ class DoctrineProductRepository extends ServiceEntityRepository implements Produ
     }
 
 //    /**
-//     * @return CustomerContact[] Returns an array of CustomerContact objects
+//     * @return Product[] Returns an array of Product objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -77,7 +76,7 @@ class DoctrineProductRepository extends ServiceEntityRepository implements Produ
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?CustomerContact
+//    public function findOneBySomeField($value): ?Product
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')
