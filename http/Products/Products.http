@@ -1,4 +1,4 @@
-### 📗 GET List products
+### 📗 GET All products
 
 GET http://localhost:9191/saas/api/product
 Authorization: Bearer {{auth_token}}
@@ -9,9 +9,24 @@ GET http://localhost:9191/saas/api/product/3416659a-1857-449e-b001-ce26a732571d
 Authorization: Bearer {{auth_token}}
 Accept: application/json
 
-### 🔵 PUT Update product
+### 💛 POST Save product
 
 PUT http://localhost:9191/saas/api/product/3416659a-1857-449e-b001-ce26a732571d
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "code": "YUB",
+  "name": "Yubiz",
+  "description": "Sistema para micro y mediana empresas.",
+  "url": "yubiz.puyu.pe",
+  "image": "yubiz/img/static.jpg"
+}
+
+
+### 🔵 PUT Update product
+
+PUT http://localhost:9191/saas/api/product/521a0392-0d96-454d-89ec-c34d10763be5
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
@@ -25,22 +40,9 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete product
 
-DELETE http://localhost:9191/saas/api/product/3416659a-1857-449e-b001-ce26a732571d
+DELETE http://localhost:9191/saas/api/product/521a0392-0d96-454d-89ec-c34d10763be5
 Authorization: Bearer {{auth_token}}
-
-### 💛 POST Save product
-
-POST http://localhost:9191/saas/api/product/
-Authorization: Bearer {{auth_token}}
-Content-Type: application/json
-
-{
-  "code": "YUB",
-  "name": "Yubiz",
-  "description": "Sistema para micro y mediana empresas.",
-  "url": "yubiz.puyu.pe",
-  "image": "yubiz/img/static.jpg"
-}
+Content-Type: application/x-www-form-urlencod
 
 ###
 
