@@ -9,7 +9,9 @@ App\Saas\Project\Domain\Entity\Project:
     manyToOne:
         customer:
             targetEntity: App\Saas\Customer\Domain\Entity\Customer
-            inversedBy: customer
+#            inversedBy: customer
+            cascade: { }
+            fetch: LAZY
             joinColumn:
                 nullable: false
         product:
@@ -17,3 +19,4 @@ App\Saas\Project\Domain\Entity\Project:
             inverserBy: product
             joinColumn:
                 nullable: false
+    lifecycleCallbacks: {  }

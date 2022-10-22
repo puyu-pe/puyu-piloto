@@ -2,7 +2,7 @@
 
 namespace App\Saas\Product\Domain\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Uid\Uuid;
 
 class Product
@@ -14,7 +14,7 @@ class Product
         private ?string $description,
         private string $url,
         private ?string $image,
-        private ?ArrayCollection $projects
+        private ?Collection $projects
     ) {
     }
 
@@ -24,7 +24,7 @@ class Product
         string $description,
         string $url,
         string $image,
-        ArrayCollection $projects
+        Collection $projects
     ): self {
         return new self(
             Uuid::v4(),
@@ -103,12 +103,12 @@ class Product
         return $this;
     }
 
-    public function getProjects(): ?ArrayCollection
+    public function getProjects(): ?Collection
     {
         return $this->projects;
     }
 
-    public function setProjects(?ArrayCollection $projects): Product
+    public function setProjects(?Collection $projects): Product
     {
         $this->projects = $projects;
         return $this;
