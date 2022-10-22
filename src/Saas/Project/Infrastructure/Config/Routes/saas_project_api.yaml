@@ -1,4 +1,4 @@
-saas_product_api:
+saas_project_api:
     resource: '../../Api/Controller/'
     type: attribute
-    prefix: api/product
+    prefix: api/project
