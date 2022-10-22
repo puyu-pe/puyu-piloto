@@ -2,8 +2,7 @@
 
 namespace App\Saas\Product\Domain\Entity;
 
-use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class Product
 {

@@ -1,0 +1,11 @@
+### POST User login
+
+POST http://localhost:9191/saas/api/login_check
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "user"
+}
+
+> {% client.global.set("auth_token", response.body.token); %}

@@ -4,7 +4,7 @@ namespace App\Saas\Product\Infrastructure\Persistence\InMemory;
 
 use App\Saas\Product\Domain\Entity\Product;
 use App\Saas\Product\Domain\Repository\ProductRepository;
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class InMemoryProductRepository implements ProductRepository
 {
@@ -26,7 +26,7 @@ class InMemoryProductRepository implements ProductRepository
         return $this->products[$id->toRfc4122()] ?? null;
     }
 
-    /**
+    /**x
      * @return Product[]
      */
     public function getAll(): array

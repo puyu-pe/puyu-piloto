@@ -4,7 +4,7 @@ namespace App\Saas\CustomerContact\Infrastructure\Persistence\InMemory;
 
 use App\Saas\CustomerContact\Domain\Entity\CustomerContact;
 use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class InMemoryCustomerContactRepository implements CustomerContactRepository
 {

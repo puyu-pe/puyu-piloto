@@ -2,3 +2,6 @@ saas_user_api:
     resource: '../../Api/Controller/'
     type: attribute
     prefix: api/user
+
+api_login_check:
+    path: /api/login_check

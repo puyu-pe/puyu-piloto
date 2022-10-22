@@ -4,9 +4,9 @@ namespace App\Saas\Customer\Infrastructure\Persistence\Doctrine\Repository;
 
 use App\Saas\Customer\Domain\Entity\Customer;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;
+use App\Shared\Domain\ValueObjects\Uuid;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Uid\Uuid;
 
 /**
  * @extends ServiceEntityRepository<Customer>

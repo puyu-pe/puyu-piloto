@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Saas\User\Domain\Entity;
+namespace App\Saas\User\Domain;
 
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class User
 {
@@ -81,5 +81,17 @@ class User
         $this->enabled = $enabled;
 
         return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getRoles(): array
+    {
+        //$roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_ADMIN';
+
+        return array_unique($roles);
     }
 }

@@ -2,13 +2,6 @@ imports:
     - { resource: Packages/saas_user_doctrine.yaml }
     - { resource: Packages/saas_user_framework.yaml }
 
-when@prod:
-when@dev:
-    services:
-        App\Saas\User\Infrastructure\Persistence\Doctrine\Repository\DoctrineUserRepository: ~
-        App\Saas\User\Domain\Repository\UserRepository: '@App\Saas\User\Infrastructure\Persistence\Doctrine\Repository\DoctrineUserRepository'
-
-when@test:
-    services:
-        App\Saas\User\Infrastructure\Persistence\InMemory\InMemoryUserRepository: ~
-        App\Saas\User\Domain\Repository\UserRepository: '@App\Saas\User\Infrastructure\Persistence\InMemory\InMemoryUserRepository'
+services:
+    App\Saas\User\Infrastructure\Persistence\Doctrine\Repository\DoctrineUserRepository: ~
+    App\Saas\User\Domain\Repository\UserRepository: '@App\Saas\User\Infrastructure\Persistence\Doctrine\Repository\DoctrineUserRepository'

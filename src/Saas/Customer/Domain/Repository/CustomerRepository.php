@@ -3,7 +3,7 @@
 namespace App\Saas\Customer\Domain\Repository;
 
 use App\Saas\Customer\Domain\Entity\Customer;
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 /**
  * @ent Traversable<\Vendor\ItemInterface>
