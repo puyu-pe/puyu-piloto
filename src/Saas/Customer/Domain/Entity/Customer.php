@@ -2,6 +2,8 @@
 
 namespace App\Saas\Customer\Domain\Entity;
 
+use App\Saas\Product\Domain\Entity\Product;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Uid\Uuid;
 
 class Customer
@@ -13,6 +15,7 @@ class Customer
         private string $address,
         private string $email,
         private string $phone,
+        private ?ArrayCollection $projects
     ) {
     }
     public static function create(
@@ -21,6 +24,7 @@ class Customer
         string $address,
         string $email,
         string $phone,
+        ArrayCollection $projects
     ): self {
         return new self(
             Uuid::v4(),
@@ -29,6 +33,7 @@ class Customer
             $address,
             $email,
             $phone,
+            $projects
         );
     }
 
@@ -95,6 +100,17 @@ class Customer
     {
         $this->phone = $phone;
 
+        return $this;
+    }
+
+    public function getProjects(): ?ArrayCollection
+    {
+        return $this->projects;
+    }
+
+    public function setProjects(?ArrayCollection $projects): Product
+    {
+        $this->projects = $projects;
         return $this;
     }
 }

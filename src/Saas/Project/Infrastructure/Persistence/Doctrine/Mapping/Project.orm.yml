@@ -1,0 +1,19 @@
+App\Saas\Project\Domain\Entity\Project:
+    type: entity
+    repositoryClass: App\Saas\Project\Domain\Repository\ProjectRepository
+    table: project
+    id:
+        id:
+            type: uuid
+            unique: true
+    manyToOne:
+        customer:
+            targetEntity: App\Saas\Customer\Domain\Entity\Customer
+            inversedBy: customer
+            joinColumn:
+                nullable: false
+        product:
+            targetEntity: App\Saas\Product\Domain\Entity\Product
+            inverserBy: product
+            joinColumn:
+                nullable: false

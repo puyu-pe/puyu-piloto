@@ -1,0 +1,6 @@
+App\Saas\Project\Application\Create\CreateProjectDto:
+  properties:
+    customer:
+      - NotBlank: ~
+    product:
+      - NotBlank: ~
