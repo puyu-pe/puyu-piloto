@@ -3,10 +3,11 @@
 namespace App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository;
 
 use App\Saas\CustomerContact\Domain\Entity\CustomerContact;
-use App\Saas\CustomerContact\Domain\Repository\CustomerContactRepository;
+use App\Saas\Product\Domain\Entity\Product;
+use App\Saas\Product\Domain\Repository\ProductRepository;
+use App\Shared\Domain\ValueObjects\Uuid;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Uid\Uuid;
 
 /**
  * @extends ServiceEntityRepository<CustomerContact>
@@ -16,24 +17,24 @@ use Symfony\Component\Uid\Uuid;
  * @method CustomerContact[]    findAll()
  * @method CustomerContact[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DoctrineProductRepository extends ServiceEntityRepository implements CustomerContactRepository
+class DoctrineProductRepository extends ServiceEntityRepository implements ProductRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CustomerContact::class);
+        parent::__construct($registry, Product::class);
     }
 
-    public function save(CustomerContact $customerContact): void
+    public function save(Product $product): void
     {
-        $this->add($customerContact, true);
+        $this->add($product, true);
     }
 
-    public function delete(CustomerContact $customerContact): void
+    public function delete(Product $product): void
     {
-        $this->remove($customerContact, true);
+        $this->remove($product, true);
     }
 
-    public function search(Uuid $id): ?CustomerContact
+    public function search(Uuid $id): ?Product
     {
         return $this->find($id);
     }
@@ -43,7 +44,7 @@ class DoctrineProductRepository extends ServiceEntityRepository implements Custo
         return $this->findAll();
     }
 
-    public function add(CustomerContact $entity, bool $flush = false): void
+    public function add(Product $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -52,7 +53,7 @@ class DoctrineProductRepository extends ServiceEntityRepository implements Custo
         }
     }
 
-    public function remove(CustomerContact $entity, bool $flush = false): void
+    public function remove(Product $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 

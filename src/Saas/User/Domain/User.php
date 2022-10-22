@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Saas\User\Domain\Entity;
+namespace App\Saas\User\Domain;
 
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class User
 {

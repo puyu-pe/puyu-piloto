@@ -1,5 +1,7 @@
 doctrine:
     dbal:
+        types:
+            uuid: App\Shared\Infrastructure\Persistence\Doctrine\Types\UuidType
         url: '%env(resolve:DATABASE_URL)%'
 
         # IMPORTANT: You MUST configure your server version,

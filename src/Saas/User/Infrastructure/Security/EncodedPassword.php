@@ -2,8 +2,8 @@
 
 namespace App\Saas\User\Infrastructure\Security;
 
-use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Domain\Security\GeneratePassword;
+use App\Saas\User\Domain\User;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 final class EncodedPassword implements GeneratePassword

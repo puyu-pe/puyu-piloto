@@ -2,11 +2,11 @@
 
 namespace App\Saas\User\Infrastructure\Persistence\Doctrine\Repository;
 
-use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Domain\Repository\UserRepository;
+use App\Saas\User\Domain\User;
+use App\Shared\Domain\ValueObjects\Uuid;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Uid\Uuid;
 
 /**
  * @extends ServiceEntityRepository<User>

@@ -2,8 +2,8 @@
 
 namespace App\Saas\User\Domain\Repository;
 
-use App\Saas\User\Domain\Entity\User;
-use Symfony\Component\Uid\Uuid;
+use App\Saas\User\Domain\User;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 /**
  * @ent Traversable<\Vendor\ItemInterface>

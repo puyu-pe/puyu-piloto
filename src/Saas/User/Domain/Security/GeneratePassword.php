@@ -2,7 +2,7 @@
 
 namespace App\Saas\User\Domain\Security;
 
-use App\Saas\User\Domain\Entity\User;
+use App\Saas\User\Domain\User;
 
 interface GeneratePassword
 {
