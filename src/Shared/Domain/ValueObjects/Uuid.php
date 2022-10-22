@@ -70,6 +70,6 @@ class Uuid extends AbstractUid implements Stringable
 
     public function toBinary(): string
     {
-//        return SymfonyUuid::fromString($this->value)->toBinary();
+        //        return SymfonyUuid::fromString($this->value)->toBinary();
     }
 }

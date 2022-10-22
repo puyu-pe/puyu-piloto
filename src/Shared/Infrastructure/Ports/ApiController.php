@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Ports;
 
+use App\Shared\Domain\Bus\Command\Command;
+use App\Shared\Domain\Bus\Command\CommandBus;
 use App\Shared\Domain\Bus\Query\Query;
 use App\Shared\Domain\Bus\Query\QueryBus;
 use App\Shared\Domain\Bus\Query\Response;
-use App\Shared\Domain\Bus\Command\Command;
-use App\Shared\Domain\Bus\Command\CommandBus;
 
 abstract class ApiController
 {

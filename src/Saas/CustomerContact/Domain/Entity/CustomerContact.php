@@ -2,7 +2,6 @@
 
 namespace App\Saas\CustomerContact\Domain\Entity;
 
-
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class CustomerContact

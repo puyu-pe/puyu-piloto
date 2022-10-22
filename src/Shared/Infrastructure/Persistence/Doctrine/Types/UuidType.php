@@ -14,9 +14,8 @@ final class UuidType extends StringType
     {
         if (null === $value) {
             return null;
-
         }
-;
+        ;
         return $value->value();
     }
 
