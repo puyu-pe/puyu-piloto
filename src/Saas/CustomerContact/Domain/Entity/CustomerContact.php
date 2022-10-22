@@ -2,7 +2,7 @@
 
 namespace App\Saas\CustomerContact\Domain\Entity;
 
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class CustomerContact
 {

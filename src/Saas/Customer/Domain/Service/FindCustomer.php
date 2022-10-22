@@ -5,7 +5,7 @@ namespace App\Saas\Customer\Domain\Service;
 use App\Saas\Customer\Domain\Entity\Customer;
 use App\Saas\Customer\Domain\Exception\CustomerNotFound;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class FindCustomer
 {
@@ -27,7 +27,7 @@ class FindCustomer
     }
 
     /**
-     * @throws \App\Saas\Customer\Domain\Exception\CustomerNotFound
+     * @throws CustomerNotFound
      */
     private function guard(string $id, Customer $customer = null): void
     {

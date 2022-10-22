@@ -1,15 +1,18 @@
 ### 📗 GET All products
 
-GET http://localhost:9191/api/product
+GET http://localhost:9191/saas/api/product
+Authorization: Bearer {{auth_token}}
 
 ### 📗 GET Single product
 
-GET http://localhost:9191/api/product/521a0392-0d96-454d-89ec-c34d10763be5
+GET http://localhost:9191/saas/api/product/3416659a-1857-449e-b001-ce26a732571d
+Authorization: Bearer {{auth_token}}
 Accept: application/json
 
 ### 💛 POST Save product
 
-POST http://localhost:9191/saas/api/product/
+PUT http://localhost:9191/saas/api/product/3416659a-1857-449e-b001-ce26a732571d
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
@@ -20,9 +23,11 @@ Content-Type: application/json
   "image": "yubiz/img/static.jpg"
 }
 
+
 ### 🔵 PUT Update product
 
-PUT http://localhost:9191/api/product/521a0392-0d96-454d-89ec-c34d10763be5
+PUT http://localhost:9191/saas/api/product/521a0392-0d96-454d-89ec-c34d10763be5
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
@@ -35,7 +40,8 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete product
 
-DELETE http://localhost:9191/api/product/521a0392-0d96-454d-89ec-c34d10763be5
+DELETE http://localhost:9191/saas/api/product/521a0392-0d96-454d-89ec-c34d10763be5
+Authorization: Bearer {{auth_token}}
 Content-Type: application/x-www-form-urlencod
 
 ###

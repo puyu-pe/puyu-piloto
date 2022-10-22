@@ -13,6 +13,7 @@
         "doctrine/orm": "^2.13",
         "friendsofsymfony/rest-bundle": "^3.3",
         "lambdish/phunctional": "^2.1",
+        "lexik/jwt-authentication-bundle": "^2.16",
         "maknz/slack": "^1.7",
         "nelmio/api-doc-bundle": "^4.10",
         "phpdocumentor/reflection-docblock": "^5.3",

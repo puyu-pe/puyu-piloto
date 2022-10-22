@@ -2,10 +2,10 @@
 
 namespace App\Saas\User\Domain\Service;
 
-use App\Saas\User\Domain\Entity\User;
 use App\Saas\User\Domain\Exception\UserNotFound;
 use App\Saas\User\Domain\Repository\UserRepository;
-use Symfony\Component\Uid\Uuid;
+use App\Saas\User\Domain\User;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class FindUser
 {
@@ -27,7 +27,7 @@ class FindUser
     }
 
     /**
-     * @throws \App\Saas\User\Domain\Exception\UserNotFound
+     * @throws UserNotFound
      */
     private function guard(string $id, User $user = null): void
     {

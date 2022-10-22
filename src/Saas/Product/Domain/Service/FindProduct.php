@@ -5,7 +5,7 @@ namespace App\Saas\Product\Domain\Service;
 use App\Saas\Product\Domain\Entity\Product;
 use App\Saas\Product\Domain\Exception\ProductNotFound;
 use App\Saas\Product\Domain\Repository\ProductRepository;
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class FindProduct
 {
@@ -27,7 +27,7 @@ class FindProduct
     }
 
     /**
-     * @throws \App\Saas\Product\Domain\Exception\ProductNotFound
+     * @throws ProductNotFound
      */
     private function guard(string $id, Product $customerContact = null): void
     {

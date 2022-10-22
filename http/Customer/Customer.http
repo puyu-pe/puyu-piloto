@@ -1,15 +1,18 @@
 ### 📗 GET List customer
 
 GET http://localhost:9191/saas/api/customer
+Authorization: Bearer {{auth_token}}
 
 ### 📗 GET Single customer
 
-GET http://localhost:9191/saas/api/customer/bdf2ad0f-98db-43c5-8e6b-c04986726f43
+GET http://localhost:9191/saas/api/customer/2d2fb97e-ecda-4a98-80f0-1a1584d81eb4
+Authorization: Bearer {{auth_token}}
 Accept: application/json
 
 ### 🔵 PUT Update Customer
 
-PUT http://localhost:9191/saas/api/customer/bdf2ad0f-98db-43c5-8e6b-c04986726f43
+PUT http://localhost:9191/saas/api/customer/2d2fb97e-ecda-4a98-80f0-1a1584d81eb4
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
@@ -22,12 +25,14 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete customer
 
-DELETE http://localhost:9191/saas/api/customer/c26f39ec-e7b8-4eb9-97de-181e77e8377d
+DELETE http://localhost:9191/saas/api/customer/2d2fb97e-ecda-4a98-80f0-1a1584d81eb4
+Authorization: Bearer {{auth_token}}
 Content-Type: application/x-www-form-urlencod
 
 ### 💛 POST Save customer
 
 POST http://localhost:9191/saas/api/customer/
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
