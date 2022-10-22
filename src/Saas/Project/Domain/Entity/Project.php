@@ -16,8 +16,8 @@ class Project
     }
 
     public static function create(
-        string $customer,
-        string $product,
+        Customer $customer,
+        Product $product,
     ): self {
         return new self(
             Uuid::v4(),
@@ -30,12 +30,13 @@ class Project
     {
         return $this->id;
     }
+
     public function getCustomer(): Customer
     {
         return $this->customer;
     }
 
-    public function setCustomer(Customer $customer): Project
+    public function setCustomer(Customer $customer): self
     {
         $this->customer = $customer;
         return $this;
@@ -46,7 +47,7 @@ class Project
         return $this->product;
     }
 
-    public function setProduct(Product $product): Project
+    public function setProduct(Product $product): self
     {
         $this->product = $product;
         return $this;

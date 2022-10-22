@@ -2,19 +2,25 @@
 
 namespace App\Saas\Product\Domain\Entity;
 
+use App\Saas\Project\Domain\Entity\Project;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class Product
 {
+    /**
+     * @var Project[]|null $projects
+     */
+    private ?array $projects;
+
     public function __construct(
         private readonly Uuid $id,
         private string $code,
         private string $name,
         private ?string $description,
         private string $url,
-        private ?string $image,
-        private ?Collection $projects
+        private ?string $image
     ) {
+        $this->projects = [];
     }
 
     public static function create(
@@ -22,8 +28,7 @@ class Product
         string $name,
         string $description,
         string $url,
-        string $image,
-        Collection $projects
+        string $image
     ): self {
         return new self(
             Uuid::v4(),
@@ -31,8 +36,7 @@ class Product
             $name,
             $description,
             $url,
-            $image,
-            $projects
+            $image
         );
     }
 
@@ -102,14 +106,12 @@ class Product
         return $this;
     }
 
-    public function getProjects(): ?Collection
+    /**
+     * @return Project[]|null
+     */
+    public function getProjects(): ?array
     {
         return $this->projects;
     }
 
-    public function setProjects(?Collection $projects): Product
-    {
-        $this->projects = $projects;
-        return $this;
-    }
 }

@@ -28,7 +28,7 @@ class CreateCustomer
             $dto->getName(),
             $dto->getAddress(),
             $dto->getEmail(),
-            $dto->getPhone(),
+            $dto->getPhone()
         );
 
         $this->customerRepository->save($customer);

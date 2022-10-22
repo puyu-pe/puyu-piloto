@@ -2,30 +2,33 @@
 
 namespace App\Saas\Customer\Domain\Entity;
 
+use App\Saas\Project\Domain\Entity\Project;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class Customer
 {
+    /**
+     * @var Project[]|null $projects
+     */
+    private ?array $projects;
+
     public function __construct(
         private readonly Uuid $id,
         private string $documentNumber,
         private string $name,
         private string $address,
         private string $email,
-        private string $phone,
-        /**
-         * @var Project[] $projects
-         */
-        private ?Array $projects
+        private string $phone
     ) {
+        $this->projects = [];
     }
+
     public static function create(
         string $documentNumber,
         string $name,
         string $address,
         string $email,
         string $phone,
-        ?Array $projects
     ): self {
         return new self(
             Uuid::v4(),
@@ -33,8 +36,7 @@ class Customer
             $name,
             $address,
             $email,
-            $phone,
-            $projects
+            $phone
         );
     }
 
@@ -104,14 +106,12 @@ class Customer
         return $this;
     }
 
-    public function getProjects(): ?Array
+    /**
+     * @return Project[]|null
+     */
+    public function getProjects(): ?array
     {
         return $this->projects;
     }
 
-    public function setProjects(?Array $projects): self
-    {
-        $this->projects = $projects;
-        return $this;
-    }
 }
