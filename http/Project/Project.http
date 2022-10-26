@@ -1,0 +1,61 @@
+### 📗 GET List customer
+
+GET http://localhost:9191/saas/api/customer
+Authorization: Bearer {{auth_token}}
+
+### 4e88c291-a678-4030-9890-759b29e68d0b
+
+### 📗 GET All products
+
+GET http://localhost:9191/saas/api/product
+Authorization: Bearer {{auth_token}}
+
+### f6cf0fb1-d386-4b6e-9c1e-3714dab73e51
+
+### ##################################################################33
+### 📗 GET All projects
+
+GET http://localhost:9191/saas/api/project
+Authorization: Bearer {{auth_token}}
+
+### 📗 GET Single project
+
+GET http://localhost:9191/saas/api/project/3416659a-1857-449e-b001-ce26a732571d
+Authorization: Bearer {{auth_token}}
+Accept: application/json
+
+### 💛 POST Save project
+
+POST http://localhost:9191/saas/api/project/
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "customerId": "72cd2eb5-b572-421f-90af-13895c0f67fe",
+  "productId": "f6cf0fb1-d386-4b6e-9c1e-3714dab73e51"
+}
+
+
+### 🔵 PUT Update project
+
+PUT http://localhost:9191/saas/api/project/521a0392-0d96-454d-89ec-c34d10763be5
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "code": "YuBiz New code",
+  "name": "Yubiz edit",
+  "description": "Sistema para micro y mediana empresas.",
+  "url": "yubiz.puyu.pe",
+  "image": "yubiz/img/static.jpg"
+}
+
+### 🏮 DELETE Delete project
+
+DELETE http://localhost:9191/saas/api/project/521a0392-0d96-454d-89ec-c34d10763be5
+Authorization: Bearer {{auth_token}}
+Content-Type: application/x-www-form-urlencod
+
+###
+
+

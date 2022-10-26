@@ -30,7 +30,7 @@ class CreateCustomerController extends ApiController
         content: new OA\JsonContent(
             properties: [
                 new OA\Property(property: 'status', example: 'success'),
-                new OA\Property(property: 'data', ref: new Model(type: Customer::class))
+                new OA\Property(property: 'data', ref: new Model(type: Customer::class,  groups: ['customer']))
             ]
         )
     )]

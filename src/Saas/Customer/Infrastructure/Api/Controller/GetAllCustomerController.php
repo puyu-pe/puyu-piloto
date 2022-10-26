@@ -32,7 +32,7 @@ class GetAllCustomerController extends AbstractFOSRestController
                             property: 'Customer',
                             title: 'customer',
                             type: 'array',
-                            items: new OA\Items(ref: new Model(type: Customer::class))
+                            items: new OA\Items(ref: new Model(type: Customer::class,  groups: ['customer']))
                         )
                     ],
                     type: 'object',

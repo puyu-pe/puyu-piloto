@@ -10,7 +10,7 @@ class Customer
     /**
      * @var Project[]|null $projects
      */
-    private ?array $projects;
+    private mixed $projects;
 
     public function __construct(
         private readonly Uuid $id,
@@ -109,7 +109,7 @@ class Customer
     /**
      * @return Project[]|null
      */
-    public function getProjects(): ?array
+    public function getProjects(): mixed
     {
         return $this->projects;
     }

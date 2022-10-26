@@ -4,7 +4,7 @@ namespace App\Saas\Project\Domain\Entity;
 
 use App\Saas\Customer\Domain\Entity\Customer;
 use App\Saas\Product\Domain\Entity\Product;
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class Project
 {

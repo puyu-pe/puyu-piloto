@@ -16,6 +16,7 @@ App\Saas\Project\Domain\Entity\Project:
         product:
             targetEntity: App\Saas\Product\Domain\Entity\Product
             inverserBy: product
+            fetch: LAZY
             joinColumn:
                 nullable: false
     lifecycleCallbacks: {  }
