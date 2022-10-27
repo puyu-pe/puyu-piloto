@@ -2,10 +2,6 @@ App\Saas\Project\Domain\Entity\Project:
   attributes:
     id:
       groups: [ 'project' ]
-    customerId:
-      groups: [ 'project' ]
-    productId:
-      groups: [ 'project' ]
     customer:
       groups: [ 'project' ]
     product:

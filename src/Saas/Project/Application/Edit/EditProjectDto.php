@@ -2,24 +2,22 @@
 
 namespace App\Saas\Project\Application\Edit;
 
-use App\Saas\Customer\Domain\Entity\Customer;
-use App\Saas\Product\Domain\Entity\Product;
-
 class EditProjectDto
 {
     public function __construct(
-        private readonly ?Customer $customer = null,
-        private readonly ?Product $product = null,
+        private readonly ?string $customerId = null,
+        private readonly ?string $productId = null,
     ) {
     }
 
-    public function getCustomer(): ?Customer
+    public function getCustomerId(): ?string
     {
-        return $this->customer;
+        return $this->customerId;
     }
 
-    public function getProduct(): ?Product
+    public function getProductId(): ?string
     {
-        return $this->product;
+        return $this->productId;
     }
+
 }

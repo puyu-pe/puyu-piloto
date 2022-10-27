@@ -6,7 +6,7 @@ use App\Saas\Project\Domain\Entity\Project;
 use App\Saas\Project\Domain\Repository\ProjectRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 /**
  * @extends ServiceEntityRepository<Project>

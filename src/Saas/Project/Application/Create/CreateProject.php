@@ -2,7 +2,8 @@
 
 namespace App\Saas\Project\Application\Create;
 
-use App\Saas\Customer\Domain\Exception\CustomerDataException;
+use App\Saas\Customer\Domain\Exception\CustomerNotFound;
+use App\Saas\Product\Domain\Exception\ProductNotFound;
 use App\Saas\Project\Domain\Entity\Project;
 use App\Saas\Project\Domain\Exception\ProjectDataException;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;
@@ -28,7 +29,9 @@ class CreateProject
     }
 
     /**
-     * @throws {ProjectDataException, CustomerDataException, ProjectDataException}
+     * @throws ProjectDataException
+     * @throws CustomerNotFound
+     * @throws ProductNotFound
      */
     public function __invoke(
         CreateProjectDto $dto

@@ -20,7 +20,7 @@ Authorization: Bearer {{auth_token}}
 
 ### 📗 GET Single project
 
-GET http://localhost:9191/saas/api/project/3416659a-1857-449e-b001-ce26a732571d
+GET http://localhost:9191/saas/api/project/7a8ddee4-4272-48d9-b7e4-7ef33e2cf915
 Authorization: Bearer {{auth_token}}
 Accept: application/json
 
@@ -38,21 +38,18 @@ Content-Type: application/json
 
 ### 🔵 PUT Update project
 
-PUT http://localhost:9191/saas/api/project/521a0392-0d96-454d-89ec-c34d10763be5
+PUT http://localhost:9191/saas/api/project/b48ce9b0-28f5-4990-bfca-e16f7e9e2e6b
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "code": "YuBiz New code",
-  "name": "Yubiz edit",
-  "description": "Sistema para micro y mediana empresas.",
-  "url": "yubiz.puyu.pe",
-  "image": "yubiz/img/static.jpg"
+  "customerId": "72cd2eb5-b572-421f-90af-13895c0f67fe",
+  "productId": "aca2ab97-a26b-45ab-9af9-24ea8af6603a"
 }
 
 ### 🏮 DELETE Delete project
 
-DELETE http://localhost:9191/saas/api/project/521a0392-0d96-454d-89ec-c34d10763be5
+DELETE http://localhost:9191/saas/api/project/b48ce9b0-28f5-4990-bfca-e16f7e9e2e6b
 Authorization: Bearer {{auth_token}}
 Content-Type: application/x-www-form-urlencod
 

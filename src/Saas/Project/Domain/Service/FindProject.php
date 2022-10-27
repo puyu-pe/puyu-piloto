@@ -5,7 +5,7 @@ namespace App\Saas\Project\Domain\Service;
 use App\Saas\Project\Domain\Entity\Project;
 use App\Saas\Project\Domain\Exception\ProjectNotFound;
 use App\Saas\Project\Domain\Repository\ProjectRepository;
-use Symfony\Component\Uid\Uuid;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 class FindProject
 {
