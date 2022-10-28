@@ -1,9 +1,0 @@
-doctrine:
-    orm:
-        mappings:
-            CustomerContact:
-                is_bundle: false
-                type: yml
-                dir: '%kernel.project_dir%/src/Saas/CustomerContact/Infrastructure/Persistence/Doctrine/Mapping'
-                prefix: 'App\Saas\CustomerContact\Domain\Entity'
-                alias: CustomerContact

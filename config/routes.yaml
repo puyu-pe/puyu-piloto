@@ -1,5 +1,5 @@
 #controllers:
-#    resource: ../src/CustomerContact/Infrastructure/Ui/Controller/
+#    resource: ../src/Contact/Infrastructure/Ui/Controller/
 #    type: attribute
 saas_directory:
     resource: ../src/Saas/Shared/Infrastructure/Config/Routes/

@@ -1,0 +1,4 @@
+saas_contact_route:
+    resource: '../../../../Contact/Infrastructure/Config/Routes/'
+    type: directory
+    prefix: saas

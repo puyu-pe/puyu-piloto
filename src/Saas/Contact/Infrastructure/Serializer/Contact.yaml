@@ -1,0 +1,12 @@
+App\Saas\Contact\Domain\Entity\Contact:
+  attributes:
+    id:
+      groups: [ 'contact' ]
+    name:
+      groups: [ 'contact' ]
+    lastName:
+      groups: [ 'contact' ]
+    phone:
+      groups: [ 'contact' ]
+    jobTitle:
+      groups: [ 'contact' ]

@@ -8,7 +8,7 @@ use App\Saas\User\Domain\User;
 class GetAllUsers
 {
     public function __construct(
-        private readonly UserRepository $customerContactRepository,
+        private readonly UserRepository $contactRepository,
     ) {
     }
 
@@ -17,6 +17,6 @@ class GetAllUsers
      */
     public function __invoke(): array
     {
-        return $this->customerContactRepository->getAll();
+        return $this->contactRepository->getAll();
     }
 }

@@ -29,9 +29,9 @@ class FindProduct
     /**
      * @throws ProductNotFound
      */
-    private function guard(string $id, Product $customerContact = null): void
+    private function guard(string $id, Product $product = null): void
     {
-        if (is_null($customerContact)) {
+        if (is_null($product)) {
             throw new ProductNotFound($id);
         }
     }

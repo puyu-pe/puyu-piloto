@@ -1,0 +1,4 @@
+saas_product_directory:
+    resource: '../../../../Product/Infrastructure/Config/Routes/'
+    type: directory
+    prefix: saas
