@@ -52,6 +52,4 @@ class Project
         $this->product = $product;
         return $this;
     }
-
-
 }

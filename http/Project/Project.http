@@ -3,16 +3,24 @@
 GET http://localhost:9191/saas/api/customer
 Authorization: Bearer {{auth_token}}
 
-### 4e88c291-a678-4030-9890-759b29e68d0b
+### 4ae6e7d0-d4d6-436e-8911-96004bbb9690
+### 7c91e908-a085-40fc-b8fe-d41329da880e
+
 
 ### 📗 GET All products
 
 GET http://localhost:9191/saas/api/product
 Authorization: Bearer {{auth_token}}
 
-### f6cf0fb1-d386-4b6e-9c1e-3714dab73e51
+### 4cb256ac-e94a-4604-9a64-9ec80726dc84
+### 8a64f20a-61e0-439f-a9b4-cb076708c2b4
 
-### ##################################################################33
+### ###########################################################################################################
+### ###########################################################################################################
+### ###########################################################################################################
+### ###########################################################################################################
+### ###########################################################################################################
+
 ### 📗 GET All projects
 
 GET http://localhost:9191/saas/api/project
@@ -31,25 +39,25 @@ Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "customerId": "72cd2eb5-b572-421f-90af-13895c0f67fe",
-  "productId": "f6cf0fb1-d386-4b6e-9c1e-3714dab73e51"
+  "customerId": "7c91e908-a085-40fc-b8fe-d41329da880e",
+  "productId": "4cb256ac-e94a-4604-9a64-9ec80726dc84"
 }
 
 
 ### 🔵 PUT Update project
 
-PUT http://localhost:9191/saas/api/project/b48ce9b0-28f5-4990-bfca-e16f7e9e2e6b
+PUT http://localhost:9191/saas/api/project/8764f506-c311-4c86-bfcf-d15669b12d0a
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "customerId": "72cd2eb5-b572-421f-90af-13895c0f67fe",
-  "productId": "aca2ab97-a26b-45ab-9af9-24ea8af6603a"
+  "customerId": "7c91e908-a085-40fc-b8fe-d41329da880e",
+  "productId": "8a64f20a-61e0-439f-a9b4-cb076708c2b4"
 }
 
 ### 🏮 DELETE Delete project
 
-DELETE http://localhost:9191/saas/api/project/b48ce9b0-28f5-4990-bfca-e16f7e9e2e6b
+DELETE http://localhost:9191/saas/api/project/5b391fc6-0fcb-4675-a70d-47bd64fedb41
 Authorization: Bearer {{auth_token}}
 Content-Type: application/x-www-form-urlencod
 

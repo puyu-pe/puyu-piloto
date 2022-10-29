@@ -9,13 +9,11 @@ App\Saas\Project\Domain\Entity\Project:
     manyToOne:
         customer:
             targetEntity: App\Saas\Customer\Domain\Entity\Customer
-            inversedBy: customer
             fetch: LAZY
             joinColumn:
                 nullable: false
         product:
             targetEntity: App\Saas\Product\Domain\Entity\Product
-            inverserBy: product
             fetch: LAZY
             joinColumn:
                 nullable: false

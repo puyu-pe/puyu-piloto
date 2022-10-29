@@ -4,9 +4,9 @@ namespace App\Saas\Project\Infrastructure\Persistence\Doctrine\Repository;
 
 use App\Saas\Project\Domain\Entity\Project;
 use App\Saas\Project\Domain\Repository\ProjectRepository;
+use App\Shared\Domain\ValueObjects\Uuid;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use App\Shared\Domain\ValueObjects\Uuid;
 
 /**
  * @extends ServiceEntityRepository<Project>

@@ -24,7 +24,3 @@ App\Saas\Product\Domain\Entity\Product:
             type: string
             length: 300
             nullable: true
-    oneToMany:
-        projects:
-            targetEntity: App\Saas\Project\Domain\Entity\Project
-            mappedBy: project

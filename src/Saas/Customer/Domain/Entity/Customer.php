@@ -7,11 +7,6 @@ use App\Shared\Domain\ValueObjects\Uuid;
 
 class Customer
 {
-    /**
-     * @var Project[]|null $projects
-     */
-    private mixed $projects;
-
     public function __construct(
         private readonly Uuid $id,
         private string $documentNumber,
@@ -20,7 +15,6 @@ class Customer
         private string $email,
         private string $phone
     ) {
-        $this->projects = [];
     }
 
     public static function create(
@@ -105,13 +99,4 @@ class Customer
 
         return $this;
     }
-
-    /**
-     * @return Project[]|null
-     */
-    public function getProjects(): mixed
-    {
-        return $this->projects;
-    }
-
 }

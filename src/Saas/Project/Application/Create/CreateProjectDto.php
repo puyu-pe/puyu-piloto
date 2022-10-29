@@ -19,5 +19,4 @@ class CreateProjectDto
     {
         return $this->productId;
     }
-
 }

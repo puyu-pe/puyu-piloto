@@ -19,5 +19,4 @@ class EditProjectDto
     {
         return $this->productId;
     }
-
 }

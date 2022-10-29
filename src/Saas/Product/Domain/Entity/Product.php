@@ -7,11 +7,6 @@ use App\Shared\Domain\ValueObjects\Uuid;
 
 class Product
 {
-    /**
-     * @var Project[]|null $projects
-     */
-    private mixed $projects;
-
     public function __construct(
         private readonly Uuid $id,
         private string $code,
@@ -20,7 +15,6 @@ class Product
         private string $url,
         private ?string $image
     ) {
-        $this->projects = [];
     }
 
     public static function create(
@@ -105,13 +99,4 @@ class Product
 
         return $this;
     }
-
-    /**
-     * @return Project[]|null
-     */
-    public function getProjects(): mixed
-    {
-        return $this->projects;
-    }
-
 }

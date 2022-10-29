@@ -3,15 +3,15 @@
 namespace App\Saas\Project\Application\Create;
 
 use App\Saas\Customer\Domain\Exception\CustomerNotFound;
+use App\Saas\Customer\Domain\Repository\CustomerRepository;
+use App\Saas\Customer\Domain\Service\FindCustomer as DomainFindCustomer;
 use App\Saas\Product\Domain\Exception\ProductNotFound;
+use App\Saas\Product\Domain\Repository\ProductRepository;
+use App\Saas\Product\Domain\Service\FindProduct as DomainFindProduct;
 use App\Saas\Project\Domain\Entity\Project;
 use App\Saas\Project\Domain\Exception\ProjectDataException;
-use App\Saas\Customer\Domain\Repository\CustomerRepository;
-use App\Saas\Product\Domain\Repository\ProductRepository;
 use App\Saas\Project\Domain\Repository\ProjectRepository;
 use App\Saas\Shared\Domain\Validation\Validator;
-use App\Saas\Customer\Domain\Service\FindCustomer as DomainFindCustomer;
-use App\Saas\Product\Domain\Service\FindProduct as DomainFindProduct;
 
 class CreateProject
 {
@@ -24,8 +24,8 @@ class CreateProject
         private readonly ProjectRepository $projectRepository,
         private readonly Validator $validator,
     ) {
-        $this->customerFinder = new DomainFindCustomer($customerRepository);
-        $this->productFinder = new DomainFindProduct($productRepository);
+        $this->customerFinder = new DomainFindCustomer($this->customerRepository);
+        $this->productFinder = new DomainFindProduct($this->productRepository);
     }
 
     /**

@@ -22,7 +22,3 @@ App\Saas\Customer\Domain\Entity\Customer:
         phone:
             type: string
             length: 20
-    oneToMany:
-        projects:
-            targetEntity: App\Saas\Project\Domain\Entity\Project
-            mappedBy: project
