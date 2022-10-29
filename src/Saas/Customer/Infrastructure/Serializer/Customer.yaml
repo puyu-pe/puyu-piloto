@@ -3,7 +3,7 @@ App\Saas\Customer\Domain\Entity\Customer:
     id:
       groups: [ 'customer' ]
     documentNumber:
-      groups: ['customer']
+      groups: [ 'customer' ]
     name:
       groups: [ 'customer' ]
     address:

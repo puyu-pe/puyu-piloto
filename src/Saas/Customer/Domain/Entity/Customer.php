@@ -2,6 +2,7 @@
 
 namespace App\Saas\Customer\Domain\Entity;
 
+use App\Saas\Project\Domain\Entity\Project;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class Customer
@@ -12,9 +13,10 @@ class Customer
         private string $name,
         private string $address,
         private string $email,
-        private string $phone,
+        private string $phone
     ) {
     }
+
     public static function create(
         string $documentNumber,
         string $name,
@@ -28,7 +30,7 @@ class Customer
             $name,
             $address,
             $email,
-            $phone,
+            $phone
         );
     }
 

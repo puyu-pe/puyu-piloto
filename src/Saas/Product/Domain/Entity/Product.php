@@ -2,6 +2,7 @@
 
 namespace App\Saas\Product\Domain\Entity;
 
+use App\Saas\Project\Domain\Entity\Project;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class Product
@@ -12,7 +13,7 @@ class Product
         private string $name,
         private ?string $description,
         private string $url,
-        private ?string $image,
+        private ?string $image
     ) {
     }
 

@@ -11,7 +11,7 @@ Accept: application/json
 
 ### 💛 POST Save product
 
-PUT http://localhost:9191/saas/api/product/3416659a-1857-449e-b001-ce26a732571d
+POST http://localhost:9191/saas/api/product/
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 

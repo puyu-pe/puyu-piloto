@@ -1,0 +1,20 @@
+App\Saas\Project\Domain\Entity\Project:
+    type: entity
+    repositoryClass: App\Saas\Project\Domain\Repository\ProjectRepository
+    table: project
+    id:
+        id:
+            type: uuid
+            unique: true
+    manyToOne:
+        customer:
+            targetEntity: App\Saas\Customer\Domain\Entity\Customer
+            fetch: LAZY
+            joinColumn:
+                nullable: false
+        product:
+            targetEntity: App\Saas\Product\Domain\Entity\Product
+            fetch: LAZY
+            joinColumn:
+                nullable: false
+    lifecycleCallbacks: {  }

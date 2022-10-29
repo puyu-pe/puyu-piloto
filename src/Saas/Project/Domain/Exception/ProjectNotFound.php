@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Saas\Project\Domain\Exception;
+
+class ProjectNotFound extends \App\Saas\Shared\Domain\Exception\DomainError
+{
+    public function __construct(
+        private readonly string $id,
+    ) {
+        parent::__construct();
+    }
+
+    public function errorCode(): string
+    {
+        return 'project_not_found';
+    }
+
+    public function errorMessage(): string
+    {
+        return sprintf('El proyecto <%s> no fue encontrado', $this->id);
+    }
+}

@@ -40,7 +40,8 @@ Content-Type: application/json
   "name": "FASTWORKX S.R.L. 10",
   "address": "AV. ARGENTINA NRO. 146 (A 1 CDRA MUNICIPALIDAD LAS AMERICAS) APURIMAC - ABANCAY - ABANCAY",
   "email": "puyu.com.pe",
-  "phone": "979845"
+  "phone": "979845",
+  "projects": null
 }
 
 ###

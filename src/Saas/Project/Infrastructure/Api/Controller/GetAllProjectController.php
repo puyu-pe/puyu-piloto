@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Saas\Customer\Infrastructure\Api\Controller;
+namespace App\Saas\Project\Infrastructure\Api\Controller;
 
-use App\Saas\Customer\Application\GetAll\GetAllCustomer;
-use App\Saas\Customer\Domain\Entity\Customer;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
+use App\Saas\Project\Application\GetAll\GetAllProjects;
+use App\Saas\Project\Domain\Entity\Project;
+use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
 
-class GetAllCustomerController extends AbstractFOSRestController
+class GetAllProjectController extends ApiController
 {
     /**
-     * Get all customer
+     * Get all projects
      *
-     * Get all customer
+     * Get all projects
      */
-    #[Rest\Get(path: '', name: 'customer_get_all')]
+    #[Rest\Get(path: '', name: 'project_get_all')]
     #[OA\Response(
         response: 200,
         description: 'Successful response',
@@ -29,10 +29,10 @@ class GetAllCustomerController extends AbstractFOSRestController
                     property: 'data',
                     properties: [
                         new OA\Property(
-                            property: 'Customer',
-                            title: 'customer',
+                            property: 'Projects',
+                            title: 'project',
                             type: 'array',
-                            items: new OA\Items(ref: new Model(type: Customer::class, groups: ['customer']))
+                            items: new OA\Items(ref: new Model(type: Project::class))
                         )
                     ],
                     type: 'object',
@@ -40,17 +40,17 @@ class GetAllCustomerController extends AbstractFOSRestController
             ]
         )
     )]
-    #[OA\Tag(name: 'Customer')]
+    #[OA\Tag(name: 'Project')]
     public function __invoke(
-        GetAllCustomer $useCase,
+        GetAllProjects $useCase,
     ): Response {
-        $customer = ($useCase)();
+        $projects = ($useCase)();
 
         $view = View::create(
-            ['customer' => $customer],
+            ['projects' => $projects],
             Response::HTTP_OK
         );
-        $view->getContext()->setGroups(['customer']);
+        $view->getContext()->setGroups(['project']);
 
         return $this->handleView($view);
     }
