@@ -17,6 +17,6 @@ class DirectoryNotFound extends \App\Saas\Shared\Domain\Exception\DomainError
 
     public function errorMessage(): string
     {
-        return sprintf('El proyecto <%s> no fue encontrado', $this->id);
+        return sprintf('El registro de directorio <%s> no fue encontrado', $this->id);
     }
 }
