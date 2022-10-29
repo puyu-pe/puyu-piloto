@@ -1,0 +1,2 @@
+imports:
+  - { resource: ../../../../Project/Infrastructure/Config/saas_project_service.yaml }

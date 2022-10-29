@@ -1,0 +1,4 @@
+saas_project_api:
+    resource: '../../Api/Controller/'
+    type: attribute
+    prefix: api/project
