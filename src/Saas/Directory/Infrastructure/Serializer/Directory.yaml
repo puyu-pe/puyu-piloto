@@ -1,0 +1,8 @@
+App\Saas\Directory\Domain\Entity\Directory:
+  attributes:
+    id:
+      groups: [ 'directory' ]
+    customer:
+      groups: [ 'directory' ]
+    contact:
+      groups: [ 'directory' ]

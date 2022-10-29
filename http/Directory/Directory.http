@@ -1,0 +1,66 @@
+### 📗 GET List customer
+
+GET http://localhost:9191/saas/api/customer
+Authorization: Bearer {{auth_token}}
+
+### 4ae6e7d0-d4d6-436e-8911-96004bbb9690
+### 7c91e908-a085-40fc-b8fe-d41329da880e
+
+
+### 📗 GET All contacts
+
+GET http://localhost:9191/saas/api/contact
+Authorization: Bearer {{auth_token}}
+
+### 4cb256ac-e94a-4604-9a64-9ec80726dc84
+### 8a64f20a-61e0-439f-a9b4-cb076708c2b4
+
+### ###########################################################################################################
+### ###########################################################################################################
+### ###########################################################################################################
+### ###########################################################################################################
+### ###########################################################################################################
+
+### 📗 GET All directorys
+
+GET http://localhost:9191/saas/api/directory
+Authorization: Bearer {{auth_token}}
+
+### 📗 GET Single directory
+
+GET http://localhost:9191/saas/api/directory/7a8ddee4-4272-48d9-b7e4-7ef33e2cf915
+Authorization: Bearer {{auth_token}}
+Accept: application/json
+
+### 💛 POST Save directory
+
+POST http://localhost:9191/saas/api/directory/
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "customerId": "7c91e908-a085-40fc-b8fe-d41329da880e",
+  "contactId": "4cb256ac-e94a-4604-9a64-9ec80726dc84"
+}
+
+
+### 🔵 PUT Update directory
+
+PUT http://localhost:9191/saas/api/directory/8764f506-c311-4c86-bfcf-d15669b12d0a
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "customerId": "7c91e908-a085-40fc-b8fe-d41329da880e",
+  "contactId": "8a64f20a-61e0-439f-a9b4-cb076708c2b4"
+}
+
+### 🏮 DELETE Delete directory
+
+DELETE http://localhost:9191/saas/api/directory/5b391fc6-0fcb-4675-a70d-47bd64fedb41
+Authorization: Bearer {{auth_token}}
+Content-Type: application/x-www-form-urlencod
+
+###
+
+

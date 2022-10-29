@@ -1,0 +1,13 @@
+framework:
+    # path to validations
+    validation:
+        mapping:
+            paths:
+                - "%kernel.project_dir%/src/Saas/Directory/Infrastructure/Validation/"
+
+    # Path to serializer
+    serializer:
+        enabled: true
+        mapping:
+            paths:
+                - '%kernel.project_dir%/src/Saas/Directory/Infrastructure/Serializer'
