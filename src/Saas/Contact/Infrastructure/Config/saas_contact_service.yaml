@@ -7,8 +7,3 @@ when@dev:
     services:
         App\Saas\Contact\Infrastructure\Persistence\Doctrine\Repository\DoctrineContactRepository: ~
         App\Saas\Contact\Domain\Repository\ContactRepository: '@App\Saas\Contact\Infrastructure\Persistence\Doctrine\Repository\DoctrineContactRepository'
-
-when@test:
-    services:
-        App\Saas\Contact\Infrastructure\Persistence\InMemory\InMemoryContactRepository: ~
-        App\Saas\Contact\Domain\Repository\ContactRepository: '@App\Saas\Contact\Infrastructure\Persistence\InMemory\InMemoryContactRepository'
