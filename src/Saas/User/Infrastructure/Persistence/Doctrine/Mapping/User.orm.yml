@@ -5,6 +5,7 @@ App\Saas\User\Domain\User:
     id:
         id:
             type: uuid
+            length: 16
             unique: true
     fields:
         username:

@@ -5,6 +5,7 @@ App\Saas\Customer\Domain\Entity\Customer:
     id:
         id:
             type: uuid
+            length: 16
             unique: true
     fields:
         documentNumber:

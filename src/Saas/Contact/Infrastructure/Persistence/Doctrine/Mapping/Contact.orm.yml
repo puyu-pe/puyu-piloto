@@ -5,6 +5,7 @@ App\Saas\Contact\Domain\Entity\Contact:
     id:
         id:
             type: uuid
+            length: 16
             unique: true
     fields:
         name:

@@ -5,6 +5,7 @@ App\Saas\Product\Domain\Entity\Product:
     id:
         id:
             type: uuid
+            length: 16
             unique: true
     fields:
         code:

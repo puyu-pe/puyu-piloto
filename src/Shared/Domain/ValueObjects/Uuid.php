@@ -5,25 +5,25 @@ declare(strict_types=1);
 namespace App\Shared\Domain\ValueObjects;
 
 use InvalidArgumentException;
+use JsonSerializable;
 use Stringable;
-use Symfony\Component\Uid\AbstractUid;
 use Symfony\Component\Uid\Uuid as SymfonyUuid;
 
-class Uuid extends AbstractUid implements Stringable
+class Uuid implements Stringable, JsonSerializable
 {
-    final public function __construct(private readonly string $value)
+    final public function __construct(protected string $uid)
     {
     }
 
-    public static function create(?string $value): ?static
+    public static function fromString(string $uid): static
     {
-        if (null === $value) {
-            return null;
-        }
+        self::isValid($uid);
+        return new static((string)SymfonyUuid::fromString($uid));
+    }
 
-        self::ensureIsValidUuid($value);
-
-        return new static($value);
+    public function toBinary(): string
+    {
+        return SymfonyUuid::fromString($this->uid)->toBinary();
     }
 
     public static function v4(): static
@@ -33,7 +33,7 @@ class Uuid extends AbstractUid implements Stringable
 
     public function value(): string
     {
-        return SymfonyUuid::fromString($this->value)->toBinary();
+        return $this->uid;
     }
 
     public function equals(mixed $other): bool
@@ -43,33 +43,20 @@ class Uuid extends AbstractUid implements Stringable
 
     public function __toString(): string
     {
-        return (string)SymfonyUuid::fromBinary($this->value());
-    }
-
-    private static function ensureIsValidUuid(string $id): void
-    {
-        $uuid = SymfonyUuid::fromBinary($id);
-        if (!SymfonyUuid::isValid((string)$uuid)) {
-            throw new InvalidArgumentException(sprintf('<%s> does not allow the value <%s>.', static::class, $id));
-        }
+        return $this->value();
     }
 
     public static function isValid(string $uid): bool
     {
-        $uuid = SymfonyUuid::fromBinary($uid);
+        $uuid = SymfonyUuid::fromString($uid);
         if (!SymfonyUuid::isValid((string)$uuid)) {
             throw new InvalidArgumentException(sprintf('<%s> does not allow the value <%s>.', static::class, $uid));
         }
         return true;
     }
 
-    public static function fromString(string $uid): static
+    public function jsonSerialize(): string
     {
-        return new static((string)SymfonyUuid::fromString($uid));
-    }
-
-    public function toBinary(): string
-    {
-        return SymfonyUuid::fromString($this->value)->toBinary();
+        return $this->uid;
     }
 }
