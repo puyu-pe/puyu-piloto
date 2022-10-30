@@ -6,25 +6,38 @@ namespace App\Shared\Infrastructure\Persistence\Doctrine\Types;
 
 use App\Shared\Domain\ValueObjects\Uuid;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\StringType;
+use Doctrine\DBAL\Types\BinaryType;
 
-final class UuidType extends StringType
+final class UuidType extends BinaryType
 {
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
+    public const BINARY_LENGTH = 16;
+
+    /**
+     * @param mixed[] $column
+     */
+    public function getSqlDeclaration(array $column, AbstractPlatform $platform): string
     {
-        if (null === $value) {
-            return null;
-        }
-        ;
-        return $value->value();
+        return sprintf('BINARY(%d) COMMENT \'(DC2Type:uuid)\'', $column['length'] ?? self::BINARY_LENGTH);
     }
 
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?Uuid
+    /**
+     * @param string $value
+     */
+    public function convertToPhpValue($value, AbstractPlatform $platform): Uuid
     {
-        if (null === $value) {
-            return null;
-        }
+        return Uuid::fromString($value);
+    }
 
-        return Uuid::create($value);
+    /**
+     * @param Uuid $value
+     */
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): string
+    {
+        return $value->toBinary();
+    }
+
+    public function getName(): string
+    {
+        return 'uuid';
     }
 }

@@ -5,7 +5,7 @@ Authorization: Bearer {{auth_token}}
 
 ### 📗 GET Single user
 
-GET http://localhost:9191/saas/api/user/c29388e2-9414-4efa-8b0e-c6df508a7721
+GET http://localhost:9191/saas/api/user/8949065c-3936-4561-81c2-bebc7b9f0b8f
 Authorization: Bearer {{auth_token}}
 
 ### 💛 POST Save user

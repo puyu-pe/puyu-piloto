@@ -5,6 +5,7 @@ App\Saas\Project\Domain\Entity\Project:
     id:
         id:
             type: uuid
+            length: 16
             unique: true
     manyToOne:
         customer:

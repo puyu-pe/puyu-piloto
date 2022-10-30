@@ -5,6 +5,7 @@ App\Saas\Directory\Domain\Entity\Directory:
     id:
         id:
             type: uuid
+            length: 16
             unique: true
     manyToOne:
         customer:

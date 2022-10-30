@@ -81,7 +81,7 @@ final class Jttp
 
     public function toJson(): string
     {
-        return json_encode($this->toArray());
+        return json_encode($this->toArray()) ?: '';
     }
 
     /**

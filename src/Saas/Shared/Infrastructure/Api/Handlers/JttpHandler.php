@@ -37,7 +37,7 @@ class JttpHandler
     {
         if ($this->isSuccessful($view)) {
             $response = $handler->createResponse($view, $request, 'json');
-            $content = $response->getContent();
+            $content = $response->getContent() ?: '';
             $jttpContent = Jttp::success(json_decode($content, true))->toJson();
         } else {
             if (method_exists($view->getData(), 'errorMessage')) {
