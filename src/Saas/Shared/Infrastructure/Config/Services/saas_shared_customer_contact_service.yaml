@@ -1,2 +1,0 @@
-imports:
-    - { resource: ../../../../CustomerContact/Infrastructure/Config/saas_customer_contact_service.yaml }

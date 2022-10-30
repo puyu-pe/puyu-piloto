@@ -1,0 +1,23 @@
+App\Saas\Contact\Domain\Entity\Contact:
+    type: entity
+    repositoryClass: App\Saas\Contact\Domain\Repository\ContactRepository
+    table: contact
+    id:
+        id:
+            type: uuid
+            unique: true
+    fields:
+        name:
+            type: string
+            length: 255
+        lastName:
+            type: string
+            length: 300
+        phone:
+            type: string
+            length: 20
+            nullable: true
+        jobTitle:
+            type: string
+            length: 255
+            nullable: true

@@ -1,0 +1,66 @@
+### 📗 GET List customer
+
+GET http://localhost:9191/saas/api/customer
+Authorization: Bearer {{auth_token}}
+
+### 4ae6e7d0-d4d6-436e-8911-96004bbb9690
+### 7c91e908-a085-40fc-b8fe-d41329da880e
+
+
+### 📗 GET All contacts
+
+GET http://localhost:9191/saas/api/contact
+Authorization: Bearer {{auth_token}}
+
+### c26d0fa1-3545-4bda-a933-b21ae0f630d2
+
+### ###########################################################################################################
+### ###########################################################################################################
+### ###########################################################################################################
+### ###########################################################################################################
+### ###########################################################################################################
+
+### 📗 GET All directorys
+
+GET http://localhost:9191/saas/api/directory
+Authorization: Bearer {{auth_token}}
+
+### 📗 GET Single directory
+
+GET http://localhost:9191/saas/api/directory/7a8ddee4-4272-48d9-b7e4-7ef33e2cf915
+Authorization: Bearer {{auth_token}}
+Accept: application/json
+
+### 💛 POST Save directory
+
+POST http://localhost:9191/saas/api/directory/
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "customerId": "7c91e908-a085-40fc-b8fe-d41329da880e",
+  "contactId": "c26d0fa1-3545-4bda-a933-b21ae0f630d2"
+}
+
+
+### 🔵 PUT Update directory
+
+PUT http://localhost:9191/saas/api/directory/e04477e9-1a35-431f-974b-2a1f3bf695b8
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "customerId": "4ae6e7d0-d4d6-436e-8911-96004bbb9690",
+  "contactId": "c26d0fa1-3545-4bda-a933-b21ae0f630d2"
+}
+
+
+### 🏮 DELETE Delete directory
+
+DELETE http://localhost:9191/saas/api/directory/bfdd221a-86de-42db-9795-09db212d803c
+Authorization: Bearer {{auth_token}}
+Content-Type: application/x-www-form-urlencod
+
+###
+
+

@@ -1,0 +1,14 @@
+imports:
+    - { resource: Packages/saas_directory_doctrine.yaml }
+    - { resource: Packages/saas_directory_framework.yaml }
+
+when@prod:
+when@dev:
+    services:
+        App\Saas\Directory\Infrastructure\Persistence\Doctrine\Repository\DoctrineDirectoryRepository: ~
+        App\Saas\Directory\Domain\Repository\DirectoryRepository: '@App\Saas\Directory\Infrastructure\Persistence\Doctrine\Repository\DoctrineDirectoryRepository'
+
+when@test:
+    services:
+        App\Saas\Directory\Infrastructure\Persistence\InMemory\InMemoryDirectoryRepository: ~
+        App\Saas\Directory\Domain\Repository\DirectoryRepository: '@App\Saas\Directory\Infrastructure\Persistence\InMemory\InMemoryDirectoryRepository'

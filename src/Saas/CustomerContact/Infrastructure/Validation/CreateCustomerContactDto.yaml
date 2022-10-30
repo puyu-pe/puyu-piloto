@@ -1,8 +1,0 @@
-App\Saas\CustomerContact\Application\Create\CreateCustomerContactDto:
-  properties:
-    name:
-      - NotBlank: ~
-    lastName:
-      - Length:
-          min: 5
-          minMessage: 'Your last name must be at least {{ limit }} characters long'

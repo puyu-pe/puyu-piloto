@@ -1,0 +1,4 @@
+saas_directory_directory:
+    resource: '../../../../Directory/Infrastructure/Config/Routes/'
+    type: directory
+    prefix: saas

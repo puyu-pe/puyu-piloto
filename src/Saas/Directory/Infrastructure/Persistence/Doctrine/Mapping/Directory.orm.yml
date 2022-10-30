@@ -1,0 +1,20 @@
+App\Saas\Directory\Domain\Entity\Directory:
+    type: entity
+    repositoryClass: App\Saas\Directory\Domain\Repository\DirectoryRepository
+    table: directory
+    id:
+        id:
+            type: uuid
+            unique: true
+    manyToOne:
+        customer:
+            targetEntity: App\Saas\Customer\Domain\Entity\Customer
+            fetch: LAZY
+            joinColumn:
+                nullable: false
+        contact:
+            targetEntity: App\Saas\Contact\Domain\Entity\Contact
+            fetch: LAZY
+            joinColumn:
+                nullable: false
+    lifecycleCallbacks: {  }

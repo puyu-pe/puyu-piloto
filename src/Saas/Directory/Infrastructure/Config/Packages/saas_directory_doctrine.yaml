@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            Directory:
+                is_bundle: false
+                type: yml
+                dir: '%kernel.project_dir%/src/Saas/Directory/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'App\Saas\Directory\Domain\Entity'
+                alias: Directory

@@ -1,0 +1,14 @@
+imports:
+    - { resource: Packages/saas_contact_doctrine.yaml }
+    - { resource: Packages/saas_contact_framework.yaml }
+
+when@prod:
+when@dev:
+    services:
+        App\Saas\Contact\Infrastructure\Persistence\Doctrine\Repository\DoctrineContactRepository: ~
+        App\Saas\Contact\Domain\Repository\ContactRepository: '@App\Saas\Contact\Infrastructure\Persistence\Doctrine\Repository\DoctrineContactRepository'
+
+when@test:
+    services:
+        App\Saas\Contact\Infrastructure\Persistence\InMemory\InMemoryContactRepository: ~
+        App\Saas\Contact\Domain\Repository\ContactRepository: '@App\Saas\Contact\Infrastructure\Persistence\InMemory\InMemoryContactRepository'

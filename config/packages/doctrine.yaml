@@ -12,17 +12,17 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
 #        mappings:
-#            CustomerContact:
+#            Contact:
 #                is_bundle: false
 #                type: yml
-#                dir: '%kernel.project_dir%/src/CustomerContact/Infrastructure/Persistence/Doctrine/Mapping'
-#                prefix: 'App\CustomerContact\Domain\Entity'
-#                alias: CustomerContact
+#                dir: '%kernel.project_dir%/src/Contact/Infrastructure/Persistence/Doctrine/Mapping'
+#                prefix: 'App\Contact\Domain\Entity'
+#                alias: Contact
 #            App:
 #                is_bundle: false
 #                type: yml
-#                dir: '%kernel.project_dir%/src/CustomerContact/Infrastructure/Persistence/Doctrine/Mapping'
-#                prefix: 'App\CustomerContact\Domain\Entity'
+#                dir: '%kernel.project_dir%/src/Contact/Infrastructure/Persistence/Doctrine/Mapping'
+#                prefix: 'App\Contact\Domain\Entity'
 #                alias: App
 
 when@test:

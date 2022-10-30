@@ -176,13 +176,13 @@ ecs
 ```
 Se puede especificar que archivos revisar, puede ser más de uno:  
 ```shell
-ecs check src/Controller/Api/CustomerContactController.php
+ecs check src/Controller/Api/ContactController.php
 ```
 
 Para aplicar las correcciones que mostrara la herramienta en consola se agrega el flag `--fix`  
 ```shell
 ecs --fix
-ecs check src/Controller/Api/CustomerContactController.php --fix
+ecs check src/Controller/Api/ContactController.php --fix
 ```
 
 ### Database
@@ -412,7 +412,7 @@ stan
 
 Para revisar archivos específicos que pueden ser más de uno, sería algo asi:
 ```shell
-stan analyse src/Controller/Api/CustomerContactController.php 
+stan analyse src/Controller/Api/ContactController.php 
 ```
 
 ## Disclaimers
