@@ -46,7 +46,7 @@ class ExceptionListener
         $response = new Response();
         $response->setStatusCode($statusCode);
         $response->headers->set('Content-Type', 'application/json');
-        $jsonContent = json_encode($content);
+        $jsonContent = json_encode($content) ?: '';
 
         if (json_last_error() != JSON_ERROR_NONE) {
             $jsonContent = "['error converting to json: " . json_last_error_msg() . "']";

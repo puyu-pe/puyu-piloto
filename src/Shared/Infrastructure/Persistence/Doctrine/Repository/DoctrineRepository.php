@@ -21,16 +21,21 @@ abstract class DoctrineRepository
         return $this->entityManager;
     }
 
-    protected function persist($entity): void
+    protected function persist(mixed $entity): void
     {
         $this->entityManager()->persist($entity);
     }
 
-    protected function remove($entity): void
+    protected function remove(mixed $entity): void
     {
         $this->entityManager()->remove($entity);
     }
 
+    /**
+     * @template TEntityClass of object
+     * @param class-string<TEntityClass> $entityClass
+     * @return EntityRepository<TEntityClass>
+     */
     protected function repository(string $entityClass): EntityRepository
     {
         return $this->entityManager->getRepository($entityClass);
