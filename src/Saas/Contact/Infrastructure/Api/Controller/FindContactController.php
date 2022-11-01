@@ -3,7 +3,7 @@
 namespace App\Saas\Contact\Infrastructure\Api\Controller;
 
 use App\Saas\Contact\Application\Find\FindContact;
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use App\Saas\Contact\Domain\Exception\ContactNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;

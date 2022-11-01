@@ -3,7 +3,7 @@
 namespace App\Saas\Contact\Infrastructure\Api\Controller;
 
 use App\Saas\Contact\Application\GetAll\GetAllContacts;
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;

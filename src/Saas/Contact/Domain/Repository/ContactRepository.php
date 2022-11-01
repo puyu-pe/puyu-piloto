@@ -2,7 +2,7 @@
 
 namespace App\Saas\Contact\Domain\Repository;
 
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 /**

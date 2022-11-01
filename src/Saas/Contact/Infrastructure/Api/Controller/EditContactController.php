@@ -5,7 +5,7 @@ namespace App\Saas\Contact\Infrastructure\Api\Controller;
 use App\Saas\Contact\Application\Create\CreateContactDto;
 use App\Saas\Contact\Application\Edit\EditContact;
 use App\Saas\Contact\Application\Edit\EditContactDto;
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use App\Saas\Contact\Domain\Exception\ContactDataException;
 use App\Saas\Contact\Domain\Exception\ContactNotFound;
 use FOS\RestBundle\Controller\AbstractFOSRestController;

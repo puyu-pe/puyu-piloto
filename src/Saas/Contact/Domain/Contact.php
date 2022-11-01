@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Saas\Contact\Domain\Entity;
+namespace App\Saas\Contact\Domain;
 
-use App\Shared\Domain\Traits\Timestamps;
+use App\Shared\Domain\Traits\SoftDeleteable;
+use App\Shared\Domain\Traits\Timestampable;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class Contact
 {
-    use Timestamps;
+    use Timestampable;
+    use SoftDeleteable;
 
     public function __construct(
         private readonly Uuid $id,
@@ -16,7 +18,6 @@ class Contact
         private ?string $phone,
         private ?string $jobTitle,
     ) {
-        $this->createdAt = null;
     }
 
     public static function create(

@@ -2,7 +2,7 @@
 
 namespace App\Saas\Contact\Application\GetAll;
 
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use App\Saas\Contact\Domain\Repository\ContactRepository;
 
 class GetAllContacts

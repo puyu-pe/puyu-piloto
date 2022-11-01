@@ -2,7 +2,7 @@
 
 namespace App\Saas\Contact\Infrastructure\Persistence\Doctrine\Repository;
 
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use App\Saas\Contact\Domain\Repository\ContactRepository;
 use App\Shared\Domain\ValueObjects\Uuid;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

@@ -1,4 +1,4 @@
-App\Saas\Contact\Domain\Entity\Contact:
+App\Saas\Contact\Domain\Contact:
     type: entity
     repositoryClass: App\Saas\Contact\Domain\Repository\ContactRepository
     table: contact
@@ -24,10 +24,18 @@ App\Saas\Contact\Domain\Entity\Contact:
             nullable: true
         createdAt:
             type: datetime
-            nullable: true
+            gedmo:
+                timestampable:
+                    on: create
         updatedAt:
             type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
             nullable: true
-    lifecycleCallbacks:
-        prePersist: [ 'setCreatedAtAutomatically' ],
-        preUpdate: [ 'setUpdatedAtAutomatically' ]
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: false

@@ -2,7 +2,7 @@
 
 namespace App\Saas\Contact\Application\Create;
 
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use App\Saas\Contact\Domain\Exception\ContactDataException;
 use App\Saas\Contact\Domain\Repository\ContactRepository;
 use App\Saas\Shared\Domain\Validation\Validator;
