@@ -2,10 +2,13 @@
 
 namespace App\Saas\Contact\Domain\Entity;
 
+use App\Shared\Domain\Traits\Timestamps;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class Contact
 {
+    use Timestamps;
+
     public function __construct(
         private readonly Uuid $id,
         private string $name,
@@ -13,6 +16,7 @@ class Contact
         private ?string $phone,
         private ?string $jobTitle,
     ) {
+        $this->createdAt = null;
     }
 
     public static function create(

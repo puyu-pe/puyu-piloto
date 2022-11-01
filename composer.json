@@ -12,6 +12,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.13",
         "friendsofsymfony/rest-bundle": "^3.3",
+        "gedmo/doctrine-extensions": "^3.9",
         "lambdish/phunctional": "^2.1",
         "lexik/jwt-authentication-bundle": "^2.16",
         "maknz/slack": "^1.7",
