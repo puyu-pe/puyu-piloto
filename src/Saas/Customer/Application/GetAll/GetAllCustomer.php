@@ -2,7 +2,7 @@
 
 namespace App\Saas\Customer\Application\GetAll;
 
-use App\Saas\Customer\Domain\Entity\Customer;
+use App\Saas\Customer\Domain\Customer;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;
 
 class GetAllCustomer

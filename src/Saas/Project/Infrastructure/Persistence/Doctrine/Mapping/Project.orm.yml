@@ -9,7 +9,7 @@ App\Saas\Project\Domain\Entity\Project:
             unique: true
     manyToOne:
         customer:
-            targetEntity: App\Saas\Customer\Domain\Entity\Customer
+            targetEntity: App\Saas\Customer\Domain\Customer
             fetch: LAZY
             joinColumn:
                 nullable: false

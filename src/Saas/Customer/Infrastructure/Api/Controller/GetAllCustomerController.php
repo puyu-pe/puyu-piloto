@@ -3,7 +3,7 @@
 namespace App\Saas\Customer\Infrastructure\Api\Controller;
 
 use App\Saas\Customer\Application\GetAll\GetAllCustomer;
-use App\Saas\Customer\Domain\Entity\Customer;
+use App\Saas\Customer\Domain\Customer;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
@@ -29,7 +29,7 @@ class GetAllCustomerController extends AbstractFOSRestController
                     property: 'data',
                     properties: [
                         new OA\Property(
-                            property: 'Customer',
+                            property: 'Customers',
                             title: 'customer',
                             type: 'array',
                             items: new OA\Items(ref: new Model(type: Customer::class, groups: ['customer']))
@@ -47,7 +47,7 @@ class GetAllCustomerController extends AbstractFOSRestController
         $customer = ($useCase)();
 
         $view = View::create(
-            ['customer' => $customer],
+            ['customers' => $customer],
             Response::HTTP_OK
         );
         $view->getContext()->setGroups(['customer']);

@@ -1,4 +1,4 @@
-App\Saas\Customer\Domain\Entity\Customer:
+App\Saas\Customer\Domain\Customer:
     type: entity
     repositoryClass: App\Saas\Customer\Domain\Repository\CustomerRepository
     table: customer
@@ -23,3 +23,20 @@ App\Saas\Customer\Domain\Entity\Customer:
         phone:
             type: string
             length: 20
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: false

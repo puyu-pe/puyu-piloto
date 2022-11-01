@@ -2,7 +2,7 @@
 
 namespace App\Saas\Project\Domain\Entity;
 
-use App\Saas\Customer\Domain\Entity\Customer;
+use App\Saas\Customer\Domain\Customer;
 use App\Saas\Product\Domain\Entity\Product;
 use App\Shared\Domain\ValueObjects\Uuid;
 
@@ -10,13 +10,13 @@ class Project
 {
     public function __construct(
         private readonly Uuid $id,
-        private Customer $customer,
+        private \App\Saas\Customer\Domain\Customer $customer,
         private Product $product,
     ) {
     }
 
     public static function create(
-        Customer $customer,
+        \App\Saas\Customer\Domain\Customer $customer,
         Product $product,
     ): self {
         return new self(
@@ -31,7 +31,7 @@ class Project
         return $this->id;
     }
 
-    public function getCustomer(): Customer
+    public function getCustomer(): \App\Saas\Customer\Domain\Customer
     {
         return $this->customer;
     }
