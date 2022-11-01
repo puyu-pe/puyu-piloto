@@ -44,7 +44,7 @@ class EditCustomer
     }
 
     /**
-     * @throws \App\Saas\Customer\Domain\Exception\CustomerDataException
+     * @throws CustomerDataException
      */
     public function guard(EditCustomerDto $dto): void
     {

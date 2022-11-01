@@ -8,7 +8,7 @@ use App\Saas\Contact\Domain\Service\FindContact as DomainFindContact;
 use App\Saas\Customer\Domain\Exception\CustomerNotFound;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;
 use App\Saas\Customer\Domain\Service\FindCustomer as DomainFindCustomer;
-use App\Saas\Directory\Domain\Entity\Directory;
+use App\Saas\Directory\Domain\Directory;
 use App\Saas\Directory\Domain\Exception\DirectoryDataException;
 use App\Saas\Directory\Domain\Exception\DirectoryNotFound;
 use App\Saas\Directory\Domain\Repository\DirectoryRepository;

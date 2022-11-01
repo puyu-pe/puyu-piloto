@@ -1,4 +1,4 @@
-App\Saas\Directory\Domain\Entity\Directory:
+App\Saas\Directory\Domain\Directory:
     type: entity
     repositoryClass: App\Saas\Directory\Domain\Repository\DirectoryRepository
     table: directory
@@ -9,13 +9,30 @@ App\Saas\Directory\Domain\Entity\Directory:
             unique: true
     manyToOne:
         customer:
-            targetEntity: App\Saas\Customer\Domain\Entity\Customer
+            targetEntity: App\Saas\Customer\Domain\Customer
             fetch: LAZY
             joinColumn:
                 nullable: false
         contact:
-            targetEntity: App\Saas\Contact\Domain\Entity\Contact
+            targetEntity: App\Saas\Contact\Domain\Contact
             fetch: LAZY
             joinColumn:
                 nullable: false
-    lifecycleCallbacks: {  }
+    fields:
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: false

@@ -2,8 +2,8 @@
 
 namespace App\Saas\Directory\Infrastructure\Api\Controller;
 
-use App\Saas\Directory\Application\GetAll\GetAllDirectorys;
-use App\Saas\Directory\Domain\Entity\Directory;
+use App\Saas\Directory\Application\GetAll\GetAllDirectory;
+use App\Saas\Directory\Domain\Directory;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
@@ -14,9 +14,9 @@ use Symfony\Component\HttpFoundation\Response;
 class GetAllDirectoryController extends ApiController
 {
     /**
-     * Get all directorys
+     * Get all directory
      *
-     * Get all directorys
+     * Get all directory
      */
     #[Rest\Get(path: '', name: 'directory_get_all')]
     #[OA\Response(
@@ -29,7 +29,7 @@ class GetAllDirectoryController extends ApiController
                     property: 'data',
                     properties: [
                         new OA\Property(
-                            property: 'Directorys',
+                            property: 'directories',
                             title: 'directory',
                             type: 'array',
                             items: new OA\Items(ref: new Model(type: Directory::class))
@@ -42,12 +42,12 @@ class GetAllDirectoryController extends ApiController
     )]
     #[OA\Tag(name: 'Directory')]
     public function __invoke(
-        GetAllDirectorys $useCase,
+        GetAllDirectory $useCase,
     ): Response {
-        $directorys = ($useCase)();
+        $directories = ($useCase)();
 
         $view = View::create(
-            ['directorys' => $directorys],
+            ['directories' => $directories],
             Response::HTTP_OK
         );
         $view->getContext()->setGroups(['directory']);

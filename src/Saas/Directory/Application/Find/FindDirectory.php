@@ -2,7 +2,7 @@
 
 namespace App\Saas\Directory\Application\Find;
 
-use App\Saas\Directory\Domain\Entity\Directory;
+use App\Saas\Directory\Domain\Directory;
 use App\Saas\Directory\Domain\Exception\DirectoryNotFound;
 use App\Saas\Directory\Domain\Repository\DirectoryRepository;
 use App\Saas\Directory\Domain\Service\FindDirectory as DomainFindDirectory;

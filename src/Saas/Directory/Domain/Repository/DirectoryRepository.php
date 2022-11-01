@@ -2,7 +2,7 @@
 
 namespace App\Saas\Directory\Domain\Repository;
 
-use App\Saas\Directory\Domain\Entity\Directory;
+use App\Saas\Directory\Domain\Directory;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 /**

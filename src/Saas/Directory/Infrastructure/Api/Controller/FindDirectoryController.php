@@ -3,7 +3,7 @@
 namespace App\Saas\Directory\Infrastructure\Api\Controller;
 
 use App\Saas\Directory\Application\Find\FindDirectory;
-use App\Saas\Directory\Domain\Entity\Directory;
+use App\Saas\Directory\Domain\Directory;
 use App\Saas\Directory\Domain\Exception\DirectoryNotFound;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use App\Shared\Domain\ValueObjects\Uuid;

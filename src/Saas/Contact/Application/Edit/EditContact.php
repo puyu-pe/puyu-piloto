@@ -43,7 +43,7 @@ class EditContact
     }
 
     /**
-     * @throws \App\Saas\Contact\Domain\Exception\ContactDataException
+     * @throws ContactDataException
      */
     public function guard(EditContactDto $dto): void
     {

@@ -1,13 +1,18 @@
 <?php
 
-namespace App\Saas\Directory\Domain\Entity;
+namespace App\Saas\Directory\Domain;
 
-use App\Saas\Contact\Domain\Entity\Contact;
-use App\Saas\Customer\Domain\Entity\Customer;
+use App\Saas\Contact\Domain\Contact;
+use App\Saas\Customer\Domain\Customer;
+use App\Shared\Domain\Traits\SoftDeleteable;
+use App\Shared\Domain\Traits\Timestampable;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class Directory
 {
+    use Timestampable;
+    use SoftDeleteable;
+
     public function __construct(
         private readonly Uuid $id,
         private Customer $customer,

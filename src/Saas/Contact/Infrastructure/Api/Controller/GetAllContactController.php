@@ -29,7 +29,7 @@ class GetAllContactController extends AbstractFOSRestController
                     property: 'data',
                     properties: [
                         new OA\Property(
-                            property: 'Contacts',
+                            property: 'contacts',
                             title: 'contact',
                             type: 'array',
                             items: new OA\Items(ref: new Model(type: Contact::class))
@@ -47,7 +47,7 @@ class GetAllContactController extends AbstractFOSRestController
         $contact = ($useCase)();
 
         $view = View::create(
-            ['contact' => $contact],
+            ['contacts' => $contact],
             Response::HTTP_OK
         );
         $view->getContext()->setGroups(['contact']);
