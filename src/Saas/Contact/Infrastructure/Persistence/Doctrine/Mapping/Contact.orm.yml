@@ -22,3 +22,12 @@ App\Saas\Contact\Domain\Entity\Contact:
             type: string
             length: 255
             nullable: true
+        createdAt:
+            type: datetime
+            nullable: true
+        updatedAt:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ 'setCreatedAtAutomatically' ],
+        preUpdate: [ 'setUpdatedAtAutomatically' ]
