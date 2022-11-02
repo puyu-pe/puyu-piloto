@@ -2,7 +2,7 @@
 
 namespace App\Saas\Project\Application\GetAll;
 
-use App\Saas\Project\Domain\Entity\Project;
+use App\Saas\Project\Domain\Project;
 use App\Saas\Project\Domain\Repository\ProjectRepository;
 
 class GetAllProjects

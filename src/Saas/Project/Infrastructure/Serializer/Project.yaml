@@ -1,4 +1,4 @@
-App\Saas\Project\Domain\Entity\Project:
+App\Saas\Project\Domain\Project:
   attributes:
     id:
       groups: [ 'project' ]

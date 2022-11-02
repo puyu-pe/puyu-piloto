@@ -2,8 +2,8 @@
 
 namespace App\Saas\Project\Application\Find;
 
-use App\Saas\Project\Domain\Entity\Project;
 use App\Saas\Project\Domain\Exception\ProjectNotFound;
+use App\Saas\Project\Domain\Project;
 use App\Saas\Project\Domain\Repository\ProjectRepository;
 use App\Saas\Project\Domain\Service\FindProject as DomainFindProject;
 

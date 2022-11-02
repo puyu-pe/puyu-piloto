@@ -3,8 +3,8 @@
 namespace App\Saas\Project\Infrastructure\Api\Controller;
 
 use App\Saas\Project\Application\Find\FindProject;
-use App\Saas\Project\Domain\Entity\Project;
 use App\Saas\Project\Domain\Exception\ProjectNotFound;
+use App\Saas\Project\Domain\Project;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use App\Shared\Domain\ValueObjects\Uuid;
 use FOS\RestBundle\Controller\Annotations as Rest;

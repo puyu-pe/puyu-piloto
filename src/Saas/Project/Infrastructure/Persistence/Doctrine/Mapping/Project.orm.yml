@@ -1,4 +1,4 @@
-App\Saas\Project\Domain\Entity\Project:
+App\Saas\Project\Domain\Project:
     type: entity
     repositoryClass: App\Saas\Project\Domain\Repository\ProjectRepository
     table: project
@@ -7,6 +7,24 @@ App\Saas\Project\Domain\Entity\Project:
             type: uuid
             length: 16
             unique: true
+    fields:
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: false
     manyToOne:
         customer:
             targetEntity: App\Saas\Customer\Domain\Customer
@@ -18,4 +36,3 @@ App\Saas\Project\Domain\Entity\Project:
             fetch: LAZY
             joinColumn:
                 nullable: false
-    lifecycleCallbacks: {  }
