@@ -14,7 +14,7 @@ App\Saas\Project\Domain\Entity\Project:
             joinColumn:
                 nullable: false
         product:
-            targetEntity: App\Saas\Product\Domain\Entity\Product
+            targetEntity: App\Saas\Product\Domain\Product
             fetch: LAZY
             joinColumn:
                 nullable: false

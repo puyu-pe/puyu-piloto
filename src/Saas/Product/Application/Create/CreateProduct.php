@@ -2,8 +2,8 @@
 
 namespace App\Saas\Product\Application\Create;
 
-use App\Saas\Product\Domain\Entity\Product;
 use App\Saas\Product\Domain\Exception\ProductDataException;
+use App\Saas\Product\Domain\Product;
 use App\Saas\Product\Domain\Repository\ProductRepository;
 use App\Saas\Shared\Domain\Validation\Validator;
 

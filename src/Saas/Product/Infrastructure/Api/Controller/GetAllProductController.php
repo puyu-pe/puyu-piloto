@@ -3,7 +3,7 @@
 namespace App\Saas\Product\Infrastructure\Api\Controller;
 
 use App\Saas\Product\Application\GetAll\GetAllProducts;
-use App\Saas\Product\Domain\Entity\Product;
+use App\Saas\Product\Domain\Product;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;

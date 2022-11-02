@@ -1,4 +1,4 @@
-App\Saas\Product\Domain\Entity\Product:
+App\Saas\Product\Domain\Product:
   attributes:
     id:
       groups: [ 'product' ]

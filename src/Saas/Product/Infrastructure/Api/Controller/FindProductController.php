@@ -3,8 +3,8 @@
 namespace App\Saas\Product\Infrastructure\Api\Controller;
 
 use App\Saas\Product\Application\Find\FindProduct;
-use App\Saas\Product\Domain\Entity\Product;
 use App\Saas\Product\Domain\Exception\ProductNotFound;
+use App\Saas\Product\Domain\Product;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;

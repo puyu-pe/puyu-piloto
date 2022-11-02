@@ -40,7 +40,7 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete product
 
-DELETE http://localhost:9191/saas/api/product/521a0392-0d96-454d-89ec-c34d10763be5
+DELETE http://localhost:9191/saas/api/product/548c1383-889d-4b0e-b610-23a496190366
 Authorization: Bearer {{auth_token}}
 Content-Type: application/x-www-form-urlencod
 
