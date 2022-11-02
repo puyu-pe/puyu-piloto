@@ -1,15 +1,15 @@
-### 📗 GET Get all customer contact
+### 📗 GET Get all contact
 
 GET http://localhost:9191/saas/api/contact
 Authorization: Bearer {{auth_token}}
 
-### 📗 GET Single customer contact
+### 📗 GET Single contact
 
-GET http://localhost:9191/saas/api/contact/ca3cb522-d27a-40a9-8af7-4a107c1e3332
+GET http://localhost:9191/saas/api/contact/01393d38-c86e-4dc3-a65a-832603f98b73
 Authorization: Bearer {{auth_token}}
 Accept: application/json
 
-### 💛 POST Save customer contact
+### 💛 POST Save contact
 
 POST http://localhost:9191/saas/api/contact/
 Authorization: Bearer {{auth_token}}
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 ### 🔵 PUT Update Customer contact
 
-PUT http://localhost:9191/saas/api/contact/ca3cb522-d27a-40a9-8af7-4a107c1e3332
+PUT http://localhost:9191/saas/api/contact/01393d38-c86e-4dc3-a65a-832603f98b73
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
@@ -35,9 +35,9 @@ Content-Type: application/json
   "jobTitle": "Gerente"
 }
 
-### 🏮 DELETE Delete customer contact
+### 🏮 DELETE Delete contact
 
-DELETE http://localhost:9191/saas/api/contact/ca3cb522-d27a-40a9-8af7-4a107c1e3332
+DELETE http://localhost:9191/saas/api/contact/01393d38-c86e-4dc3-a65a-832603f98b73
 Authorization: Bearer {{auth_token}}
 Content-Type: application/x-www-form-urlencod
 

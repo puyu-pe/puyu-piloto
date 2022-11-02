@@ -2,7 +2,7 @@
 
 namespace App\Saas\Product\Application\GetAll;
 
-use App\Saas\Product\Domain\Entity\Product;
+use App\Saas\Product\Domain\Product;
 use App\Saas\Product\Domain\Repository\ProductRepository;
 
 class GetAllProducts
@@ -13,7 +13,7 @@ class GetAllProducts
     }
 
     /**
-     * @return Product[]
+     * @return \App\Saas\Product\Domain\Product[]
      */
     public function __invoke(): array
     {

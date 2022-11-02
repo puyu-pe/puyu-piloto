@@ -2,7 +2,7 @@
 
 namespace App\Saas\Customer\Application\Create;
 
-use App\Saas\Customer\Domain\Entity\Customer;
+use App\Saas\Customer\Domain\Customer;
 use App\Saas\Customer\Domain\Exception\CustomerDataException;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;
 use App\Saas\Shared\Domain\Validation\Validator;

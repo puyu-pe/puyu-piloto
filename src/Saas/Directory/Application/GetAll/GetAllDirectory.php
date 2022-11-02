@@ -2,10 +2,10 @@
 
 namespace App\Saas\Directory\Application\GetAll;
 
-use App\Saas\Directory\Domain\Entity\Directory;
+use App\Saas\Directory\Domain\Directory;
 use App\Saas\Directory\Domain\Repository\DirectoryRepository;
 
-class GetAllDirectorys
+class GetAllDirectory
 {
     public function __construct(
         private readonly DirectoryRepository $directoryRepository,

@@ -1,4 +1,4 @@
-App\Saas\Directory\Domain\Entity\Directory:
+App\Saas\Directory\Domain\Directory:
   attributes:
     id:
       groups: [ 'directory' ]

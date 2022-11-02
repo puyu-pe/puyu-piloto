@@ -5,7 +5,7 @@ namespace App\Saas\Directory\Infrastructure\Api\Controller;
 use App\Saas\Directory\Application\Create\CreateDirectoryDto;
 use App\Saas\Directory\Application\Edit\EditDirectory;
 use App\Saas\Directory\Application\Edit\EditDirectoryDto;
-use App\Saas\Directory\Domain\Entity\Directory;
+use App\Saas\Directory\Domain\Directory;
 use App\Saas\Directory\Domain\Exception\DirectoryDataException;
 use App\Saas\Directory\Domain\Exception\DirectoryNotFound;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;

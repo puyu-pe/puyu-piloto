@@ -5,5 +5,5 @@ doctrine:
                 is_bundle: false
                 type: yml
                 dir: '%kernel.project_dir%/src/Saas/Contact/Infrastructure/Persistence/Doctrine/Mapping'
-                prefix: 'App\Saas\Contact\Domain\Entity'
+                prefix: 'App\Saas\Contact\Domain'
                 alias: Contact

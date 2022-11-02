@@ -4,7 +4,7 @@ namespace App\Saas\Contact\Infrastructure\Api\Controller;
 
 use App\Saas\Contact\Application\Create\CreateContact;
 use App\Saas\Contact\Application\Create\CreateContactDto;
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use App\Saas\Contact\Domain\Exception\ContactDataException;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;

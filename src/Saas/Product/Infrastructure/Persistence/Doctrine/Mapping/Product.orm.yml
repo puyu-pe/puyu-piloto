@@ -1,4 +1,4 @@
-App\Saas\Product\Domain\Entity\Product:
+App\Saas\Product\Domain\Product:
     type: entity
     repositoryClass: App\Saas\Product\Domain\Repository\ProductRepository
     table: product
@@ -25,3 +25,20 @@ App\Saas\Product\Domain\Entity\Product:
             type: string
             length: 300
             nullable: true
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: false

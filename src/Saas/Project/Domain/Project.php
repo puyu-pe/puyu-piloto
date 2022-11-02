@@ -1,28 +1,33 @@
 <?php
 
-namespace App\Saas\Directory\Domain\Entity;
+namespace App\Saas\Project\Domain;
 
-use App\Saas\Contact\Domain\Entity\Contact;
-use App\Saas\Customer\Domain\Entity\Customer;
+use App\Saas\Customer\Domain\Customer;
+use App\Saas\Product\Domain\Product;
+use App\Shared\Domain\Traits\SoftDeleteable;
+use App\Shared\Domain\Traits\Timestampable;
 use App\Shared\Domain\ValueObjects\Uuid;
 
-class Directory
+class Project
 {
+    use Timestampable;
+    use SoftDeleteable;
+
     public function __construct(
         private readonly Uuid $id,
         private Customer $customer,
-        private Contact $contact,
+        private Product $product,
     ) {
     }
 
     public static function create(
         Customer $customer,
-        Contact $contact,
+        Product $product,
     ): self {
         return new self(
             Uuid::v4(),
             $customer,
-            $contact,
+            $product,
         );
     }
 
@@ -42,14 +47,14 @@ class Directory
         return $this;
     }
 
-    public function getContact(): Contact
+    public function getProduct(): Product
     {
-        return $this->contact;
+        return $this->product;
     }
 
-    public function setContact(Contact $contact): self
+    public function setProduct(Product $product): self
     {
-        $this->contact = $contact;
+        $this->product = $product;
         return $this;
     }
 }

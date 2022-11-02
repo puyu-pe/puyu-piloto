@@ -4,7 +4,7 @@ namespace App\Saas\Customer\Infrastructure\Api\Controller;
 
 use App\Saas\Customer\Application\Create\CreateCustomer;
 use App\Saas\Customer\Application\Create\CreateCustomerDto;
-use App\Saas\Customer\Domain\Entity\Customer;
+use App\Saas\Customer\Domain\Customer;
 use App\Saas\Customer\Domain\Exception\CustomerDataException;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;

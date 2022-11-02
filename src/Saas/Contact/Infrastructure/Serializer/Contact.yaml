@@ -1,4 +1,4 @@
-App\Saas\Contact\Domain\Entity\Contact:
+App\Saas\Contact\Domain\Contact:
   attributes:
     id:
       groups: [ 'contact' ]

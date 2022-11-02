@@ -2,7 +2,7 @@
 
 namespace App\Saas\Product\Infrastructure\Persistence\Doctrine\Repository;
 
-use App\Saas\Product\Domain\Entity\Product;
+use App\Saas\Product\Domain\Product;
 use App\Saas\Product\Domain\Repository\ProductRepository;
 use App\Shared\Domain\ValueObjects\Uuid;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Saas\Product\Domain\Entity;
+namespace App\Saas\Product\Domain;
 
-use App\Saas\Project\Domain\Entity\Project;
+use App\Shared\Domain\Traits\SoftDeleteable;
+use App\Shared\Domain\Traits\Timestampable;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class Product
 {
+    use Timestampable;
+    use SoftDeleteable;
+
     public function __construct(
         private readonly Uuid $id,
         private string $code,

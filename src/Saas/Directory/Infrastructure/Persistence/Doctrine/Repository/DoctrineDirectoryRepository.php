@@ -2,14 +2,14 @@
 
 namespace App\Saas\Directory\Infrastructure\Persistence\Doctrine\Repository;
 
-use App\Saas\Directory\Domain\Entity\Directory;
+use App\Saas\Directory\Domain\Directory;
 use App\Saas\Directory\Domain\Repository\DirectoryRepository;
 use App\Shared\Domain\ValueObjects\Uuid;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Directory>
+ * @extends ServiceEntityRepository<\App\Saas\Directory\Domain\Directory>
  *
  * @method Directory|null find($id, $lockMode = null, $lockVersion = null)
  * @method Directory|null findOneBy(array $criteria, array $orderBy = null)

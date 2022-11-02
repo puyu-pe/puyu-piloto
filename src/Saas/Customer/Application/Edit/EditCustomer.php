@@ -2,7 +2,7 @@
 
 namespace App\Saas\Customer\Application\Edit;
 
-use App\Saas\Customer\Domain\Entity\Customer;
+use App\Saas\Customer\Domain\Customer;
 use App\Saas\Customer\Domain\Exception\CustomerDataException;
 use App\Saas\Customer\Domain\Exception\CustomerNotFound;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;
@@ -44,7 +44,7 @@ class EditCustomer
     }
 
     /**
-     * @throws \App\Saas\Customer\Domain\Exception\CustomerDataException
+     * @throws CustomerDataException
      */
     public function guard(EditCustomerDto $dto): void
     {

@@ -18,5 +18,19 @@ services:
     App\Saas\Shared\Infrastructure\Notifier\SlackNotifier: ~
     App\Saas\Shared\Domain\Notification\Notifier: '@App\Saas\Shared\Infrastructure\Notifier\SlackNotifier'
 
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+    gedmo.listener.softdeleteable:
+        class: Gedmo\SoftDeleteable\SoftDeleteableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
 imports:
     - { resource: Services/ }
+    - { resource: Packages/ }

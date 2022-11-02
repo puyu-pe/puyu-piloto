@@ -2,7 +2,7 @@
 
 namespace App\Saas\Customer\Domain\Service;
 
-use App\Saas\Customer\Domain\Entity\Customer;
+use App\Saas\Customer\Domain\Customer;
 use App\Saas\Customer\Domain\Exception\CustomerNotFound;
 use App\Saas\Customer\Domain\Repository\CustomerRepository;
 use App\Shared\Domain\ValueObjects\Uuid;

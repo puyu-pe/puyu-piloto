@@ -2,7 +2,7 @@
 
 namespace App\Saas\Contact\Application\Edit;
 
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use App\Saas\Contact\Domain\Exception\ContactDataException;
 use App\Saas\Contact\Domain\Exception\ContactNotFound;
 use App\Saas\Contact\Domain\Repository\ContactRepository;
@@ -43,7 +43,7 @@ class EditContact
     }
 
     /**
-     * @throws \App\Saas\Contact\Domain\Exception\ContactDataException
+     * @throws ContactDataException
      */
     public function guard(EditContactDto $dto): void
     {

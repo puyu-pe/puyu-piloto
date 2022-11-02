@@ -5,7 +5,7 @@ Authorization: Bearer {{auth_token}}
 
 ### 📗 GET Single customer
 
-GET http://localhost:9191/saas/api/customer/2d2fb97e-ecda-4a98-80f0-1a1584d81eb4
+GET http://localhost:9191/saas/api/customer/9a050b8f-73d0-414f-8076-4d98516e0611
 Authorization: Bearer {{auth_token}}
 Accept: application/json
 
@@ -25,7 +25,7 @@ Content-Type: application/json
 
 ### 🏮 DELETE Delete customer
 
-DELETE http://localhost:9191/saas/api/customer/2d2fb97e-ecda-4a98-80f0-1a1584d81eb4
+DELETE http://localhost:9191/saas/api/customer/9a050b8f-73d0-414f-8076-4d98516e0611
 Authorization: Bearer {{auth_token}}
 Content-Type: application/x-www-form-urlencod
 

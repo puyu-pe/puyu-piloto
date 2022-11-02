@@ -3,7 +3,7 @@
 namespace App\Saas\Contact\Infrastructure\Api\Controller;
 
 use App\Saas\Contact\Application\GetAll\GetAllContacts;
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
@@ -29,7 +29,7 @@ class GetAllContactController extends AbstractFOSRestController
                     property: 'data',
                     properties: [
                         new OA\Property(
-                            property: 'Contacts',
+                            property: 'contacts',
                             title: 'contact',
                             type: 'array',
                             items: new OA\Items(ref: new Model(type: Contact::class))
@@ -47,7 +47,7 @@ class GetAllContactController extends AbstractFOSRestController
         $contact = ($useCase)();
 
         $view = View::create(
-            ['contact' => $contact],
+            ['contacts' => $contact],
             Response::HTTP_OK
         );
         $view->getContext()->setGroups(['contact']);

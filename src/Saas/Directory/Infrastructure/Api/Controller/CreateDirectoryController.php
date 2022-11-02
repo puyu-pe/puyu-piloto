@@ -4,7 +4,7 @@ namespace App\Saas\Directory\Infrastructure\Api\Controller;
 
 use App\Saas\Directory\Application\Create\CreateDirectory;
 use App\Saas\Directory\Application\Create\CreateDirectoryDto;
-use App\Saas\Directory\Domain\Entity\Directory;
+use App\Saas\Directory\Domain\Directory;
 use App\Saas\Directory\Domain\Exception\DirectoryDataException;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;

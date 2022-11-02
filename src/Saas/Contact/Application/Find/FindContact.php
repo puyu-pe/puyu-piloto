@@ -2,7 +2,7 @@
 
 namespace App\Saas\Contact\Application\Find;
 
-use App\Saas\Contact\Domain\Entity\Contact;
+use App\Saas\Contact\Domain\Contact;
 use App\Saas\Contact\Domain\Exception\ContactNotFound;
 use App\Saas\Contact\Domain\Repository\ContactRepository;
 use App\Saas\Contact\Domain\Service\FindContact as DomainFindContact;

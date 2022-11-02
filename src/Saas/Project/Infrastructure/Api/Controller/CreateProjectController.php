@@ -4,8 +4,8 @@ namespace App\Saas\Project\Infrastructure\Api\Controller;
 
 use App\Saas\Project\Application\Create\CreateProject;
 use App\Saas\Project\Application\Create\CreateProjectDto;
-use App\Saas\Project\Domain\Entity\Project;
 use App\Saas\Project\Domain\Exception\ProjectDataException;
+use App\Saas\Project\Domain\Project;
 use App\Saas\Shared\Infrastructure\Api\Controller\ApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
