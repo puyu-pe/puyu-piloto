@@ -8,6 +8,28 @@ App\Saas\Project\Domain\Project:
             length: 16
             unique: true
     fields:
+        key:
+            type: string
+            length: 50
+        startDate:
+            type: date
+        logo:
+            type: string
+            length: 250
+        color:
+            type: string
+            length: 50
+        description:
+            type: text
+            nullable: true
+        observation:
+            type: text
+            nullable: true
+        configData:
+            type: json
+        suspended:
+            type: boolean
+            default: false
         createdAt:
             type: datetime
             gedmo:

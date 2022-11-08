@@ -43,7 +43,15 @@ class CreateProject
 
         $project = Project::create(
             $customer,
-            $product
+            $product,
+            $dto->getKey(),
+            $dto->getStartDate(),
+            $dto->getLogo(),
+            $dto->getColor(),
+            $dto->getDescription(),
+            $dto->getObservation(),
+            $dto->getConfigData(),
+            $dto->isSuspended()
         );
 
         $this->projectRepository->save($project);

@@ -6,3 +6,19 @@ App\Saas\Project\Domain\Project:
       groups: [ 'project' ]
     product:
       groups: [ 'project' ]
+    key:
+      groups: [ 'project' ]
+    startDate:
+      groups: [ 'project' ]
+    logo:
+      groups: [ 'project' ]
+    color:
+      groups: [ 'project' ]
+    configData:
+      groups: [ 'project' ]
+    suspended:
+      groups: [ 'project' ]
+    description:
+      groups: [ 'project' ]
+    observation:
+      groups: [ 'project' ]

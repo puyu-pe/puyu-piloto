@@ -50,7 +50,15 @@ class EditProject
 
         $project
             ->setCustomer($customer)
-            ->setProduct($product);
+            ->setProduct($product)
+            ->setKey($dto->getKey())
+            ->setStartDate($dto->getStartDate())
+            ->setLogo($dto->getLogo())
+            ->setColor($dto->getColor())
+            ->setDescription($dto->getDescription())
+            ->setObservation($dto->getObservation())
+            ->setConfigData($dto->getConfigData())
+            ->setSuspended($dto->isSuspended());
 
         $this->repository->save($project);
 

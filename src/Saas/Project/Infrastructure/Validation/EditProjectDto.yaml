@@ -4,3 +4,19 @@ App\Saas\Project\Application\Edit\Dto\EditProjectDto:
       - NotBlank: ~
     product:
       - NotBlank: ~
+    key:
+      - NotBlank: ~
+    startDate:
+      - NotBlank: ~
+    logo:
+      - NotBlank: ~
+    color:
+      - NotBlank: ~
+    configData:
+      - NotBlank: ~
+    suspended:
+      - NotBlank: ~
+    description:
+      - Blank: ~
+    observation:
+      - Blank: ~
