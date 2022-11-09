@@ -5,7 +5,7 @@ Authorization: Bearer {{auth_token}}
 
 ### 📗 GET Single user
 
-GET http://localhost:9191/saas/api/user/8949065c-3936-4561-81c2-bebc7b9f0b8f
+GET http://localhost:9191/saas/api/user/05868f49-e28c-49de-bc33-df21e5251269
 Authorization: Bearer {{auth_token}}
 
 ### 💛 POST Save user
@@ -15,23 +15,23 @@ Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "username": "user2",
+  "username": "user18",
   "password": "user",
   "fullName": "Usuario",
-  "enabled": 1
+  "enabled": true
 }
 
 ### 🔵 PUT Update Customer contact
 
-PUT http://localhost:9191/saas/api/user/febd8f76-d076-422c-bbcb-20c27c322614
+PUT http://localhost:9191/saas/api/user/05868f49-e28c-49de-bc33-df21e5251269
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "username": "user",
+  "username": "user15",
   "password": "user",
   "fullName": "User Updated",
-  "enabled": 1
+  "enabled": false
 }
 
 

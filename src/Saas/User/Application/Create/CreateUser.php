@@ -4,9 +4,9 @@ namespace App\Saas\User\Application\Create;
 
 use App\Saas\Shared\Domain\Validation\Validator;
 use App\Saas\User\Domain\Exception\UserDataException;
-use App\Saas\User\Domain\Repository\UserRepository;
 use App\Saas\User\Domain\Security\GeneratePassword;
 use App\Saas\User\Domain\User;
+use App\Saas\User\Domain\UserRepository;
 
 class CreateUser
 {

@@ -2,16 +2,21 @@
 
 namespace App\Saas\User\Domain;
 
+use App\Shared\Domain\Traits\SoftDeleteable;
+use App\Shared\Domain\Traits\Timestampable;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class User
 {
+    use Timestampable;
+    use SoftDeleteable;
+
     public function __construct(
         private readonly Uuid $id,
         private string $username,
         private string $password,
         private string $fullName,
-        private int $enabled,
+        private bool $enabled,
     ) {
     }
 
@@ -19,7 +24,7 @@ class User
         string $username,
         string $password,
         string $fullName,
-        int $enabled,
+        bool $enabled,
     ): self {
         return new self(
             Uuid::v4(),
@@ -71,12 +76,12 @@ class User
         return $this;
     }
 
-    public function isEnabled(): ?int
+    public function isEnabled(): ?bool
     {
         return $this->enabled;
     }
 
-    public function setEnabled(int $enabled): self
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
 

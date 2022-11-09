@@ -1,13 +1,9 @@
 <?php
 
-namespace App\Saas\User\Domain\Repository;
+namespace App\Saas\User\Domain;
 
-use App\Saas\User\Domain\User;
 use App\Shared\Domain\ValueObjects\Uuid;
 
-/**
- * @ent Traversable<\Vendor\ItemInterface>
- */
 interface UserRepository
 {
     public function save(User $user): void;
@@ -16,10 +12,11 @@ interface UserRepository
 
     public function search(Uuid $id): ?User;
 
+    public function searchByUsername(string $username): ?User;
+
     /**
      * @return User[]
      */
     public function getAll(): array;
 
-    public function findByUsername(string $username): ?User;
 }

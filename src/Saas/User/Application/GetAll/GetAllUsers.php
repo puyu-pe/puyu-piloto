@@ -2,8 +2,8 @@
 
 namespace App\Saas\User\Application\GetAll;
 
-use App\Saas\User\Domain\Repository\UserRepository;
 use App\Saas\User\Domain\User;
+use App\Saas\User\Domain\UserRepository;
 
 class GetAllUsers
 {

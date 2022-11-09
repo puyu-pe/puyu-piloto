@@ -4,4 +4,4 @@ imports:
 
 services:
     App\Saas\User\Infrastructure\Persistence\Doctrine\Repository\DoctrineUserRepository: ~
-    App\Saas\User\Domain\Repository\UserRepository: '@App\Saas\User\Infrastructure\Persistence\Doctrine\Repository\DoctrineUserRepository'
+    App\Saas\User\Domain\UserRepository: '@App\Saas\User\Infrastructure\Persistence\Doctrine\Repository\DoctrineUserRepository'

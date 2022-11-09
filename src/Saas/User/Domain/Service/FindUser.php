@@ -3,8 +3,8 @@
 namespace App\Saas\User\Domain\Service;
 
 use App\Saas\User\Domain\Exception\UserNotFound;
-use App\Saas\User\Domain\Repository\UserRepository;
 use App\Saas\User\Domain\User;
+use App\Saas\User\Domain\UserRepository;
 use App\Shared\Domain\ValueObjects\Uuid;
 
 class FindUser

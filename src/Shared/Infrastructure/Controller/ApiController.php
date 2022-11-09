@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Infrastructure\Ports;
+namespace App\Shared\Infrastructure\Controller;
 
 use App\Shared\Domain\Bus\Command\Command;
 use App\Shared\Domain\Bus\Command\CommandBus;
@@ -10,13 +10,11 @@ use App\Shared\Domain\Bus\Query\Query;
 use App\Shared\Domain\Bus\Query\QueryBus;
 use App\Shared\Domain\Bus\Query\Response;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
-use Symfony\Component\Messenger\HandleTrait;
 
 abstract class ApiController extends AbstractFOSRestController
 {
     private QueryBus $queryBus;
     private CommandBus $commandBus;
-    use HandleTrait;
 
     public function __construct(QueryBus $queryBus, CommandBus $commandBus)
     {
@@ -29,8 +27,8 @@ abstract class ApiController extends AbstractFOSRestController
         return $this->queryBus->handle($query);
     }
 
-    protected function dispatch(Command $command)
+    protected function dispatch(Command $command): void
     {
-        return $this->commandBus->dispatch($command);
+        $this->commandBus->dispatch($command);
     }
 }

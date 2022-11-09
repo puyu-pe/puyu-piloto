@@ -2,8 +2,8 @@
 
 namespace App\Saas\User\Infrastructure\Persistence\Doctrine\Repository;
 
-use App\Saas\User\Domain\Repository\UserRepository;
 use App\Saas\User\Domain\User;
+use App\Saas\User\Domain\UserRepository;
 use App\Shared\Domain\ValueObjects\Uuid;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -38,15 +38,16 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
         return $this->find($id);
     }
 
+    public function searchByUsername(string $username): ?User
+    {
+        return $this->findOneBy(['username' => $username]);
+    }
+
     public function getAll(): array
     {
         return $this->findAll();
     }
 
-    public function findByUsername(string $username): ?User
-    {
-        return $this->findOneBy(['username' => $username]);
-    }
 
     public function add(User $entity, bool $flush = false): void
     {

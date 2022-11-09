@@ -1,6 +1,6 @@
 App\Saas\User\Domain\User:
     type: entity
-    repositoryClass: App\Saas\User\Domain\Repository\UserRepository
+    repositoryClass: App\Saas\User\Domain\UserRepository
     table: user
     id:
         id:
@@ -18,4 +18,21 @@ App\Saas\User\Domain\User:
             type: string
             length: 250
         enabled:
-            type: integer
+            type: boolean
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: false

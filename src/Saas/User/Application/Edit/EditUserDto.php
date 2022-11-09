@@ -8,7 +8,7 @@ class EditUserDto
         private readonly ?string $username = null,
         private readonly ?string $password = null,
         private readonly ?string $fullName = null,
-        private readonly ?int $enabled = null,
+        private readonly ?bool $enabled = null,
     ) {
     }
 
@@ -27,7 +27,7 @@ class EditUserDto
         return $this->fullName;
     }
 
-    public function getEnabled(): ?int
+    public function getEnabled(): ?bool
     {
         return $this->enabled;
     }

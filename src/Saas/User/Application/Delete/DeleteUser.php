@@ -3,17 +3,19 @@
 namespace App\Saas\User\Application\Delete;
 
 use App\Saas\User\Domain\Exception\UserNotFound;
-use App\Saas\User\Domain\Repository\UserRepository;
-use App\Saas\User\Domain\Service\FindUser;
+use App\Saas\User\Domain\Service\FindUser as DomainFindUser;
+use App\Saas\User\Domain\UserRepository;
+
+;
 
 class DeleteUser
 {
-    private FindUser $finder;
+    private DomainFindUser $finder;
 
     public function __construct(
         private readonly UserRepository $repository
     ) {
-        $this->finder = new FindUser($repository);
+        $this->finder = new DomainFindUser($repository);
     }
 
     /**

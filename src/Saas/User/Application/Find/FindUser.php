@@ -3,9 +3,9 @@
 namespace App\Saas\User\Application\Find;
 
 use App\Saas\User\Domain\Exception\UserNotFound;
-use App\Saas\User\Domain\Repository\UserRepository;
 use App\Saas\User\Domain\Service\FindUser as DomainFindUser;
 use App\Saas\User\Domain\User;
+use App\Saas\User\Domain\UserRepository;
 
 class FindUser
 {

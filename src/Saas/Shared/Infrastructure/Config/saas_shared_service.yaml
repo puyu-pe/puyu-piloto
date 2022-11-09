@@ -1,4 +1,5 @@
 services:
+    # configuracion para la respuesta JTTP
     app.jttp_handler:
         class: App\Saas\Shared\Infrastructure\Api\Handlers\JttpHandler
         arguments:
@@ -12,12 +13,15 @@ services:
         calls:
             - [ 'registerHandler', [ 'json', [ "@app.jttp_handler", 'createResponse' ] ] ]
 
+    # Servicio de validacion de Symfony
     App\Saas\Shared\Infrastructure\Validation\SymfonyValidator: ~
     App\Saas\Shared\Domain\Validation\Validator: '@App\Saas\Shared\Infrastructure\Validation\SymfonyValidator'
 
+    # Servicio de Notificaion por slack
     App\Saas\Shared\Infrastructure\Notifier\SlackNotifier: ~
     App\Saas\Shared\Domain\Notification\Notifier: '@App\Saas\Shared\Infrastructure\Notifier\SlackNotifier'
 
+    # Configuracion de Doctrine extensions para los timestamp
     gedmo.listener.timestampable:
         class: Gedmo\Timestampable\TimestampableListener
         tags:
@@ -25,12 +29,14 @@ services:
         calls:
             - [ setAnnotationReader, [ "@annotation_reader" ] ]
 
+    # Configuracion de Doctrine extensions para los softDelete
     gedmo.listener.softdeleteable:
         class: Gedmo\SoftDeleteable\SoftDeleteableListener
         tags:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
             - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
 imports:
     - { resource: Services/ }
     - { resource: Packages/ }

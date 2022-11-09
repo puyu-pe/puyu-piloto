@@ -5,19 +5,19 @@ namespace App\Saas\User\Application\Edit;
 use App\Saas\Shared\Domain\Validation\Validator;
 use App\Saas\User\Domain\Exception\UserDataException;
 use App\Saas\User\Domain\Exception\UserNotFound;
-use App\Saas\User\Domain\Repository\UserRepository;
-use App\Saas\User\Domain\Service\FindUser;
+use App\Saas\User\Domain\Service\FindUser as DomainFindUser;
 use App\Saas\User\Domain\User;
+use App\Saas\User\Domain\UserRepository;
 
 class EditUser
 {
-    private FindUser $finder;
+    private DomainFindUser $finder;
 
     public function __construct(
         private readonly UserRepository $repository,
         private readonly Validator $validator,
     ) {
-        $this->finder = new FindUser($repository);
+        $this->finder = new DomainFindUser($repository);
     }
 
     /**
@@ -43,7 +43,7 @@ class EditUser
     }
 
     /**
-     * @throws \App\Saas\User\Domain\Exception\UserDataException
+     * @throws UserDataException
      */
     public function guard(EditUserDto $dto): void
     {
