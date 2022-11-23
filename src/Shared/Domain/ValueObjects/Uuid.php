@@ -41,6 +41,11 @@ class Uuid implements Stringable, JsonSerializable
         return $this->value() === $other->value();
     }
 
+    public function toString(): string
+    {
+        return $this->__toString();
+    }
+
     public function __toString(): string
     {
         return $this->value();

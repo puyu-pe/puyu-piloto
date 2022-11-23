@@ -17,6 +17,7 @@ final class CreateUserCommandHandler implements CommandHandler
     public function __invoke(CreateUserCommand $command): User
     {
         $user = ($this->service)(
+            $command->getId(),
             $command->getUsername(),
             $command->getPassword(),
             $command->getFullName(),

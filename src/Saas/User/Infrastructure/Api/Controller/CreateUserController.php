@@ -5,6 +5,7 @@ namespace App\Saas\User\Infrastructure\Api\Controller;
 use App\Saas\User\Application\Command\Create\CreateUserCommand;
 use App\Saas\User\Application\Create\CreateUser;
 use App\Saas\User\Application\Create\CreateUserDto;
+use App\Saas\User\Domain\Exception\UserAlreadyExist;
 use App\Saas\User\Domain\Exception\UserDataException;
 use App\Saas\User\Domain\User;
 use App\Shared\Infrastructure\Ports\ApiController;
@@ -43,21 +44,18 @@ class CreateUserController extends ApiController
         Request             $request,
     ): Response {
         try {
-            $command = $serializer->deserialize($request->getContent(), CreateUserCommand::class, 'json');
-            //$user = ($useCase)($dto);
             /**
-             * @var $envelop Envelope
+             * @var $command CreateUserCommand
              */
-            $envelop = $this->dispatch($command);
-            $handledStamp = $envelop->last(HandledStamp::class);
-            $result = $handledStamp->getResult();
-            //$user = $envelop->
+            $command = $serializer->deserialize($request->getContent(), CreateUserCommand::class, 'json');
+            $this->dispatch($command);
+
             $view = View::create(
-                ['user' => $result],
+                ['id' => $command->getId()],
                 Response::HTTP_OK
             );
             $view->getContext()->setGroups(['user']);
-        } catch (UserDataException $exception) {
+        } catch (UserAlreadyExist $exception) {
             $view = View::create($exception, Response::HTTP_BAD_REQUEST);
         }
 

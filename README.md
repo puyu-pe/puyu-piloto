@@ -10,6 +10,7 @@
     - [Additional Notes](#additional-notes)
   - [Dependencies](#dependencies)
   - [Dotenv Files](#dotenv-files)
+  - [Generate SSL and User](#Generate-SSL-and-User)
 - [Standards](#standards)
   - [Analysis](#analysis)
   - [Code](#code)
@@ -114,7 +115,8 @@ composer install
 Verifique si todo salió bien, con el siguiente comando:
 ```shell
 sf --version
-Symfony 6.1.4 (env: dev, debug: true) 
+Symfony 6.1.4 (env: dev, debug: true)
+
 ```
 ### Dotenv Files
 Para poder iniciar con el proyecto es necesario crear un archivo Dotenv a partir del que trae el proyecto por defecto `/.env`, ejecute:
@@ -126,6 +128,22 @@ Configure la Base de datos agregando la siguiente linea, asegúrese que no hay o
 ```shell
 mysql://root:12345678@mysql:3306/yunex?serverVersion=8&charset=utf8mb4
 ```
+### Generate SSL and User
+#### SSL
+El proyecto trabaja con la libreria de LexikJWTAuthenticationBundle para la generacion de JWT por lo que necesita los archivos `.pem`, ejecute
+
+```shell
+sf lexik:jwt:generate-keypair 
+```
+#### User
+Para generar el usuario para interactuar por primera vez con la API ejecute el comando:
+
+```shell
+sf app:create-user --help
+sf app:create-user username password fullName 1
+```
+
+Luego podra hacer login en el API ejecutando el el request que se encuentra en:  `http/user/UserLogin.http`  
 
 ## Standards
 ### Diagrama de trabajo YUNEX

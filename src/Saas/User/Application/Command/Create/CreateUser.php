@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Saas\User\Application\Command\Create;
 
+use App\Saas\User\Domain\Exception\UserAlreadyExist;
 use App\Saas\User\Domain\Security\GeneratePassword;
 use App\Saas\User\Domain\User;
 use App\Saas\User\Domain\Service\VerifyUserNotExist;
 use App\Saas\User\Domain\UserRepository;
+use App\Shared\Domain\ValueObjects\Uuid;
 
 final class CreateUser
 {
@@ -18,11 +20,15 @@ final class CreateUser
     ) {
     }
 
-    public function __invoke(string $username, string $password, string $fullName, bool $enabled): User
+    /**
+     * @throws UserAlreadyExist
+     */
+    public function __invoke(Uuid $id, string $username, string $password, string $fullName, bool $enabled): User
     {
         $this->ensureUserExists($username);
 
         $user = User::create(
+            $id,
             $username,
             $fullName,
             $password,
@@ -37,6 +43,9 @@ final class CreateUser
         return $user;
     }
 
+    /**
+     * @throws UserAlreadyExist
+     */
     private function ensureUserExists(string $username): void
     {
         ($this->verifyUserNotExist)($username);

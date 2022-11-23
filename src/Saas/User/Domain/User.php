@@ -21,13 +21,14 @@ class User
     }
 
     public static function create(
+        Uuid $id,
         string $username,
         string $password,
         string $fullName,
         bool $enabled,
     ): self {
         return new self(
-            Uuid::v4(),
+            $id,
             $username,
             $password,
             $fullName,
